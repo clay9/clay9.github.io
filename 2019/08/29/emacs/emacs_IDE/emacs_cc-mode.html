@@ -1,0 +1,97 @@
+<div id="content">
+<p>
+&#x4EE3;&#x7801;&#x7F29;&#x653E; &amp;&amp; &#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;
+</p>
+<!-- more -->
+<div id="outline-container-org2f0f31c" class="outline-2">
+<h2 id="org2f0f31c">&#x4EC0;&#x4E48;&#x662F;</h2>
+<div class="outline-text-2" id="text-org2f0f31c">
+<p>
+cc-mode&#x662F;c-mode, c++-mode, objc-mode, java-mode&#x548C;&#x5176;&#x4ED6;&#x8BED;&#x6CD5;mode&#x7684;&#x7EDF;&#x79F0;.
+&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x4E3A;&#x4EE3;&#x7801;&#x7F29;&#x653E;&#x548C;&#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;.
+</p>
+</div>
+</div>
+<div id="outline-container-orge566ebe" class="outline-2">
+<h2 id="orge566ebe">&#x914D;&#x7F6E;</h2>
+<div class="outline-text-2" id="text-orge566ebe">
+</div>
+<div id="outline-container-orga9c5250" class="outline-3">
+<h3 id="orga9c5250">&#x914D;&#x7F6E;&#x63A5;&#x53E3;</h3>
+<div class="outline-text-3" id="text-orga9c5250">
+<pre class="example">
+   (setq  XXX)
+&#x7834;&#x574F;all-style, &#x4E0D;&#x63A8;&#x8350;
+       |
+       |
+       | 	      (c-add-style XXX) --&#x63A8;&#x8350;
+       |       	        |
+       | 	    	       	|
+       | 	    		|                               (&#x4EA4;&#x4E92;&#x5F0F;)
+       | 	    	  +-------------+      		    &#x4E34;&#x65F6;&#x6027;&#x7684;, &#x4E0D;&#x63A8;&#x8350;
+       | 	       	  | style-list  |                          |
+       | 		  |             |      			   |
+       | 		  +-------------+      			   |
+       |       	       	|   	       			   |
+       | 			|   	       			   |
+       | 	         (c-set-style XXX)     	       	       	   |
+       | 	(add hook &apos;c-code-common-hook &apos;XXXX)		   |
+       | 	       	       	|   	       			   |
+      \| /		       \| / 	       			  \| /
+       \/		        \/				   \/
+---------------------------------------------------------------------------
+
+ *****************************************************************
+ *  +----      -     -         X	       +--   	  --\	    *
+ *  |          |\   /|        / \          /      	 (	    *
+ *  +---       | \ / |       o---o        |       	  +--+	    *
+ *  |          |  X  |      /     \        \      	      )	    *
+ *  +----      |     |     /       \        +--   	   \--	    *
+ *							            *
+ *****************************************************************</pre>
+</div>
+</div>
+<div id="outline-container-orgbbd92b1" class="outline-3">
+<h3 id="orgbbd92b1">&#x5177;&#x4F53;&#x914D;&#x7F6E;</h3>
+<div class="outline-text-3" id="text-orgbbd92b1">
+<pre class="example">
+;;.h&#x5173;&#x8054;&#x5230;c++ mode
+(setq auto-mode-alist
+  (append &apos;((&quot;\\.h$&quot; . c++-)) auto-mode-alist))
+
+;;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;cc-mode&#x98CE;&#x683C;
+(defconst my-cpp-style
+  &apos;((c-basic-offset . 4)
+    (c-tab-always-inde . t)
+    (c-hanging-braces-alist . ((brace-list-open)
+                               (brace-entry-open)
+                               (statement-cont)))
+   (c-offsets-alist . ((block-open  . 0)
+                      (block-close . 0)
+		      (comment-intro . 0)
+		      (case-label . +)
+		      (substatement-open . 0))))
+  &quot;My C++ Programming Style 2017.01.12&quot;)
+(c-add-style &quot;MY_CPP_STYLE&quot; my-cpp-style)
+
+;;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;hook&#x51FD;&#x6570;,&#x5E76;&#x4E0E;&#x81EA;&#x5B9A;&#x4E49;&#x7684;cc-mode&#x98CE;&#x683C;&#x5173;&#x8054;
+(defun my-cpp-mode-common-hook()
+  (c-set-style &quot;MY_CPP_STYLE&quot;)
+  (setq tab-width 8
+    indent-tabs-mode nil))
+
+;;&#x6CE8;&#x518C;&#x5230;c-mode-common-hook&#x4E2D;
+(add-hook &apos;c-mode-common-hook &apos;my-cpp-mode-common-hook)</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5acb446" class="outline-2">
+<h2 id="org5acb446">&#x4F7F;&#x7528;</h2>
+<div class="outline-text-2" id="text-org5acb446">
+<p>
+cc-mode&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x540E;, &#x65E0;&#x9700;&#x989D;&#x5916;&#x64CD;&#x4F5C;&#x5373;&#x53EF;&#x4F7F;&#x7528;.
+&#x5982;&#x679C;&#x60F3;&#x8FDB;&#x4E00;&#x6B65;&#x6DF1;&#x5165;&#x4E86;&#x89E3;, &#x53EF;&#x4EE5;<a href="https://david.rothlis.net/emacs/customize_c.html">&#x53C2;&#x8003;&#x8FD9;&#x4E2A;&#x6587;&#x6863;</a>.
+</p>
+</div>
+</div>
+</div>

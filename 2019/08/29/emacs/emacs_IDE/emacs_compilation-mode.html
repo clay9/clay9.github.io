@@ -1,0 +1,50 @@
+<div id="content">
+<p>
+&#x7F16;&#x8BD1;&#x65E5;&#x5FD7;, &#x652F;&#x6301;&#x9519;&#x8BEF;&#x67E5;&#x770B;
+</p>
+
+<!-- more -->
+<div id="outline-container-orgc5b4855" class="outline-2">
+<h2 id="orgc5b4855">&#x529F;&#x80FD;</h2>
+<div class="outline-text-2" id="text-orgc5b4855">
+<ol class="org-ol">
+<li>&#x7F8E;&#x5316;&#x7F16;&#x8BD1;&#x8F93;&#x51FA;&#x4FE1;&#x606F;</li>
+<li>&#x9519;&#x8BEF;&#x8DF3;&#x8F6C;&#x5230;&#x6E90;&#x6587;&#x4EF6;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga298bab" class="outline-2">
+<h2 id="orga298bab">&#x5B89;&#x88C5;</h2>
+<div class="outline-text-2" id="text-orga298bab">
+<p>
+melpa&#x4E2D;&#x5B89;&#x88C5;
+</p>
+</div>
+</div>
+<div id="outline-container-org3faa60e" class="outline-2">
+<h2 id="org3faa60e">&#x914D;&#x7F6E;</h2>
+<div class="outline-text-2" id="text-org3faa60e">
+<p>
+<a href="init-compilation-mode.el">&#x5177;&#x4F53;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org7301fcd" class="outline-2">
+<h2 id="org7301fcd">&#x4F7F;&#x7528;</h2>
+<div class="outline-text-2" id="text-org7301fcd">
+<p>
+M-x compile RET &#x5F00;&#x59CB;&#x7F16;&#x8BD1;
+&#x5FEB;&#x6377;&#x952E;&#x914D;&#x7F6E;&#x5982;&#x4E0B;
+</p>
+<pre class="example">
+;;&#x4E0B;&#x4E2A;&#x9519;&#x8BEF;
+(define-key compilation-mode-map (kbd &quot;n&quot;) &apos;compilation-next-error)
+;;&#x4E0A;&#x4E2A;&#x9519;&#x8BEF;
+(define-key compilation-mode-map (kbd &quot;p&quot;) &apos;compilation-previous-error)
+;;&#x67E5;&#x770B;&#x9519;&#x8BEF;&#x6E90;&#x7801;
+(define-key compilation-mode-map (kbd &quot;TAB&quot;) &apos;compilation-display-error)
+;;&#x8DF3;&#x8F6C;&#x5230;&#x9519;&#x8BEF;&#x6E90;&#x7801;
+(define-key compilation-mode-map (kbd &quot;RET&quot;) &apos;compile-goto-error)</pre>
+</div>
+</div>
+</div>

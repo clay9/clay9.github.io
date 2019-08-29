@@ -1,0 +1,124 @@
+<div id="content">
+<p>
+&#x6A21;&#x677F;&#x5DE5;&#x5177;
+</p>
+
+<!-- more -->
+<div id="outline-container-orgc925e8e" class="outline-2">
+<h2 id="orgc925e8e">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x6A21;&#x677F;</h2>
+<div class="outline-text-2" id="text-orgc925e8e">
+<ul class="org-ul">
+<li>&#x51CF;&#x5C11;&#x91CD;&#x590D;&#x5DE5;&#x4F5C;, &#x63D0;&#x5347;&#x6548;&#x7387;</li>
+<li>&#x6807;&#x51C6;&#x5316;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfc4bf34" class="outline-2">
+<h2 id="orgfc4bf34">&#x4EC0;&#x4E48;&#x662F;yasnippet-mode</h2>
+<div class="outline-text-2" id="text-orgfc4bf34">
+<p>
+&#x4E00;&#x4E2A;&#x597D;&#x7528;&#x7684;&#x5FEB;&#x901F;&#x6A21;&#x677F;&#x5DE5;&#x5177;
+</p>
+</div>
+</div>
+<div id="outline-container-org94b1b89" class="outline-2">
+<h2 id="org94b1b89">&#x914D;&#x7F6E;</h2>
+<div class="outline-text-2" id="text-org94b1b89">
+<ol class="org-ol">
+<li><p>
+&#x4E0B;&#x8F7D;yasnippet-mode
+</p>
+<pre class="example">
+package-list-packages yasnippet-mode RET</pre></li>
+
+<li><p>
+&#x52A0;&#x8F7D;yasnippet-mode
+</p>
+<pre class="example">
+(require &apos;yasnippet)
+(yas-global-mode t)</pre></li>
+
+<li><p>
+&#x914D;&#x7F6E;&#x8DEF;&#x5F84;
+</p>
+<pre class="example">
+;; &#x91CD;&#x8F7D;&#x8DEF;&#x5F84;&#x6587;&#x4EF6;
+(setq yas-snippet-dirs
+  &apos;(&quot;~/.emacs.d/yasnippets&quot;))
+
+;; &#x52A0;&#x8F7D;&#x8DEF;&#x5F84;&#x6587;&#x4EF6;
+(yas-load-directory &quot;~/.emacs.d/yasnippets/&quot;)</pre>
+<p>
+&#x5220;&#x6389;&#x4E86;package&#x4E2D;&#x7684; yasnippet-snippet&#x5305;, &#x8FD9;&#x6837;yasnippet-mode&#x5C31;&#x4F1A;&#x53EA;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x6A21;&#x677F;
+</p></li>
+
+<li><p>
+&#x914D;&#x7F6E;&#x5FEB;&#x6377;&#x952E;
+</p>
+<pre class="example">
+(require &apos;yasnippet)
+
+;; &#x4F7F;&#x7528;hydra-mode&#x7BA1;&#x7406;yasnippet&#x5FEB;&#x6377;&#x952E;
+(defhydra hydra-yas-minor (:color blue
+			     :hint nil)
+&quot;
+_j_: &#x6269;&#x5C55;   _i_: &#x589E;&#x52A0;   _v_: &#x67E5;&#x770B;
+
+&quot;
+(&quot;j&quot; yas-expand)  ;;&lt;Tab&gt;&#x4ECD;&#x53EF;&#x4F7F;&#x7528;
+(&quot;i&quot; yas-new-snippet)
+(&quot;v&quot; yas-visit-snippet-file))
+
+;;&#x5168;&#x5C40;&#x5FEB;&#x6377;&#x952E;&#x653E;&#x5230;&#x7EDF;&#x4E00;&#x6587;&#x4EF6;&#x7BA1;&#x7406;
+;(global-set-key (kbd &quot;C-;&quot;)  &apos;hydra-yas-minor/body) ;;&#x5199;&#x5165;init-global-shortkey&#x4E2D;</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc7907c4" class="outline-2">
+<h2 id="orgc7907c4">&#x4F7F;&#x7528;</h2>
+<div class="outline-text-2" id="text-orgc7907c4">
+<p>
+&#x4EE5;&#x4F7F;&#x7528;org-mode&#x5728;hexo&#x4E0B;&#x5199;blog &#x4E3E;&#x4F8B;
+</p>
+<pre class="example">
+# &#x8BE5;&#x5904;&#x901A;&#x8FC7;yasnippet&#x547D;&#x4EE4;&#x81EA;&#x52A8;&#x751F;&#x6210;, &#x58F0;&#x660E;&#x4E86;&#x6A21;&#x677F;&#x7684;&#x540D;&#x5B57;name &#x548C; &#x6A21;&#x677F;&#x76F8;&#x5E94;&#x7684;key
+# -*- mode: snippet -*-
+# name: hexo : hexo&#x535A;&#x5BA2;
+# key: hexo
+# --
+
+# &#x6B64;&#x5904;&#x4F7F;&#x7528;&#x4E86;org-mode&#x7684;&#x5143;&#x6570;&#x636E;
+#+BEGIN_COMMENT
+| &#x540D;&#x79F0;       | &#x7B80;&#x8FF0;         | &#x53D6;&#x503C;               | &#x5907;&#x6CE8;                 |
+|------------+--------------+--------------------+----------------------|
+| TITLE      | &#x6807;&#x9898;         |                    |                      |
+|------------+--------------+--------------------+----------------------|
+| LAYOUT     | hexo&#x6392;&#x7248;&#x6A21;&#x5F0F; | post               |                      |
+|------------+--------------+--------------------+----------------------|
+| CATEGORIES | &#x5206;&#x7C7B;&#x4ED3;&#x5E93;     | IDE, gnu, protocal |                      |
+|            |              | system, tool       |                      |
+|------------+--------------+--------------------+----------------------|
+| TAGS       | &#x6807;&#x7B7E;         |                    | gnu&#x4ED3;&#x5E93;&#x7684;&#x8981;&#x6253;gun&#x6807;&#x7B7E; |
+|------------+--------------+--------------------+----------------------|
+#+END_COMMENT
+
+# &#x6B64;&#x5904;&#x4E3A;org-mode &#x4E0E; hexo&#x4EA4;&#x4E92;&#x7684;&#x5143;&#x6570;&#x636E;
+#+TITLE: ${1}
+#+LAYOUT: post
+#+CATEGORIES: ${2}
+#+TAGS: ${3}
+
+${4}
+
+#+HTML: &lt;!-- more --&gt;
+${5}
+
+# &#x6309;tab&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x4ECE;${n} &#x5230; ${n+1}</pre>
+
+<p>
+&#x5F53;&#x9700;&#x8981;&#x65B0;&#x5F00;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x65F6;&#x5019;, &#x6211;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;hexo, &#x7136;&#x540E;&#x6309;&#x4E0B;TAB&#x5373;&#x53EF; :)
+</p>
+</div>
+</div>
+</div>
