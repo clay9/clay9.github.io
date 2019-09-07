@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="emacs&amp;#x7ED8;&amp;#x56FE;mode, artist-mode &amp;amp;&amp;amp; graphviz-mode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="artist mode &amp;&amp; graphviz mode">
+<meta property="og:url" content="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/index.html">
+<meta property="og:site_name" content="飘">
+<meta property="og:description" content="emacs&amp;#x7ED8;&amp;#x56FE;mode, artist-mode &amp;amp;&amp;amp; graphviz-mode">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-07T19:49:19.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="artist mode &amp;&amp; graphviz mode">
+<meta name="twitter:description" content="emacs&amp;#x7ED8;&amp;#x56FE;mode, artist-mode &amp;amp;&amp;amp; graphviz-mode">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/">
+
+
+
+
+
+  <title>artist mode && graphviz mode | 飘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">飘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">紫陌红尘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">artist mode && graphviz mode</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
+                2019-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/emacs/" itemprop="url" rel="index">
+                    <span itemprop="name">emacs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<p>
+emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
+</p>
+
+<a id="more"></a>
+<div id="outline-container-orgc5ff82f" class="outline-2">
+<h2 id="orgc5ff82f">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;artist-mode &amp;&amp; graphviz-mode</h2>
+<div class="outline-text-2" id="text-orgc5ff82f">
+<p>
+&#x56FE;&#x5F62;&#x8868;&#x8FBE;&#x66F4;&#x76F4;&#x89C2;, &#x5F62;&#x8C61;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad472dd" class="outline-2">
+<h2 id="orgad472dd">&#x4EC0;&#x4E48;&#x662F;artist-mode &amp;&amp; graphviz-mode</h2>
+<div class="outline-text-2" id="text-orgad472dd">
+<p>
+&#x4E24;&#x8005;&#x90FD;&#x662F;emacs&#x4E0A;&#x7684;&#x7ED8;&#x56FE;mode
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">mode</th>
+<th scope="col" class="org-left">&#x7B80;&#x8FF0;</th>
+<th scope="col" class="org-left">&#x4F18;&#x70B9;</th>
+<th scope="col" class="org-left">&#x7F3A;&#x70B9;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">artist-mode</td>
+<td class="org-left">ASCII&#x7ED8;&#x56FE;</td>
+<td class="org-left">1.ASCII&#x4EE3;&#x7801;&#x8868;&#x793A;&#x56FE;&#x5F62;</td>
+<td class="org-left">1.&#x529F;&#x80FD;&#x5C11;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">2.&#x77ED;&#x5C0F;&#x7CBE;&#x608D;</td>
+<td class="org-left">2.&#x9700;&#x8981;&#x624B;&#x52A8;&#x7ED8;&#x5236;&#x56FE;&#x5F62;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">graphviz-mode</td>
+<td class="org-left">dot&#x7ED8;&#x56FE;</td>
+<td class="org-left">1.&#x53EA;&#x5173;&#x6CE8;&#x903B;&#x8F91;&#x8BBE;&#x8BA1;,&#x5E03;&#x5C40;&#x81EA;&#x52A8;&#x751F;&#x6210;</td>
+<td class="org-left">1.&#x751F;&#x6210;&#x7684;&#x4E3A;&#x56FE;&#x7247;&#x6587;&#x4EF6;, &#x800C;&#x975E;&#x53EF;&#x5D4C;&#x5165;&#x7684;ASCII&#x4EE3;&#x7801;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">2.&#x9700;&#x8981;&#x5B66;&#x4E60;dot&#x8BED;&#x8A00;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org2df2fd9" class="outline-2">
+<h2 id="org2df2fd9">artist-mode</h2>
+<div class="outline-text-2" id="text-org2df2fd9">
+</div>
+<div id="outline-container-org5d040ec" class="outline-3">
+<h3 id="org5d040ec">&#x914D;&#x7F6E;</h3>
+<div class="outline-text-3" id="text-org5d040ec">
+<p>
+emacs&#x81EA;&#x5E26;, &#x65E0;&#x9700;&#x989D;&#x5916;&#x914D;&#x7F6E;
+</p>
+</div>
+</div>
+<div id="outline-container-orgecd3ef0" class="outline-3">
+<h3 id="orgecd3ef0">&#x4F7F;&#x7528;</h3>
+<div class="outline-text-3" id="text-orgecd3ef0">
+<ol class="org-ol">
+<li>&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;: &quot;C-h f artist-mode&quot;&#x53EF;&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x6587;&#x6863;</li>
+<li><p>
+&#x9ED8;&#x8BA4; &#x5E38;&#x7528;&#x65B9;&#x6CD5;: 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x56FE;&#x5F62;</th>
+<th scope="col" class="org-left">&#x7B80;&#x8FF0;</th>
+<th scope="col" class="org-left">&#x547D;&#x4EE4;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">line</td>
+<td class="org-left">&#x7EBF;&#x6BB5;</td>
+<td class="org-left">C-c C-a l</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">proy line</td>
+<td class="org-left">&#x76F4;&#x7EBF;</td>
+<td class="org-left">C-c C-a p</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x56DB;&#x8FB9;&#x5F62;</td>
+<td class="org-left">rectngle</td>
+<td class="org-left">C-c C-a r</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x6B63;&#x65B9;&#x5F62;</td>
+<td class="org-left">squares</td>
+<td class="org-left">C-c C-a s</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x692D;&#x5706;</td>
+<td class="org-left">elipse</td>
+<td class="org-left">C-c C-a e</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x5706;</td>
+<td class="org-left">circle</td>
+<td class="org-left">C-c C-a c</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x6C34;&#x96FE;</td>
+<td class="org-left">spray</td>
+<td class="org-left">C-c C-a S</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x5F00;&#x59CB;&#x7ED8;&#x56FE;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">C-@</td>
+<td class="org-left">&#x81EA;&#x5B9A;&#x4E49;&#x6309;&#x952E;</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+&#x6539;&#x952E;(Hydra-mode)&#x540E;&#x5FEB;&#x6377;&#x952E; C-@
+</p>
+<pre class="example">
+&#x5F3A;&#x63A8;Hydra-mode&#x7528;&#x6765;&#x6539;&#x5EFA;
+</pre>
+
+<pre class="example">
+(require &apos;artist)
+(defhydra hydra-artist-mode (:color blue
+:hint nil)
+&quot;
+_o_: &#x8D77;&#x70B9;,&#x7EC8;&#x70B9;
+_l_: &#x7EBF;      _p_: &#x76F4;&#x7EBF;
+_r_: &#x56DB;&#x8FB9;&#x5F62;  _s_: &#x6B63;&#x65B9;&#x5F62;
+_e_: &#x692D;&#x5706;    _c_: &#x5706;
+_y_: &#x6C34;&#x96FE;
+&quot;
+(&quot;o&quot; artist-key-set-point)
+
+(&quot;l&quot; artist-select-op-line)
+(&quot;p&quot; artist-select-op-poly-line)
+
+(&quot;r&quot; artist-select-op-rectangle)
+(&quot;s&quot; artist-select-op-square)
+
+(&quot;e&quot; artist-select-op-ellipse)
+(&quot;c&quot; artist-select-op-circle)
+
+(&quot;y&quot; artist-select-op-spray-can))
+(global-set-key (kbd &quot;C-@&quot;)  &apos;hydra-artist-mode/body)</pre></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8b29fef" class="outline-2">
+<h2 id="org8b29fef">graphviz-mode</h2>
+<div class="outline-text-2" id="text-org8b29fef">
+</div>
+<div id="outline-container-org8671dea" class="outline-3">
+<h3 id="org8671dea">&#x914D;&#x7F6E;</h3>
+<div class="outline-text-3" id="text-org8671dea">
+<ol class="org-ol">
+<li><p>
+Emacs&#x5B89;&#x88C5;graphviz-dot-mode 
+</p>
+<pre class="example">
+package-list-packages
+</pre></li>
+<li><p>
+&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;graphviz
+</p>
+<pre class="example">
+mac&#x4E0B;&#x5B89;&#x88C5; brew install graphviz
+</pre></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org42b329f" class="outline-3">
+<h3 id="org42b329f">&#x4F7F;&#x7528;</h3>
+<div class="outline-text-3" id="text-org42b329f">
+<ol class="org-ol">
+<li>&#x521B;&#x5EFA;.dot (&#x6216;&#x8005;org)&#x6587;&#x4EF6;</li>
+<li>&#x8F93;&#x5165;&quot;The DOT Language&quot;&#x4EE3;&#x7801;</li>
+<li>&#x8F93;&#x5165;&#x547D;&#x4EE4;: graphviz-dot-preview&#x5373;&#x53EF;&#x67E5;&#x770B;&#x5230;&#x56FE;&#x7247;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgc697e3d" class="outline-3">
+<h3 id="orgc697e3d">The DOT Language</h3>
+<div class="outline-text-3" id="text-orgc697e3d">
+<p>
+<a href="http://users.skynet.be/ppareit/projects/graphviz-dot-mode/graphviz-dot-mode.html" target="_blank" rel="noopener">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>
+<a href="https://blog.csdn.net/sd10086/article/details/52979462" target="_blank" rel="noopener">&#x8BED;&#x6CD5;&#x53C2;&#x8003;&#x6587;&#x6863;</a>
+</p>
+
+<p>
+DOT&#x4E2D;&#x4F7F;&#x7528;&#x56FE;(digraph/graph), &#x8282;&#x70B9;(node)&#x548C;&#x8FB9;(edge)&#x6765;&#x63CF;&#x8FF0;&#x5173;&#x7CFB;&#x548C;&#x6D41;&#x7A0B;&#x56FE;.
+</p>
+</div>
+<div id="outline-container-orgd9da257" class="outline-4">
+<h4 id="orgd9da257">&#x56FE;</h4>
+<div class="outline-text-4" id="text-orgd9da257">
+<ul class="org-ul">
+<li>&#x6709;&#x5411;&#x56FE; digraph</li>
+<li>&#x65E0;&#x5411;&#x56FE; graph</li>
+<li><p>
+&#x5B50;&#x56FE; subgraph
+</p>
+<pre class="example">
+&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x548C;&#x201C;&#x7236;&#x56FE;&#x201D;&#x7C7B;&#x4F3C;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x552F;&#x4E00;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5B50;&#x56FE;&#x5FC5;&#x987B;&#x4EE5;cluster&#x505A;&#x4E3A;&#x540D;&#x79F0;&#x7684;&#x524D;&#x7F00;
+</pre></li>
+</ul>
+
+<p>
+&#x5728;&#x56FE;&#x7684;&#x5F00;&#x5934;&#x4F7F;&#x7528;graph []&#x5BF9;&#x56FE;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5982;&#xFF1A;graph [bgcolor=&quot;gray&quot;]&#x5C06;&#x56FE;&#x80CC;&#x666F;&#x8272;&#x8BBE;&#x7F6E;&#x4E3A;&#x7070;&#x8272;&#x3002;
+&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x8BED;&#x53E5;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5305;&#x542B;&#x5728;graph []&#x4E2D;&#x800C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x5C5E;&#x6027;&#x540D;&#x79F0;</th>
+<th scope="col" class="org-left">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th scope="col" class="org-left">&#x542B;&#x4E49;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x989C;&#x8272;</td>
+<td class="org-left">&#x652F;&#x6301;&#x5982;red&#x548C;#FF00000&#x4E24;&#x79CD;&#x5F62;&#x5F0F;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontcolor</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x6587;&#x672C;&#x989C;&#x8272;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontsiez</td>
+<td class="org-left">14</td>
+<td class="org-left">&#x5B57;&#x4F53;&#x5927;&#x5C0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">label</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x663E;&#x793A;&#x7684;&#x6807;&#x7B7E;</td>
+<td class="org-left">&#x5BF9;&#x4E8E;&#x8282;&#x70B9;, &#x9ED8;&#x8BA4;&#x4E3A;&#x8282;&#x70B9;&#x540D;&#x79F0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">style</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x6837;&#x5F0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">bgcolor</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x80CC;&#x666F;&#x989C;&#x8272;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">nodesep</td>
+<td class="org-left">.25</td>
+<td class="org-left">&#x8282;&#x70B9;&#x95F4;&#x9694;(&#x82F1;&#x5BF8;)</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">rank</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8282;&#x70B9;&#x987A;&#x5E8F;</td>
+<td class="org-left">same, min, source, max, sink</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">rankdir</td>
+<td class="org-left">TB</td>
+<td class="org-left">&#x6392;&#x5E8F;&#x65B9;&#x5411;</td>
+<td class="org-left">TB(top-&gt;bottom)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">size</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x56FE;&#x7684;&#x5927;&#x5C0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">labelloc</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8C03;&#x6574;&#x56FE;&#x6216;&#x5B50;&#x56FE;&#x7684; &#x6807;&#x7B7E;&#x7684;&#x4E0A;&#x4E0B;&#x4F4D;&#x7F6E;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">labeljust</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8C03;&#x6574;&#x56FE;&#x6216;&#x5B50;&#x56FE;&#x7684; &#x6807;&#x7B7E;&#x7684;&#x5DE6;&#x53F3;&#x4F4D;&#x7F6E;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org30c0842" class="outline-4">
+<h4 id="org30c0842">&#x8282;&#x70B9;</h4>
+<div class="outline-text-4" id="text-org30c0842">
+<p>
+DOT&#x4E2D;&#xFF0C;&#x8282;&#x70B9;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x58F0;&#x660E;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x9700;&#x58F0;&#x660E;&#x8282;&#x70B9;&#x5E76;&#x5728;&#x58F0;&#x660E;&#x5904;&#x8BBE;
+&#x7F6E;&#x5C5E;&#x6027;&#x7136;&#x540E;&#x518D;&#x4F7F;&#x7528;&#x3002;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x9996;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x540D;&#x79F0;&#x505A;&#x4E3A;&#x8BE5;&#x8282;&#x70B9;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;
+</p>
+
+<p>
+node []&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#xFF08;&#x5BF9;&#x8BBE;&#x7F6E;&#x4F4D;&#x7F6E;&#x4E4B;&#x540E;&#x7684;&#x70B9;&#x6709;&#x6548;&#xFF09;&#xFF0C;&#x5728;&#x8282;&#x70B9;&#x540E;&#x9762;&#x7528;[]&#x8BBE;&#x7F6E;&#x5355;&#x72EC;&#x4E00;&#x4E2A;&#x70B9;&#x7684;&#x5C5E;&#x6027;&#x3002;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x5C5E;&#x6027;&#x540D;&#x79F0;</th>
+<th scope="col" class="org-left">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th scope="col" class="org-left">&#x542B;&#x4E49;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x989C;&#x8272;</td>
+<td class="org-left">&#x652F;&#x6301;&#x5982;red&#x548C;#FF00000&#x4E24;&#x79CD;&#x5F62;&#x5F0F;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontcolor</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x6587;&#x672C;&#x989C;&#x8272;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontsiez</td>
+<td class="org-left">14</td>
+<td class="org-left">&#x5B57;&#x4F53;&#x5927;&#x5C0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">label</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x663E;&#x793A;&#x7684;&#x6807;&#x7B7E;</td>
+<td class="org-left">&#x5BF9;&#x4E8E;&#x8282;&#x70B9;, &#x9ED8;&#x8BA4;&#x4E3A;&#x8282;&#x70B9;&#x540D;&#x79F0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">style</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x6837;&#x5F0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">shape</td>
+<td class="org-left">ellipse</td>
+<td class="org-left">&#x8282;&#x70B9;&#x5F62;&#x72B6;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fillcolor</td>
+<td class="org-left">lightgrey/black</td>
+<td class="org-left">&#x8282;&#x70B9;&#x586B;&#x5145;&#x989C;&#x8272;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fixedsize</td>
+<td class="org-left">false</td>
+<td class="org-left">&#x6807;&#x7B7E;&#x662F;&#x5426;&#x5F71;&#x54CD;&#x8282;&#x70B9;&#x5927;&#x5C0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgb7bde4a" class="outline-4">
+<h4 id="orgb7bde4a">&#x8FB9;</h4>
+<div class="outline-text-4" id="text-orgb7bde4a">
+<p>
+DOT&#x4E2D;&#x6709;&#x6709;&#x5411;&#x8FB9;&#xFF08;&#x4F7F;&#x7528;-&gt;&#x8868;&#x793A;&#xFF09;&#x548C;&#x65E0;&#x5411;&#x8FB9;&#xFF08;&#x4F7F;&#x7528;&#x2013;&#x8868;&#x793A;&#xFF09;&#x4E24;&#x79CD;&#xFF0C;&#x6709;&#x5411;&#x8FB9;&#x7528;&#x4E8E;&#x6709;&#x5411;&#x56FE;&#xFF0C;&#x65E0;&#x5411;&#x8FB9;&#x7528;&#x4E8E;&#x65E0;&#x5411;&#x56FE;&#xFF0C;&#x4E0D;&#x53EF;&#x6DF7;&#x7528;&#x3002;
+</p>
+
+<p>
+&#x548C;&#x8282;&#x70B9;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x7528;edge []&#x8BBE;&#x7F6E;&#x8FB9;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x8FB9;&#x4E4B;&#x540E;&#x7528;[]&#x8BBE;&#x7F6E;&#x5355;&#x72EC;&#x4E00;&#x6761;&#x8FB9;&#x7684;&#x5C5E;&#x6027;&#x3002;
+&#x5BF9;&#x4E8E;&#x6709;&#x5411;&#x8FB9;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FB9;&#x7684;&#x8D77;&#x70B9;/&#x7EC8;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x7528;n&#x3001;e&#x3001;s&#x3001;w&#x6216;&#x5B83;&#x4EEC;&#x7684;&#x7EC4;&#x5408;&#x8868;&#x793A;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x5C5E;&#x6027;&#x540D;&#x79F0;</th>
+<th scope="col" class="org-left">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th scope="col" class="org-left">&#x542B;&#x4E49;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x989C;&#x8272;</td>
+<td class="org-left">&#x652F;&#x6301;&#x5982;red&#x548C;#FF00000&#x4E24;&#x79CD;&#x5F62;&#x5F0F;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontcolor</td>
+<td class="org-left">black</td>
+<td class="org-left">&#x6587;&#x672C;&#x989C;&#x8272;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">fontsiez</td>
+<td class="org-left">14</td>
+<td class="org-left">&#x5B57;&#x4F53;&#x5927;&#x5C0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">label</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x663E;&#x793A;&#x7684;&#x6807;&#x7B7E;</td>
+<td class="org-left">&#x5BF9;&#x4E8E;&#x8282;&#x70B9;, &#x9ED8;&#x8BA4;&#x4E3A;&#x8282;&#x70B9;&#x540D;&#x79F0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">style</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x6837;&#x5F0F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">arrowhead</td>
+<td class="org-left">normal</td>
+<td class="org-left">&#x7BAD;&#x5934;&#x5934;&#x90E8;&#x5F62;&#x72B6;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">arrowtail</td>
+<td class="org-left">normal</td>
+<td class="org-left">&#x7BAD;&#x5934;&#x5C3E;&#x90E8;&#x5F62;&#x72B6;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">constraint</td>
+<td class="org-left">ture</td>
+<td class="org-left">&#x662F;&#x5426;&#x6839;&#x636E;&#x8FB9;&#x6765;&#x5F71;&#x54CD;&#x8282;&#x70B9;&#x7684;&#x6392;&#x5E8F;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">decorate</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8BBE;&#x7F6E;&#x4E4B;&#x540E;&#x4F1A;&#x7528;&#x4E00;&#x6761;&#x7EBF;&#x6765;&#x8FDE;&#x63A5;edge&#x548C;label</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">dir</td>
+<td class="org-left">forward</td>
+<td class="org-left">&#x8FB9;&#x7684;&#x8BBE;&#x7F6E;&#x65B9;&#x5411;</td>
+<td class="org-left">forward,bcak,both,none</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">headlabel</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8FB9;&#x7684;&#x5934;&#x90E8;&#x663E;&#x793A;&#x7684;&#x6807;&#x7B7E;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">taillabel</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x8FB9;&#x7684;&#x5C3E;&#x90E8;&#x663E;&#x793A;&#x7684;&#x6807;&#x7B7E;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/08/emacs/emacs_com/emacs_helm_mode/" rel="next" title="helm mode">
+                <i class="fa fa-chevron-left"></i> helm mode
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/08/protocal/socket/" rel="prev" title="常见网络编程">
+                常见网络编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WCQ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc5ff82f"><span class="nav-number">1.</span> <span class="nav-text">为什么需要artist-mode &amp;&amp; graphviz-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgad472dd"><span class="nav-number">2.</span> <span class="nav-text">什么是artist-mode &amp;&amp; graphviz-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2df2fd9"><span class="nav-number">3.</span> <span class="nav-text">artist-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org5d040ec"><span class="nav-number">3.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgecd3ef0"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org8b29fef"><span class="nav-number">4.</span> <span class="nav-text">graphviz-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8671dea"><span class="nav-number">4.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org42b329f"><span class="nav-number">4.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgc697e3d"><span class="nav-number">4.3.</span> <span class="nav-text">The DOT Language</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd9da257"><span class="nav-number">4.3.1.</span> <span class="nav-text">图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org30c0842"><span class="nav-number">4.3.2.</span> <span class="nav-text">节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgb7bde4a"><span class="nav-number">4.3.3.</span> <span class="nav-text">边</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WCQ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
