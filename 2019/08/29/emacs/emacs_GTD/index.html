@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="org mode,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="GTD&amp;#x601D;&amp;#x60F3; &amp;amp;&amp;amp; org-mode&amp;#x5B9E;&amp;#x73B0;GTD">
+<meta name="keywords" content="org mode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GTD &amp;&amp; org-mode">
+<meta property="og:url" content="https://clay9.github.io/2019/08/29/emacs/emacs_GTD/index.html">
+<meta property="og:site_name" content="飘">
+<meta property="og:description" content="GTD&amp;#x601D;&amp;#x60F3; &amp;amp;&amp;amp; org-mode&amp;#x5B9E;&amp;#x73B0;GTD">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-06T12:29:35.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GTD &amp;&amp; org-mode">
+<meta name="twitter:description" content="GTD&amp;#x601D;&amp;#x60F3; &amp;amp;&amp;amp; org-mode&amp;#x5B9E;&amp;#x73B0;GTD">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://clay9.github.io/2019/08/29/emacs/emacs_GTD/">
+
+
+
+
+
+  <title>GTD && org-mode | 飘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">飘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">紫陌红尘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/08/29/emacs/emacs_GTD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GTD && org-mode</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T11:36:00+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/emacs/" itemprop="url" rel="index">
+                    <span itemprop="name">emacs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<p>
+GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
+</p>
+<a id="more"></a>
+<div id="outline-container-orge585cbe" class="outline-2">
+<h2 id="orge585cbe">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;GTD</h2>
+<div class="outline-text-2" id="text-orge585cbe">
+<p>
+  &#x6BCF;&#x5929;&#x6216;&#x6BCF;&#x5468;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x60C5;&#x975E;&#x5E38;&#x4E4B;&#x591A;, &#x5C0F;&#x5230;&#x665A;&#x4E0A;&#x8981;&#x6D17;&#x8863;&#x670D;, &#x5927;&#x5230;&#x660E;&#x5929;&#x9879;&#x76EE;&#x4EA4;&#x4ED8;. &#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;&#x5982;&#x679C;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x8111;&#x4E2D;, &#x8F7B;&#x5219;
+&#x7126;&#x8651;&#x4E0D;&#x582A;, &#x91CD;&#x5219;&#x8111;&#x5B50;&#x7206;&#x70B8;. &#x800C;&#x4E14;&#x8111;&#x4E2D;&#x4E00;&#x65E6;&#x585E;&#x6EE1;&#x4E86;&#x8FD9;&#x7C7B;&#x4E8B;&#x60C5;, &#x975E;&#x5E38;&#x4E0D;&#x5229;&#x4E8E;&#x601D;&#x8003;. &#x5927;&#x8111;&#x5E94;&#x8BE5;&#x662F;&#x62FF;&#x6765;&#x601D;&#x8003;&#x7684;, &#x800C;&#x4E0D;&#x662F;&#x7528;&#x6765;&#x5B58;
+&#x50A8;&#x7684;. &#x5047;&#x8BBE;&#x4E00;&#x79CD;&#x60C5;&#x5F62;, &#x5927;&#x8111;&#x53EA;&#x7528;&#x6765;&#x601D;&#x8003;, &#x800C;&#x5B58;&#x50A8;&#x5219;&#x653E;&#x5728;&#x5927;&#x8111;&#x4E4B;&#x5916;, &#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x5FC5;&#x56E0;&#x5F53;&#x4E0B;&#x4E4B;&#x5916;&#x7684;&#x4E8B;&#x60C5;&#x800C;&#x7126;&#x8651;, &#x80FD;&#x591F;&#x66F4;
+&#x4E13;&#x4E00;&#x7684;&#x5904;&#x7406;&#x5F53;&#x4E0B;&#x7684;&#x95EE;&#x9898;. &#x540C;&#x65F6;, &#x5982;&#x679C;&#x5916;&#x5728;&#x5B58;&#x50A8;&#x80FD;&#x591F;&#x63D0;&#x9192;&#x6211;&#x4EEC;&#x4F55;&#x65F6;&#x8BE5;&#x601D;&#x8003;&#x4F55;&#x95EE;&#x9898;, &#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x4E5F;&#x4E0D;&#x4F1A;&#x56E0;&#x9519;&#x8FC7;&#x4E86;&#x67D0;&#x4E8B;&#x800C;&#x6094;&#x6068;
+,&#x6BD4;&#x5982;&#x5973;&#x53CB;&#x751F;&#x65E5;. &#x800C;&#x8FD9;&#x4E5F;&#x662F;GTD&#x7684;&#x76EE;&#x7684;&#x6240;&#x5728;, &#x5927;&#x8111;&#x53EA;&#x7528;&#x6765;&#x601D;&#x8003;, &#x5B58;&#x50A8;&#x5728;&#x8111;&#x5916;.
+</p>
+</div>
+</div>
+<div id="outline-container-org4a4a362" class="outline-2">
+<h2 id="org4a4a362">GTD&#x662F;&#x4EC0;&#x4E48;</h2>
+<div class="outline-text-2" id="text-org4a4a362">
+</div>
+<div id="outline-container-orgdd9e4ad" class="outline-3">
+<h3 id="orgdd9e4ad">&#x4EBA;&#x751F;5&#x697C;</h3>
+<div class="outline-text-3" id="text-orgdd9e4ad">
+<p>
+&#x4E86;&#x89E3;GTD&#x4E4B;&#x524D;, &#x5FC5;&#x987B;&#x4E86;&#x89E3;&#x4EBA;&#x751F;5&#x697C;.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x697C;&#x6570;</th>
+<th scope="col" class="org-left">&#x529F;&#x80FD;</th>
+<th scope="col" class="org-left">&#x8BF4;&#x660E;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">5&#x697C;</td>
+<td class="org-left">&#x4EBA;&#x751F;&#x89C4;&#x5212;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">4&#x697C;</td>
+<td class="org-left">3&#x5E74;&#x76EE;&#x6807;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">3&#x697C;</td>
+<td class="org-left">1&#x5E74;&#x76EE;&#x6807;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">2&#x697C;</td>
+<td class="org-left">&#x804C;&#x8D23;&#x8303;&#x56F4;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">1&#x697C;</td>
+<td class="org-left">&#x9879;&#x76EE;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">GTD&#x7BA1;&#x7406;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x5730;&#x9762;</td>
+<td class="org-left">&#x884C;&#x52A8;&#x6E05;&#x5355;</td>
+<td class="org-left">&#x5F52;&#x5C5E;1&#x697C;</td>
+<td class="org-left">GTD&#x7BA1;&#x7406;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+   &#x628A;&#x4EBA;&#x751F;(&#x6216;&#x90E8;&#x5206;&#x4EBA;&#x751F;)&#x6BD4;&#x55BB;&#x6210;&#x4E00;&#x5EA7;&#x5927;&#x53A6;, 1&#x697C;&#x662F;&#x6211;&#x4EEC;&#x5F53;&#x4E0B;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;, 2&#x697C;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x804C;&#x8D23;&#x8303;&#x56F4;, 3&#x697C;&#x662F;&#x6211;&#x4EEC;1&#x5E74;&#x540E;&#x7684;&#x6837;
+&#x5B50;, 4&#x697C;&#x662F;&#x6211;&#x4EEC;3&#x5E74;&#x540E;&#x7684;&#x6837;&#x5B50;, 5&#x697C;&#x662F;&#x6211;&#x4EEC;&#x4EBA;&#x751F;(10&#x5E74;, 20&#x5E74;&#x6216;&#x4E00;&#x8F88;&#x5B50;)&#x7684;&#x89C4;&#x5212;.
+</p>
+
+<p>
+   <span class="underline">&#x6211;&#x4EEC;&#x7684;&#x4EBA;&#x751F;&#x662F;&#x9AD8;&#x5C42;&#x51B3;&#x5B9A;&#x4E86;&#x4F4E;&#x5C42;</span>. &#x6BD4;&#x5982;, &#x5982;&#x679C;&#x60F3;&#x6210;&#x4E3A;&#x8BA1;&#x7B97;&#x673A;&#x4E13;&#x5BB6;(5&#x697C;), &#x90A3;&#x4E48;3&#x5E74;&#x540E;&#x8981;&#x5148;&#x6210;&#x4E3A;&#x5DE5;&#x7A0B;&#x5E08;(4&#x697C;), 1&#x5E74;&#x540E;
+&#x8981;&#x5148;&#x6210;&#x4E3A;&#x7A0B;&#x5E8F;&#x5458;(3&#x697C;). &#x4E3A;&#x4E86;&#x8981;&#x6210;&#x4E3A;&#x7A0B;&#x5E8F;&#x5458;, &#x4E5F;&#x8BB8;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53BB;&#x62A5;&#x73ED;&#x5B66;&#x4E60;(2&#x697C;&#x804C;&#x8D23;&#x4E3A;&#x5B66;&#x4E60;),&#x6216;&#x8005;&#x6210;&#x4E3A;&#x7A0B;&#x5E8F;&#x5458;&#x52A9;&#x7406;(2&#x697C;&#x804C;
+&#x8D23;&#x4E3A;&#x642C;&#x7816;). &#x800C;1&#x697C;&#x5219;&#x662F;&#x6211;&#x4EEC;&#x5F53;&#x4E0B;&#x8981;&#x786E;&#x786E;&#x5B9E;&#x5B9E;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x60C5;, &#x6BD4;&#x5982;&#x770B;&#x4E66;, &#x5DE5;&#x4F5C;, &#x4E0E;&#x540C;&#x4E8B;&#x4EA4;&#x6D41;&#x7B49;, &#x6240;&#x6709;&#x4E00;&#x5207;&#x80FD;&#x5BF9;&#x6211;&#x4EEC;&#x6709;
+&#x63D0;&#x5347;&#x7684;&#x4E8B;&#x60C5;.
+</p>
+
+<p>
+<span class="underline">&#x5927;&#x53A6;&#x662F;&#x7531;&#x4F4E;&#x5230;&#x9AD8;&#x5EFA;&#x9020;&#x7684;</span>. &#x5343;&#x91CC;&#x4E4B;&#x884C;, &#x59CB;&#x4E8E;&#x8DB3;&#x4E0B;. 1&#x697C;&#x7684;&#x884C;&#x4E3A;&#x76F4;&#x63A5;&#x51B3;&#x5B9A;&#x4E86;&#x80FD;&#x5426;&#x8FBE;&#x5230;&#x540E;&#x9762;&#x7684;&#x697C;&#x5C42;.
+</p>
+
+<p>
+&#x5927;&#x53A6;&#x6700;&#x96BE;&#x7684;&#x5730;&#x65B9;&#x4E0D;&#x5728;&#x4E8E;&#x5B9E;&#x73B0;5&#x697C;&#x7684;&#x89C4;&#x5212;, &#x800C;&#x5728;&#x4E8E;&#x5236;&#x5B9A;5&#x697C;&#x7684;&#x89C4;&#x5212;. &#x4E0D;&#x8FC7;&#x8FD9;&#x4E5F;&#x6B63;&#x662F;&#x4EBA;&#x751F;&#x7684;&#x9B45;&#x529B;&#x6240;&#x5728;&#x5427;.
+</p>
+</div>
+</div>
+<div id="outline-container-orge698da7" class="outline-3">
+<h3 id="orge698da7">GTD&#x662F;&#x4EC0;&#x4E48;</h3>
+<div class="outline-text-3" id="text-orge698da7">
+<p>
+GTD&#x5168;&#x540D;Getting things done, &#x5B83;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x601D;&#x60F3;, &#x6240;&#x80FD;&#x7BA1;&#x7406;&#x7684;&#x662F;&#x5927;&#x53A6;&#x7684;1&#x697C;.
+&#x5B83;&#x7684;&#x6838;&#x5FC3;&#x76EE;&#x7684;: &#x4E8B;&#x7269;&#x5B58;&#x50A8;&#x5728;&#x8111;&#x5916;, &#x5927;&#x8111;&#x7528;&#x6765;&#x601D;&#x8003;.
+</p>
+
+<p>
+GTD&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;(&#x7B97;&#x6CD5;)&#x751A;&#x81F3;&#x6587;&#x4EF6;(&#x7ED3;&#x6784;)&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7684;. &#x9002;&#x5408;&#x7684;&#x624D;&#x662F;&#x6700;&#x597D;&#x7684;.
+</p>
+
+<p>
+&#x5410;&#x69FD;: &#x4E2D;&#x6587;&#x8BD1;&#x672C;&#x300A;Getting things done&#x300B;&#x6EE1;&#x7BC7;&#x5E9F;&#x8BDD;.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org53acfc2" class="outline-2">
+<h2 id="org53acfc2">GTD&#x600E;&#x4E48;&#x5B9E;&#x73B0;</h2>
+<div class="outline-text-2" id="text-org53acfc2">
+<p>
+GTD&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x975E;&#x5E38;&#x4E4B;&#x591A;, &#x6709;&#x5F88;&#x591A;&#x8F6F;&#x4EF6;&#x5DE5;&#x5177;. &#x6700;&#x559C;&#x6B22;&#x7684;&#x8FD8;&#x662F;org-mode(emacs &#x63D2;&#x4EF6;).
+</p>
+</div>
+</div>
+<div id="outline-container-org713fc17" class="outline-2">
+<h2 id="org713fc17">org mode&#x600E;&#x4E48;&#x5B9E;&#x73B0;GTD</h2>
+<div class="outline-text-2" id="text-org713fc17">
+</div>
+<div id="outline-container-org1da07c2" class="outline-3">
+<h3 id="org1da07c2">&#x601D;&#x8DEF;&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-org1da07c2">
+<p>
+5&#x697C; &#x5230; &#x5730;&#x9762;&#x89C6;&#x89D2;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x697C;&#x6570;</th>
+<th scope="col" class="org-left">&#x529F;&#x80FD;</th>
+<th scope="col" class="org-left">&#x8BF4;&#x660E;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">5&#x697C;</td>
+<td class="org-left">&#x4EBA;&#x751F;&#x89C4;&#x5212;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">4&#x697C;</td>
+<td class="org-left">3&#x5E74;&#x76EE;&#x6807;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">3&#x697C;</td>
+<td class="org-left">1&#x5E74;&#x76EE;&#x6807;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">2&#x697C;</td>
+<td class="org-left">&#x804C;&#x8D23;&#x8303;&#x56F4;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">1&#x697C;</td>
+<td class="org-left">&#x9879;&#x76EE;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">GTD&#x7BA1;&#x7406;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x5730;&#x9762;</td>
+<td class="org-left">&#x884C;&#x52A8;&#x6E05;&#x5355;</td>
+<td class="org-left">&#x96B6;&#x5C5E;1&#x697C;</td>
+<td class="org-left">GTD&#x7BA1;&#x7406;</td>
+</tr>
+</tbody>
+</table>
+<p>
+&#x5907;&#x6CE8; : GTD&#x7BA1;&#x7406;&#x7684;&#x5176;&#x5B9E;&#x662F; 1&#x697C; &amp;&amp; &#x5730;&#x9762;&#x7684;&#x6E05;&#x5355;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org693534d" class="outline-3">
+<h3 id="org693534d">&#x6D41;&#x7A0B;&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-org693534d">
+<pre class="example">
+--------------------------------+-------------------------------
+			        |
+		                |
+	                        +-----------------------\ capture
+                                |			    \
+                                |
+                                |
+ 			   +----------+
+			   |  inbox   |
+ 			   +----------+
+	       	       	     /      \
+			    /        \  -----------------\ refile
+			   /	         \     	       	     \
+			  /	          \
+			 /  	     	   \
+		    +---------+     	+-----------+
+		    |  task   | ---&gt;	|  trash    |
+		    +---------+     	+-----------+
+		       |
+		       |
+		       |
+		       | ---------------------------------\ archive
+		       |  				      \
+		       |
+		       |
+       	       	 +---------+
+       	       	 | archive |
+		 +---------+</pre>
+</div>
+</div>
+<div id="outline-container-org00fa2d1" class="outline-3">
+<h3 id="org00fa2d1">&#x6587;&#x4EF6;&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-org00fa2d1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x6587;&#x4EF6;&#x540D;</th>
+<th scope="col" class="org-left">&#x8BF4;&#x660E;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">inbox.org</td>
+<td class="org-left">&#x6536;&#x96C6;&#x7BB1;</td>
+<td class="org-left">1. &#x4E0D;&#x533A;&#x5206;&#x65F6;&#x95F4;, &#x4E0D;&#x533A;&#x5206;&#x573A;&#x666F;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">2. &#x7075;&#x5149;&#x4E00;&#x95EA;&#x5373;&#x53EF;&#x6254;&#x8FDB;&#x53BB;&#x4FDD;&#x5B58;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">3. &#x81EA;&#x52A8;&#x6E05;&#x7A7A;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">task.org</td>
+<td class="org-left">&#x4EFB;&#x52A1;&#x6E05;&#x5355;</td>
+<td class="org-left">1. priority&#x6807;&#x7B7E;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">task</td>
+<td class="org-left">2. &#x56DB;&#x8C61;&#x9650;&#x7EA6;&#x675F;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x9879;&#x76EE;&#x6E05;&#x5355;</td>
+<td class="org-left">1. &#x51E1;&#x662F;steps&gt;1&#x7684;&#x90FD;&#x5C5E;&#x4E8E;&#x9879;&#x76EE;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">project</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">archive.org</td>
+<td class="org-left">&#x53C2;&#x8003;&#x8D44;&#x6599;</td>
+<td class="org-left">1. &#x6709;&#x53C2;&#x8003;&#x4EF7;&#x503C;&#x7684;&#x4E1C;&#x897F;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">2. &#x5783;&#x573E;&#x7BB1;</td>
+</tr>
+</tbody>
+</table>
+<p>
+&#x5907;&#x6CE8;:
+</p>
+<ol class="org-ol">
+<li>task &#x4E0E; project&#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;
+task&#x53EA;&#x6709;one step,  project&#x7684;steps &gt; 1</li>
+<li>&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x6D41;&#x7A0B;&#x6765;&#x64CD;&#x4F5C;&#x7684;, &#x4E0D;&#x5E94;&#x8BE5;&#x624B;&#x52A8;&#x53BB;&#x5E72;&#x9884;</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf338f2f" class="outline-3">
+<h3 id="orgf338f2f">TODO&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-orgf338f2f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x540D;&#x79F0;</th>
+<th scope="col" class="org-left">&#x529F;&#x80FD;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">TODO</td>
+<td class="org-left">&#x7B49;&#x5F85;&#x81EA;&#x5DF1;&#x5904;&#x7406;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WAITTING</td>
+<td class="org-left">&#x7B49;&#x5F85;&#x4ED6;&#x4EBA;&#x5B8C;&#x6210;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DONE</td>
+<td class="org-left">&#x5B8C;&#x6210;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CANCEL</td>
+<td class="org-left">&#x53D6;&#x6D88;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+&#x5907;&#x6CE8;:
+</p>
+<ol class="org-ol">
+<li>&#x9488;&#x5BF9;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x4E0B;&#x4E00;&#x6B65;&#x884C;&#x52A8;&#x6E05;&#x5355;</li>
+<li>project&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#x884C;&#x52A8;&#x5373;&#x662F;&#x6700;&#x4E0A;&#x5C42;&#x7684;&#x884C;&#x52A8;;
+task&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#x884C;&#x52A8;&#x662F;&#x4F9D;&#x636E;&#x56DB;&#x8C61;&#x9650;&#x6CD5;&#x5219;&#x6765;&#x786E;&#x5B9A;&#x7684;.</li>
+<li>TODO&#x4E0E;WAITTING&#x7684;&#x542B;&#x4E49;, &#x8868;&#x793A;&#x8BE5;&#x884C;&#x52A8;&#x6B63;&#x5728;&#x6216;&#x5373;&#x5C06;&#x5904;&#x7406;</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org5316201" class="outline-3">
+<h3 id="org5316201">TAGS&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-org5316201">
+<p>
+&#x56DB;&#x8C61;&#x9650;&#x4F7F;&#x7528;proirity&#x6765;&#x533A;&#x5206;;
+TAGS&#x4E3A;&#x4E4B;&#x540E;&#x5FEB;&#x901F;&#x67E5;&#x627E;&#x4F7F;&#x7528;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbcce74b" class="outline-3">
+<h3 id="orgbcce74b">Agent&#x7684;&#x8BBE;&#x8BA1;</h3>
+<div class="outline-text-3" id="text-orgbcce74b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x547D;&#x4EE4;</th>
+<th scope="col" class="org-left">&#x542B;&#x4E49;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-c a a</td>
+<td class="org-left">&#x67E5;&#x770B;&#x5F53;&#x4E0B;&#x7684;&#x64CD;&#x4F5C;</td>
+<td class="org-left">&#x6700;&#x597D;&#x628A;&#x5F53;&#x4E0B;&#x8BBE;&#x7F6E;&#x4E3A;1&#x6708;, &#x80FD;&#x5168;&#x5C40;&#x4E00;&#x89C8;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">C-c a n</td>
+<td class="org-left">&#x5F53;&#x4E0B;&#x6CA1;&#x6709;&#x64CD;&#x4F5C;, &#x5219;&#x53EF;&#x4EE5;&#x67E5;&#x770B;next step</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">C-c a i</td>
+<td class="org-left">&#x67E5;&#x770B;inbox&#x4E2D;&#x7684;&#x8BB0;&#x5F55;</td>
+<td class="org-left">&#x65E0;&#x9700;&#x5728;&#x67E5;&#x770B;inbox; inbox&#x4E2D;&#x7684;TODO&#x4F1A;&#x81EA;&#x52A8;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">refile&#x5230;task&#x4E2D;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x5982;&#x679C;inbox&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xA0;</td>
+<td class="org-left">&#x5219;&#x5E94;&#x8BE5;&#x53CD;&#x601D;, &#x6700;&#x8FD1;&#x662F;&#x4E0D;&#x662F;&#x592A;&#x95F2;&#x4E86;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3841b41" class="outline-3">
+<h3 id="org3841b41">&#x4F7F;&#x7528;&#x6D41;&#x7A0B;</h3>
+<div class="outline-text-3" id="text-org3841b41">
+<pre class="example">
+     &#x968F;&#x65F6;            	       &#x81EA;&#x52A8;&#x5904;&#x7406;        	       	  C-c a n&#x754C;&#x9762;		      C-c a a &#x754C;&#x9762;
+      |			  |  			      |				 |
+      |			  |			      |				 |
+|    	v      	       	       	  v			      v				 v
+| 1.capture		     1. auto refile		 1.add timestamp       	  1. auto archive
+|   with TODO  +---------+   		 +------------+	       	     +----------+	     +-----------+
++------------&gt; | inbox   |-----------&gt; | next step  |-------------&gt;| agenda   |-----------&gt;| archive   |
+|   C-c c    	 +---------+   	       	 +------------+	 m-&gt;a-&gt;s,d   +----------+            +-----------+
+|
+|
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/org-mode/" rel="tag"># org mode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/protocal/protocal/" rel="next" title="乱七八糟的协议合集">
+                <i class="fa fa-chevron-left"></i> 乱七八糟的协议合集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/emacs/emacs_com/emacs_helm_mode/" rel="prev" title="helm mode">
+                helm mode <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WCQ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge585cbe"><span class="nav-number">1.</span> <span class="nav-text">为什么要用GTD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4a4a362"><span class="nav-number">2.</span> <span class="nav-text">GTD是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdd9e4ad"><span class="nav-number">2.1.</span> <span class="nav-text">人生5楼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orge698da7"><span class="nav-number">2.2.</span> <span class="nav-text">GTD是什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org53acfc2"><span class="nav-number">3.</span> <span class="nav-text">GTD怎么实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org713fc17"><span class="nav-number">4.</span> <span class="nav-text">org mode怎么实现GTD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org1da07c2"><span class="nav-number">4.1.</span> <span class="nav-text">思路的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org693534d"><span class="nav-number">4.2.</span> <span class="nav-text">流程的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org00fa2d1"><span class="nav-number">4.3.</span> <span class="nav-text">文件的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf338f2f"><span class="nav-number">4.4.</span> <span class="nav-text">TODO的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5316201"><span class="nav-number">4.5.</span> <span class="nav-text">TAGS的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgbcce74b"><span class="nav-number">4.6.</span> <span class="nav-text">Agent的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3841b41"><span class="nav-number">4.7.</span> <span class="nav-text">使用流程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WCQ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

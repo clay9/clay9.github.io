@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="飘">
 <meta property="og:description" content="C &amp;amp;&amp;amp; C++ &amp;#x5E38;&amp;#x89C1;&amp;#x5E93;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T14:35:34.428Z">
+<meta property="og:updated_time" content="2019-09-03T12:51:40.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C &amp;&amp; C++ 常见库">
 <meta name="twitter:description" content="C &amp;amp;&amp;amp; C++ &amp;#x5E38;&amp;#x89C1;&amp;#x5E93;">
@@ -388,9 +388,23 @@
 C &amp;&amp; C++ &#x5E38;&#x89C1;&#x5E93;
 </p>
 <a id="more"></a>
-<div id="outline-container-org1c83827" class="outline-2">
-<h2 id="org1c83827">&#x6587;&#x4EF6;&#x64CD;&#x4F5C;: fstream&#x7C7B;</h2>
-<div class="outline-text-2" id="text-org1c83827">
+<div id="outline-container-orge10838c" class="outline-2">
+<h2 id="orge10838c">&#x8F6C;&#x6362;&#x51FD;&#x6570;</h2>
+<div class="outline-text-2" id="text-orge10838c">
+<p>
+c++11 &#x652F;&#x6301;
+</p>
+<ol class="org-ol">
+<li>std::to<sub>string</sub>(XX) 
+XX &#x4E3A;int, short, long, longlong&#x6570;&#x503C;&#x7C7B;&#x578B;</li>
+<li>std::stoi() 
+&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6709;std::stol(), std::stoll()</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgad796a6" class="outline-2">
+<h2 id="orgad796a6">&#x6587;&#x4EF6;&#x64CD;&#x4F5C;: fstream&#x7C7B;</h2>
+<div class="outline-text-2" id="text-orgad796a6">
 <p>
 C++&#x7C7B;, &#x5934;&#x6587;&#x4EF6;:
 #include &lt;fstream&gt;
@@ -403,7 +417,15 @@ C++&#x7C7B;, &#x5934;&#x6587;&#x4EF6;:
 <li>&#x6784;&#x9020;fstream&#x5BF9;&#x8C61;
 fstream file;</li>
 <li>&#x6253;&#x5F00;&#x6587;&#x4EF6;
-file.open(file<sub>name</sub>, mode)</li>
+file.open(file<sub>name</sub>, mode)
+mode:
+<ul class="org-ul">
+<li>fstream::out  &#x5199;: &#x5185;&#x5B58;-&gt;&#x6587;&#x4EF6;</li>
+<li>fstream::in   &#x8BFB;: &#x6587;&#x4EF6;-&gt;&#x5185;&#x5B58;
+&#x5F53;&#x5E26;&#x6709;&#x6B64;&#x6A21;&#x5F0F;&#x7684;&#x65F6;&#x5019;, &#x4F1A;&#x9ED8;&#x8BA4;&#x8BA4;&#x4E3A;&#x6587;&#x4EF6;&#x5B58;&#x5728;, 
+&#x5373;&#x4F7F;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;, &#x4E5F;&#x4E0D;&#x4F1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;;
+&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x7684;&#x573A;&#x666F;, &#x5E94;&#x8BE5;&#x4E0D;&#x5E26;&#x6B64;mode</li>
+</ul></li>
 <li>&#x8BFB;&#x6587;&#x4EF6;
 <ol class="org-ol">
 <li>file &gt;&gt; string file<sub>val</sub>
@@ -468,9 +490,9 @@ TODONOW &#x8FD9;&#x4E2A;&#x4E5F;&#x9700;&#x8981;&#x518D;&#x770B;&#x4E0B;
 </ol>
 </div>
 </div>
-<div id="outline-container-orgde34a2d" class="outline-2">
-<h2 id="orgde34a2d">&#x5B57;&#x7B26;&#x4E32;: string&#x7C7B;</h2>
-<div class="outline-text-2" id="text-orgde34a2d">
+<div id="outline-container-org92ddd10" class="outline-2">
+<h2 id="org92ddd10">&#x5B57;&#x7B26;&#x4E32;: string&#x7C7B;</h2>
+<div class="outline-text-2" id="text-org92ddd10">
 <ol class="org-ol">
 <li>&#x6784;&#x9020;</li>
 <li>&#x6BD4;&#x8F83;</li>
@@ -481,21 +503,21 @@ TODONOW &#x8FD9;&#x4E2A;&#x4E5F;&#x9700;&#x8981;&#x518D;&#x770B;&#x4E0B;
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc30a37d" class="outline-2">
-<h2 id="orgc30a37d">curses&#x4F7F;&#x7528;</h2>
-<div class="outline-text-2" id="text-orgc30a37d">
+<div id="outline-container-org2bdff0d" class="outline-2">
+<h2 id="org2bdff0d">curses&#x4F7F;&#x7528;</h2>
+<div class="outline-text-2" id="text-org2bdff0d">
 <p>
 &#x5B98;&#x65B9;&#x5730;&#x5740;: <a href="http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/windows.html" target="_blank" rel="noopener">http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/windows.html</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2b716a2" class="outline-2">
-<h2 id="org2b716a2"><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></h2>
+<div id="outline-container-org45a881a" class="outline-2">
+<h2 id="org45a881a"><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></h2>
 </div>
-<div id="outline-container-orgc0f05e4" class="outline-2">
-<h2 id="orgc0f05e4">FILE</h2>
-<div class="outline-text-2" id="text-orgc0f05e4">
+<div id="outline-container-orgc0dd3cb" class="outline-2">
+<h2 id="orgc0dd3cb">FILE</h2>
+<div class="outline-text-2" id="text-orgc0dd3cb">
 <p>
 FILE&#x662F;C&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C; &#x2013; C++&#x7684;&#x4E3A;fstream
 &#x95EE;: &#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x4E86;fstream &#x8FD8;&#x9700;&#x8981;FILE?
@@ -511,11 +533,11 @@ FILE&#x662F;C&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C; &#x2013; C++&#x7684;&#x4E3
 </div>
 </div>
 
-<div id="outline-container-org0725bc7" class="outline-2">
-<h2 id="org0725bc7"><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></h2>
+<div id="outline-container-orgab7ab94" class="outline-2">
+<h2 id="orgab7ab94"><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></h2>
 </div>
-<div id="outline-container-orgf0a8a6f" class="outline-2">
-<h2 id="orgf0a8a6f">C++ &#x4E0E; shell&#x7684;&#x4E92;&#x76F8;&#x8C03;&#x7528;,&#x4F20;&#x53C2;,&#x83B7;&#x53D6;&#x8FD0;&#x884C;&#x8F93;&#x51FA;</h2>
+<div id="outline-container-org630c0ef" class="outline-2">
+<h2 id="org630c0ef">C++ &#x4E0E; shell&#x7684;&#x4E92;&#x76F8;&#x8C03;&#x7528;,&#x4F20;&#x53C2;,&#x83B7;&#x53D6;&#x8FD0;&#x884C;&#x8F93;&#x51FA;</h2>
 </div>
 </div>
 
@@ -631,7 +653,7 @@ FILE&#x662F;C&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C; &#x2013; C++&#x7684;&#x4E3
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +675,7 @@ FILE&#x662F;C&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C; &#x2013; C++&#x7684;&#x4E3
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -686,7 +708,7 @@ FILE&#x662F;C&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C; &#x2013; C++&#x7684;&#x4E3
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org1c83827"><span class="nav-number">1.</span> <span class="nav-text">文件操作: fstream类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgde34a2d"><span class="nav-number">2.</span> <span class="nav-text">字符串: string类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc30a37d"><span class="nav-number">3.</span> <span class="nav-text">curses使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2b716a2"><span class="nav-number">4.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc0f05e4"><span class="nav-number">5.</span> <span class="nav-text">FILE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0725bc7"><span class="nav-number">6.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf0a8a6f"><span class="nav-number">7.</span> <span class="nav-text">C++ 与 shell的互相调用,传参,获取运行输出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orge10838c"><span class="nav-number">1.</span> <span class="nav-text">转换函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgad796a6"><span class="nav-number">2.</span> <span class="nav-text">文件操作: fstream类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org92ddd10"><span class="nav-number">3.</span> <span class="nav-text">字符串: string类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2bdff0d"><span class="nav-number">4.</span> <span class="nav-text">curses使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org45a881a"><span class="nav-number">5.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgc0dd3cb"><span class="nav-number">6.</span> <span class="nav-text">FILE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgab7ab94"><span class="nav-number">7.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org630c0ef"><span class="nav-number">8.</span> <span class="nav-text">C++ 与 shell的互相调用,传参,获取运行输出</span></a></li></ol></div>
             
 
           </div>
