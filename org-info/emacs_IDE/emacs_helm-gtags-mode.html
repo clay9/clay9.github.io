@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-08 Sun 02:23 -->
+<!-- 2019-09-08 Sun 03:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>helm gtags mode</title>
@@ -194,13 +194,13 @@
   /*]]>*/-->
 </style>
 
-<script type="text/javascript" src="https://orgmode.org/org-info.js">
+<script type="text/javascript" src="../script/org-info.js">
 /**
  *
- * @source: https://orgmode.org/org-info.js
+ * @source: ../script/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in https://orgmode.org/org-info.js.
+ *  JavaScript code in ../script/org-info.js.
  *
  * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
@@ -220,7 +220,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in https://orgmode.org/org-info.js.
+ * for the JavaScript code in ../script/org-info.js.
  *
  */
 </script>
@@ -254,8 +254,8 @@ for the JavaScript code in this tag.
 
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LINK_HOME", "http://wcq.fun");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -313,17 +313,21 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
+ |
+ <a accesskey="H" href="http://wcq.fun"> HOME </a>
+</div><div id="content">
 <h1 class="title">helm gtags mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd014798">1. 功能</a></li>
-<li><a href="#org6f24690">2. 配置</a></li>
-<li><a href="#org75e62d0">3. 使用</a></li>
-<li><a href="#orgb858e74">4. gtags简易指令</a></li>
-<li><a href="#org0040f0f">5. global简易指令</a></li>
+<li><a href="#org454d2c6">1. 功能</a></li>
+<li><a href="#org7901617">2. 配置</a></li>
+<li><a href="#orge3f88fa">3. 使用</a></li>
+<li><a href="#org198d4c1">4. gtags简易指令</a></li>
+<li><a href="#orgca28c19">5. global简易指令</a></li>
 </ul>
 </div>
 </div>
@@ -332,9 +336,9 @@ global的front-ends.
 查找声明定义引用.
 </p>
 
-<!-- more -->
-<div id="outline-container-orgd014798" class="outline-2">
-<h2 id="orgd014798"><span class="section-number-2">1</span> 功能</h2>
+
+<div id="outline-container-org454d2c6" class="outline-2">
+<h2 id="org454d2c6"><span class="section-number-2">1</span> 功能</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>转到声明</li>
@@ -343,8 +347,8 @@ global的front-ends.
 </ul>
 </div>
 </div>
-<div id="outline-container-org6f24690" class="outline-2">
-<h2 id="org6f24690"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-org7901617" class="outline-2">
+<h2 id="org7901617"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
@@ -359,8 +363,8 @@ sudo apt install global
 </div>
 </div>
 
-<div id="outline-container-org75e62d0" class="outline-2">
-<h2 id="org75e62d0"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-orge3f88fa" class="outline-2">
+<h2 id="orge3f88fa"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -390,8 +394,8 @@ GPATH path name database 64K
 </div>
 </div>
 
-<div id="outline-container-orgb858e74" class="outline-2">
-<h2 id="orgb858e74"><span class="section-number-2">4</span> gtags简易指令</h2>
+<div id="outline-container-org198d4c1" class="outline-2">
+<h2 id="org198d4c1"><span class="section-number-2">4</span> gtags简易指令</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><p>
@@ -407,8 +411,8 @@ export GTAGSFORCECPP=""
 </div>
 
 
-<div id="outline-container-org0040f0f" class="outline-2">
-<h2 id="org0040f0f"><span class="section-number-2">5</span> global简易指令</h2>
+<div id="outline-container-orgca28c19" class="outline-2">
+<h2 id="orgca28c19"><span class="section-number-2">5</span> global简易指令</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 指令说明:
@@ -430,7 +434,7 @@ global无法解析局部变量
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王成庆</p>
-<p class="date">Created: 2019-09-08 Sun 02:23</p>
+<p class="date">Created: 2019-09-08 Sun 03:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
