@@ -6,7 +6,7 @@
 <!-- 2019-09-09 Mon 12:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>emacs打造IDE</title>
+<title>yasnippet mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -194,13 +194,13 @@
   /*]]>*/-->
 </style>
 
-<script type="text/javascript" src="script/org-info.js">
+<script type="text/javascript" src="../script/org-info.js">
 /**
  *
- * @source: script/org-info.js
+ * @source: ../script/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in script/org-info.js.
+ *  JavaScript code in ../script/org-info.js.
  *
  * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
@@ -220,7 +220,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in script/org-info.js.
+ * for the JavaScript code in ../script/org-info.js.
  *
  */
 </script>
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,183 +314,146 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">emacs打造IDE</h1>
+<h1 class="title">yasnippet mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb933bb">1. 说明</a></li>
-<li><a href="#orga9417ab">2. 合格的IDE功能</a></li>
-<li><a href="#org8815f5b">3. 编辑器</a></li>
-<li><a href="#org998df92">4. 编译器</a></li>
-<li><a href="#org36f604d">5. 调试器</a></li>
+<li><a href="#orgace4635">1. 为什么需要模板</a></li>
+<li><a href="#orgfecdf97">2. 什么是yasnippet-mode</a></li>
+<li><a href="#org5fe574e">3. 配置</a></li>
+<li><a href="#org3c7fbb9">4. 使用</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgdb933bb" class="outline-2">
-<h2 id="orgdb933bb"><span class="section-number-2">1</span> 说明</h2>
-<div class="outline-text-2" id="text-1">
 <p>
-本文很大程度借鉴<a href="http://tuhdo.github.io/c-ide.html">参考文档(强烈建议阅读)</a>
+模板工具
+</p>
+
+
+<div id="outline-container-orgace4635" class="outline-2">
+<h2 id="orgace4635"><span class="section-number-2">1</span> 为什么需要模板</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>减少重复工作, 提升效率</li>
+<li>标准化</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfecdf97" class="outline-2">
+<h2 id="orgfecdf97"><span class="section-number-2">2</span> 什么是yasnippet-mode</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+一个好用的快速模板工具
 </p>
 </div>
 </div>
-<div id="outline-container-orga9417ab" class="outline-2">
-<h2 id="orga9417ab"><span class="section-number-2">2</span> 合格的IDE功能</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>编辑
-所想即所得的编辑模式</li>
-<li>编译</li>
-<li>调试</li>
-<li>发布</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org8815f5b" class="outline-2">
-<h2 id="org8815f5b"><span class="section-number-2">3</span> 编辑器</h2>
+<div id="outline-container-org5fe574e" class="outline-2">
+<h2 id="org5fe574e"><span class="section-number-2">3</span> 配置</h2>
 <div class="outline-text-2" id="text-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">功能</th>
-<th scope="col" class="org-left">mode</th>
-<th scope="col" class="org-left">说明</th>
-<th scope="col" class="org-left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">格式规范</td>
-<td class="org-left"><a href="emacs_IDE/emacs_cc-mode.html">cc-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">自动补全</td>
-<td class="org-left"><a href="emacs_IDE/emacs_company-mode.html">company-mode</a>(front-ends)</td>
-<td class="org-left">需要back-ends</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">company-c-headers(back-ends)</td>
-<td class="org-left">针对头文件,直接安装即可使用,无需配置</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">智能括号</td>
-<td class="org-left"><a href="emacs_IDE/emacs_smartparens-mode.html">smartparens-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">代码折叠</td>
-<td class="org-left"><a href="emacs_IDE/emacs_hs-mode.html">hs-minor-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">模板文件</td>
-<td class="org-left"><a href="emacs_IDE/emacs_yasnippet-mode.html">yasnippet-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">代码跳转</td>
-<td class="org-left"><a href="emacs_IDE/emacs_helm-gtags-mode">helm-gtags-mode</a>(front-ends)</td>
-<td class="org-left">需要back-ends</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">查找引用</td>
-<td class="org-left">global(back-ends)</td>
-<td class="org-left">apt install global</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">拼写检查</td>
-<td class="org-left"><a href="emacs_IDE/emacs_flyspell-mode.html">flyspell-mode</a></td>
-<td class="org-left">单词拼写</td>
-<td class="org-left">已弃用</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">语法检查</td>
-<td class="org-left">flycheck-mode</td>
-<td class="org-left">动态,实时检查</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">目录列表</td>
-<td class="org-left"><a href="emacs_IDE/emacs_speedbar-mode.html">speedbar-mode</a></td>
-<td class="org-left">显示目录,文件</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">语法高亮</td>
-<td class="org-left">symbol-overlay-mode</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org998df92" class="outline-2">
-<h2 id="org998df92"><span class="section-number-2">4</span> 编译器</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-compilation-mode
+<ol class="org-ol">
+<li><p>
+下载yasnippet-mode
 </p>
 <pre class="example">
-front-ends, 依赖g++
+package-list-packages yasnippet-mode RET
+</pre></li>
+
+<li><p>
+加载yasnippet-mode
+</p>
+<pre class="example">
+(require 'yasnippet)
+(yas-global-mode t)
+</pre></li>
+
+<li><p>
+配置路径
+</p>
+<pre class="example">
+;; 重载路径文件
+(setq yas-snippet-dirs
+  '("~/.emacs.d/yasnippets"))
+
+;; 加载路径文件
+(yas-load-directory "~/.emacs.d/yasnippets/")
 </pre>
+<p>
+删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
+</p></li>
+
+<li><p>
+配置快捷键
+</p>
+<pre class="example">
+(require 'yasnippet)
+
+;; 使用hydra-mode管理yasnippet快捷键
+(defhydra hydra-yas-minor (:color blue
+			     :hint nil)
+"
+_j_: 扩展   _i_: 增加   _v_: 查看
+
+"
+("j" yas-expand)  ;;&lt;Tab&gt;仍可使用
+("i" yas-new-snippet)
+("v" yas-visit-snippet-file))
+
+;;全局快捷键放到统一文件管理
+;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
+</pre></li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org36f604d" class="outline-2">
-<h2 id="org36f604d"><span class="section-number-2">5</span> 调试器</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org3c7fbb9" class="outline-2">
+<h2 id="org3c7fbb9"><span class="section-number-2">4</span> 使用</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-gud
+以使用org-mode在hexo下写blog 举例
+</p>
+<pre class="example">
+# 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
+# -*- mode: snippet -*-
+# name: hexo : hexo博客
+# key: hexo
+# --
+
+# 此处使用了org-mode的元数据
+#+BEGIN_COMMENT
+| 名称       | 简述         | 取值               | 备注                 |
+|------------+--------------+--------------------+----------------------|
+| TITLE      | 标题         |                    |                      |
+|------------+--------------+--------------------+----------------------|
+| LAYOUT     | hexo排版模式 | post               |                      |
+|------------+--------------+--------------------+----------------------|
+| CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
+|            |              | system, tool       |                      |
+|------------+--------------+--------------------+----------------------|
+| TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
+|------------+--------------+--------------------+----------------------|
+#+END_COMMENT
+
+# 此处为org-mode 与 hexo交互的元数据
+#+TITLE: ${1}
+#+LAYOUT: post
+#+CATEGORIES: ${2}
+#+TAGS: ${3}
+
+${4}
+
+#+HTML: &lt;!-- more --&gt;
+${5}
+
+# 按tab可以方便的从${n} 到 ${n+1}
+</pre>
+
+<p>
+当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
 </p>
 </div>
 </div>

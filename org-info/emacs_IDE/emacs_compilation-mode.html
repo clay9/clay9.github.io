@@ -6,7 +6,7 @@
 <!-- 2019-09-09 Mon 12:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>emacs打造IDE</title>
+<title>compilation mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -194,13 +194,13 @@
   /*]]>*/-->
 </style>
 
-<script type="text/javascript" src="script/org-info.js">
+<script type="text/javascript" src="../script/org-info.js">
 /**
  *
- * @source: script/org-info.js
+ * @source: ../script/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in script/org-info.js.
+ *  JavaScript code in ../script/org-info.js.
  *
  * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
@@ -220,7 +220,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in script/org-info.js.
+ * for the JavaScript code in ../script/org-info.js.
  *
  */
 </script>
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,184 +314,68 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">emacs打造IDE</h1>
+<h1 class="title">compilation mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb933bb">1. 说明</a></li>
-<li><a href="#orga9417ab">2. 合格的IDE功能</a></li>
-<li><a href="#org8815f5b">3. 编辑器</a></li>
-<li><a href="#org998df92">4. 编译器</a></li>
-<li><a href="#org36f604d">5. 调试器</a></li>
+<li><a href="#orgedf8a48">1. 功能</a></li>
+<li><a href="#orgce7479b">2. 安装</a></li>
+<li><a href="#org34f44bd">3. 配置</a></li>
+<li><a href="#orgc887800">4. 使用</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgdb933bb" class="outline-2">
-<h2 id="orgdb933bb"><span class="section-number-2">1</span> 说明</h2>
-<div class="outline-text-2" id="text-1">
 <p>
-本文很大程度借鉴<a href="http://tuhdo.github.io/c-ide.html">参考文档(强烈建议阅读)</a>
+编译日志, 支持错误查看
+</p>
+
+<div id="outline-container-orgedf8a48" class="outline-2">
+<h2 id="orgedf8a48"><span class="section-number-2">1</span> 功能</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>美化编译输出信息</li>
+<li>错误跳转到源文件</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgce7479b" class="outline-2">
+<h2 id="orgce7479b"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+melpa中安装
 </p>
 </div>
 </div>
-<div id="outline-container-orga9417ab" class="outline-2">
-<h2 id="orga9417ab"><span class="section-number-2">2</span> 合格的IDE功能</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>编辑
-所想即所得的编辑模式</li>
-<li>编译</li>
-<li>调试</li>
-<li>发布</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org8815f5b" class="outline-2">
-<h2 id="org8815f5b"><span class="section-number-2">3</span> 编辑器</h2>
+<div id="outline-container-org34f44bd" class="outline-2">
+<h2 id="org34f44bd"><span class="section-number-2">3</span> 配置</h2>
 <div class="outline-text-2" id="text-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">功能</th>
-<th scope="col" class="org-left">mode</th>
-<th scope="col" class="org-left">说明</th>
-<th scope="col" class="org-left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">格式规范</td>
-<td class="org-left"><a href="emacs_IDE/emacs_cc-mode.html">cc-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">自动补全</td>
-<td class="org-left"><a href="emacs_IDE/emacs_company-mode.html">company-mode</a>(front-ends)</td>
-<td class="org-left">需要back-ends</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">company-c-headers(back-ends)</td>
-<td class="org-left">针对头文件,直接安装即可使用,无需配置</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">智能括号</td>
-<td class="org-left"><a href="emacs_IDE/emacs_smartparens-mode.html">smartparens-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">代码折叠</td>
-<td class="org-left"><a href="emacs_IDE/emacs_hs-mode.html">hs-minor-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">模板文件</td>
-<td class="org-left"><a href="emacs_IDE/emacs_yasnippet-mode.html">yasnippet-mode</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">代码跳转</td>
-<td class="org-left"><a href="emacs_IDE/emacs_helm-gtags-mode">helm-gtags-mode</a>(front-ends)</td>
-<td class="org-left">需要back-ends</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">查找引用</td>
-<td class="org-left">global(back-ends)</td>
-<td class="org-left">apt install global</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">拼写检查</td>
-<td class="org-left"><a href="emacs_IDE/emacs_flyspell-mode.html">flyspell-mode</a></td>
-<td class="org-left">单词拼写</td>
-<td class="org-left">已弃用</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">语法检查</td>
-<td class="org-left">flycheck-mode</td>
-<td class="org-left">动态,实时检查</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">目录列表</td>
-<td class="org-left"><a href="emacs_IDE/emacs_speedbar-mode.html">speedbar-mode</a></td>
-<td class="org-left">显示目录,文件</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">语法高亮</td>
-<td class="org-left">symbol-overlay-mode</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
+<p>
+<a href="init-compilation-mode.el">具体配置文件</a>
+</p>
 </div>
 </div>
-
-<div id="outline-container-org998df92" class="outline-2">
-<h2 id="org998df92"><span class="section-number-2">4</span> 编译器</h2>
+<div id="outline-container-orgc887800" class="outline-2">
+<h2 id="orgc887800"><span class="section-number-2">4</span> 使用</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-compilation-mode
+M-x compile RET 开始编译
+快捷键配置如下
 </p>
 <pre class="example">
-front-ends, 依赖g++
+;;下个错误
+(define-key compilation-mode-map (kbd "n") 'compilation-next-error)
+;;上个错误
+(define-key compilation-mode-map (kbd "p") 'compilation-previous-error)
+;;查看错误源码
+(define-key compilation-mode-map (kbd "TAB") 'compilation-display-error)
+;;跳转到错误源码
+(define-key compilation-mode-map (kbd "RET") 'compile-goto-error)
 </pre>
-</div>
-</div>
-
-<div id="outline-container-org36f604d" class="outline-2">
-<h2 id="org36f604d"><span class="section-number-2">5</span> 调试器</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-gud
-</p>
 </div>
 </div>
 </div>
