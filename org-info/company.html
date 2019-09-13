@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-13 Fri 22:58 -->
+<!-- 2019-09-13 Fri 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>游戏服务器简易说明</title>
@@ -323,115 +323,115 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org73ddd40">1. <span class="todo PROJECT">PROJECT</span> 游戏服务器 版本说明</a>
+<li><a href="#org88d6b40">1. <span class="todo PROJECT">PROJECT</span> 游戏服务器 版本说明</a>
 <ul>
-<li><a href="#orgcfc7c95">1.1. <span class="done DONE">DONE</span> frame框架 v0.1</a></li>
-<li><a href="#org8b81e84">1.2. <span class="done DONE">DONE</span> frame框架 v0.2</a></li>
-<li><a href="#org76ee9a5">1.3. <span class="done DONE">DONE</span> frame框架 v0.3</a></li>
-<li><a href="#org400caf8">1.4. frame框架 v0.4</a></li>
-<li><a href="#org618da8f">1.5. frame框架 v1.1</a></li>
+<li><a href="#orgdac07d5">1.1. <span class="done DONE">DONE</span> frame框架 v0.1</a></li>
+<li><a href="#org537d516">1.2. <span class="done DONE">DONE</span> frame框架 v0.2</a></li>
+<li><a href="#orgb8e377e">1.3. <span class="done DONE">DONE</span> frame框架 v0.3</a></li>
+<li><a href="#orgf0e5876">1.4. frame框架 v0.4</a></li>
+<li><a href="#org09934e8">1.5. frame框架 v1.1</a></li>
 </ul>
 </li>
-<li><a href="#org8606c29">2. <span class="todo PROJECT">PROJECT</span> 游戏服务器 基础知识</a>
+<li><a href="#org0b5e38b">2. <span class="todo PROJECT">PROJECT</span> 游戏服务器 基础知识</a>
 <ul>
-<li><a href="#org0763267">2.1. <span class="done DONE">DONE</span> 分布式</a>
+<li><a href="#orga476232">2.1. <span class="done DONE">DONE</span> 分布式</a>
 <ul>
-<li><a href="#org71eb8f3">2.1.1. 架构图</a></li>
-<li><a href="#orgf608cd0">2.1.2. cfg [ip, port] 配置问题</a></li>
-<li><a href="#org86ad75a">2.1.3. 端口生成规则&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a></li>
+<li><a href="#org6fa3902">2.1.1. 架构图</a></li>
+<li><a href="#org86d3208">2.1.2. cfg [ip, port] 配置问题</a></li>
+<li><a href="#org096f8c0">2.1.3. 端口生成规则&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgc61a2e9">2.2. <span class="done DONE">DONE</span> 多游戏支持</a>
+<li><a href="#org44b00d5">2.2. <span class="done DONE">DONE</span> 多游戏支持</a>
 <ul>
-<li><a href="#orgd021fdb">2.2.1. 房间号生成规则</a></li>
+<li><a href="#org04b19a7">2.2.1. 房间号生成规则</a></li>
 </ul>
 </li>
-<li><a href="#orgd8178fc">2.3. <span class="done DONE">DONE</span> frame与sub交互</a>
+<li><a href="#org2cd180a">2.3. <span class="done DONE">DONE</span> frame与sub交互</a>
 <ul>
-<li><a href="#org176b57d">2.3.1. msg</a></li>
+<li><a href="#org3813e4b">2.3.1. msg</a></li>
 </ul>
 </li>
-<li><a href="#org34e0e7f">2.4. <span class="todo TODO">TODO</span> 房卡场, 金币场, 俱乐部</a>
+<li><a href="#org93e7516">2.4. <span class="todo TODO">TODO</span> 房卡场, 金币场, 俱乐部</a>
 <ul>
-<li><a href="#org39cf7bb">2.4.1. 消息号</a></li>
-<li><a href="#orgb8d659b">2.4.2. 创建流程&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a></li>
-<li><a href="#org4dd2c8c">2.4.3. 加入流程</a></li>
-<li><a href="#orga121c5b">2.4.4. 遗留问题</a></li>
+<li><a href="#org790d705">2.4.1. 消息号</a></li>
+<li><a href="#org27ec398">2.4.2. 创建流程&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a></li>
+<li><a href="#orgd3a0c3c">2.4.3. 加入流程</a></li>
+<li><a href="#orgbc366f5">2.4.4. 遗留问题</a></li>
 </ul>
 </li>
-<li><a href="#orgd7a480c">2.5. 比赛场&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a>
+<li><a href="#orgcf3083a">2.5. 比赛场&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></a>
 <ul>
-<li><a href="#orgc50b299">2.5.1. 消息号</a></li>
-<li><a href="#org2831df0">2.5.2. 主要类</a></li>
-<li><a href="#orgdb64872">2.5.3. 房间生成方式</a></li>
-<li><a href="#org8b046a4">2.5.4. 加入流程</a></li>
+<li><a href="#org6dcc229">2.5.1. 消息号</a></li>
+<li><a href="#org8bf4216">2.5.2. 主要类</a></li>
+<li><a href="#org09b7f64">2.5.3. 房间生成方式</a></li>
+<li><a href="#org4daae49">2.5.4. 加入流程</a></li>
 </ul>
 </li>
-<li><a href="#org9b72abd">2.6. <span class="done DONE">DONE</span> 战绩记录 &amp;&amp; 录像回放</a>
+<li><a href="#orgcb1d9f0">2.6. <span class="done DONE">DONE</span> 战绩记录 &amp;&amp; 录像回放</a>
 <ul>
-<li><a href="#orgf789815">2.6.1. 需要处理</a></li>
+<li><a href="#orgef1d584">2.6.1. 需要处理</a></li>
 </ul>
 </li>
-<li><a href="#orgbaadc28">2.7. 机器人</a>
+<li><a href="#orge88b52f">2.7. 机器人</a>
 <ul>
-<li><a href="#orge845ba1">2.7.1. 设计思路</a></li>
-<li><a href="#org67d8f1d">2.7.2. RobotManager初始化</a></li>
-<li><a href="#org52327a6">2.7.3. GameRoom初始化机器人</a></li>
-<li><a href="#org6cadccd">2.7.4. 遗留问题</a></li>
-<li><a href="#orgfa4d3cf">2.7.5. 修改范围</a></li>
+<li><a href="#org108991c">2.7.1. 设计思路</a></li>
+<li><a href="#org46b5c93">2.7.2. RobotManager初始化</a></li>
+<li><a href="#org4f69f6a">2.7.3. GameRoom初始化机器人</a></li>
+<li><a href="#org9b75ff7">2.7.4. 遗留问题</a></li>
+<li><a href="#orgae1d2ed">2.7.5. 修改范围</a></li>
 </ul>
 </li>
-<li><a href="#orgf1025de">2.8. <span class="done DONE">DONE</span> GameRoom</a>
+<li><a href="#orgf9f80fb">2.8. <span class="done DONE">DONE</span> GameRoom</a>
 <ul>
-<li><a href="#orgbdfb2f3">2.8.1. player与gameroom交互</a></li>
+<li><a href="#org8f9a768">2.8.1. player与gameroom交互</a></li>
 </ul>
 </li>
-<li><a href="#org764c68a">2.9. sub框架整理</a></li>
-<li><a href="#orgdb3b2da">2.10. <span class="done DONE">DONE</span> 常用结构体</a>
+<li><a href="#org8ec6c2f">2.9. sub框架整理</a></li>
+<li><a href="#org8d2203b">2.10. <span class="done DONE">DONE</span> 常用结构体</a>
 <ul>
-<li><a href="#orgd551f40">2.10.1. Msg数据包</a></li>
-<li><a href="#org785151f">2.10.2. 常用enum</a></li>
+<li><a href="#org5d4f9c2">2.10.1. Msg数据包</a></li>
+<li><a href="#org1699e25">2.10.2. 常用enum</a></li>
 </ul>
 </li>
-<li><a href="#org7b3d521">2.11. <span class="done DONE">DONE</span> 有趣的bug</a></li>
-<li><a href="#org298d652">2.12. <span class="done DONE">DONE</span> 底层接口</a>
+<li><a href="#org33278b1">2.11. <span class="done DONE">DONE</span> 有趣的bug</a></li>
+<li><a href="#orgd9e8c5b">2.12. <span class="done DONE">DONE</span> 底层接口</a>
 <ul>
-<li><a href="#orgeca0734">2.12.1. 流程</a></li>
+<li><a href="#org34b0ad1">2.12.1. 流程</a></li>
 </ul>
 </li>
-<li><a href="#org379b6ff">2.13. <span class="done DONE">DONE</span> DB多线程</a>
+<li><a href="#orgeefc0b6">2.13. <span class="done DONE">DONE</span> DB多线程</a>
 <ul>
-<li><a href="#org067e907">2.13.1. 流程</a></li>
+<li><a href="#org756a1e0">2.13.1. 流程</a></li>
 </ul>
 </li>
-<li><a href="#orgaf69e3f">2.14. <span class="done DONE">DONE</span> 定时器</a></li>
-<li><a href="#org174f49b">2.15. <span class="todo TODO">TODO</span> 进程管理工程</a>
+<li><a href="#org410ec11">2.14. <span class="done DONE">DONE</span> 定时器</a></li>
+<li><a href="#org7110b9d">2.15. <span class="todo TODO">TODO</span> 进程管理工程</a>
 <ul>
-<li><a href="#org3014537">2.15.1. 设计考量</a></li>
-<li><a href="#orge0a91c4">2.15.2. 需要的类</a></li>
-<li><a href="#orgcb78624">2.15.3. 使用的技术</a></li>
+<li><a href="#orge9fe41c">2.15.1. 设计考量</a></li>
+<li><a href="#orga043a4b">2.15.2. 需要的类</a></li>
+<li><a href="#org470d145">2.15.3. 使用的技术</a></li>
 </ul>
 </li>
-<li><a href="#org6d7b134">2.16. 当前服务器缺陷</a></li>
+<li><a href="#orge2f5ab5">2.16. 当前服务器缺陷</a></li>
 </ul>
 </li>
-<li><a href="#orgff1b8f0">3. bug</a>
+<li><a href="#org4c84b6f">3. bug</a>
 <ul>
-<li><a href="#org30558e8">3.1. Frame: 高概率 l2m player info时候, gameserver挂掉</a></li>
-<li><a href="#org4f47617">3.2. 6,7 消息号 无限循环的bug</a></li>
-<li><a href="#orge4749bc">3.3. client会被踢出房间, 并提示 client time is out</a></li>
+<li><a href="#orga2a00cb">3.1. Frame: 高概率 l2m player info时候, gameserver挂掉</a></li>
+<li><a href="#orgf5b3033">3.2. 6,7 消息号 无限循环的bug</a></li>
+<li><a href="#org418fb62">3.3. client会被踢出房间, 并提示 client time is out</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org73ddd40" class="outline-2">
-<h2 id="org73ddd40"><span class="section-number-2">1</span> <span class="todo PROJECT">PROJECT</span> 游戏服务器 版本说明</h2>
+<div id="outline-container-org88d6b40" class="outline-2">
+<h2 id="org88d6b40"><span class="section-number-2">1</span> <span class="todo PROJECT">PROJECT</span> 游戏服务器 版本说明</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgcfc7c95" class="outline-3">
-<h3 id="orgcfc7c95"><span class="section-number-3">1.1</span> <span class="done DONE">DONE</span> frame框架 v0.1</h3>
+<div id="outline-container-orgdac07d5" class="outline-3">
+<h3 id="orgdac07d5"><span class="section-number-3">1.1</span> <span class="done DONE">DONE</span> frame框架 v0.1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 主要修改内容:
@@ -457,8 +457,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8b81e84" class="outline-3">
-<h3 id="org8b81e84"><span class="section-number-3">1.2</span> <span class="done DONE">DONE</span> frame框架 v0.2</h3>
+<div id="outline-container-org537d516" class="outline-3">
+<h3 id="org537d516"><span class="section-number-3">1.2</span> <span class="done DONE">DONE</span> frame框架 v0.2</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 主要修改范围:
@@ -507,8 +507,8 @@ frame中游戏模型抽象为
 </div>
 </div>
 
-<div id="outline-container-org76ee9a5" class="outline-3">
-<h3 id="org76ee9a5"><span class="section-number-3">1.3</span> <span class="done DONE">DONE</span> frame框架 v0.3</h3>
+<div id="outline-container-orgb8e377e" class="outline-3">
+<h3 id="orgb8e377e"><span class="section-number-3">1.3</span> <span class="done DONE">DONE</span> frame框架 v0.3</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-12 Thu] </span></span> [done]</li>
@@ -534,8 +534,8 @@ frame中游戏模型抽象为
 </ol>
 </div>
 </div>
-<div id="outline-container-org400caf8" class="outline-3">
-<h3 id="org400caf8"><span class="section-number-3">1.4</span> frame框架 v0.4</h3>
+<div id="outline-container-orgf0e5876" class="outline-3">
+<h3 id="orgf0e5876"><span class="section-number-3">1.4</span> frame框架 v0.4</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 主要改动范围:
@@ -547,8 +547,8 @@ frame中游戏模型抽象为
 </ol>
 </div>
 </div>
-<div id="outline-container-org618da8f" class="outline-3">
-<h3 id="org618da8f"><span class="section-number-3">1.5</span> frame框架 v1.1</h3>
+<div id="outline-container-org09934e8" class="outline-3">
+<h3 id="org09934e8"><span class="section-number-3">1.5</span> frame框架 v1.1</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 主要改动范围:
@@ -571,19 +571,19 @@ lobby, game, db
 
 
 
-<div id="outline-container-org8606c29" class="outline-2">
-<h2 id="org8606c29"><span class="section-number-2">2</span> <span class="todo PROJECT">PROJECT</span> 游戏服务器 基础知识</h2>
+<div id="outline-container-org0b5e38b" class="outline-2">
+<h2 id="org0b5e38b"><span class="section-number-2">2</span> <span class="todo PROJECT">PROJECT</span> 游戏服务器 基础知识</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org0763267" class="outline-3">
-<h3 id="org0763267"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> 分布式</h3>
+<div id="outline-container-orga476232" class="outline-3">
+<h3 id="orga476232"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> 分布式</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-08-05 Mon] </span></span> [done]</li>
 </ul>
 </div>
-<div id="outline-container-org71eb8f3" class="outline-4">
-<h4 id="org71eb8f3"><span class="section-number-4">2.1.1</span> 架构图</h4>
+<div id="outline-container-org6fa3902" class="outline-4">
+<h4 id="org6fa3902"><span class="section-number-4">2.1.1</span> 架构图</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <pre class="example">
 
@@ -606,8 +606,8 @@ lobby, game, db
 </div>
 </div>
 
-<div id="outline-container-orgf608cd0" class="outline-4">
-<h4 id="orgf608cd0"><span class="section-number-4">2.1.2</span> cfg [ip, port] 配置问题</h4>
+<div id="outline-container-org86d3208" class="outline-4">
+<h4 id="org86d3208"><span class="section-number-4">2.1.2</span> cfg [ip, port] 配置问题</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ol class="org-ol">
 <li><p>
@@ -651,11 +651,11 @@ game连接lobby的ip地址, 决定了game使用哪个网卡发送
 </div>
 </div>
 
-<div id="outline-container-org86ad75a" class="outline-4">
-<h4 id="org86ad75a"><span class="section-number-4">2.1.3</span> 端口生成规则&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h4>
+<div id="outline-container-org096f8c0" class="outline-4">
+<h4 id="org096f8c0"><span class="section-number-4">2.1.3</span> 端口生成规则&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
-<a href="SystemModule/LobbyServer/GameCtrl.h#org11969c8">具体实现</a>
+<a href="SystemModule/LobbyServer/GameCtrl.h#org408f4e5">具体实现</a>
 同一服务器, 各进程(lobby,game,gate)端口号必须唯一
 </p>
 
@@ -688,15 +688,15 @@ port = (kindid &lt;&lt; 8) + nodeid + 2000
 </div>
 </div>
 
-<div id="outline-container-orgc61a2e9" class="outline-3">
-<h3 id="orgc61a2e9"><span class="section-number-3">2.2</span> <span class="done DONE">DONE</span> 多游戏支持</h3>
+<div id="outline-container-org44b00d5" class="outline-3">
+<h3 id="org44b00d5"><span class="section-number-3">2.2</span> <span class="done DONE">DONE</span> 多游戏支持</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-08-05 Mon] </span></span> [done]</li>
 </ul>
 </div>
-<div id="outline-container-orgd021fdb" class="outline-4">
-<h4 id="orgd021fdb"><span class="section-number-4">2.2.1</span> 房间号生成规则</h4>
+<div id="outline-container-org04b19a7" class="outline-4">
+<h4 id="org04b19a7"><span class="section-number-4">2.2.1</span> 房间号生成规则</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 多游戏支持, 房间号必须全局唯一
@@ -719,15 +719,15 @@ port = (kindid &lt;&lt; 8) + nodeid + 2000
 </div>
 </div>
 </div>
-<div id="outline-container-orgd8178fc" class="outline-3">
-<h3 id="orgd8178fc"><span class="section-number-3">2.3</span> <span class="done DONE">DONE</span> frame与sub交互</h3>
+<div id="outline-container-org2cd180a" class="outline-3">
+<h3 id="org2cd180a"><span class="section-number-3">2.3</span> <span class="done DONE">DONE</span> frame与sub交互</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-08-05 Mon] </span></span> [done]</li>
 </ul>
 </div>
-<div id="outline-container-org176b57d" class="outline-4">
-<h4 id="org176b57d"><span class="section-number-4">2.3.1</span> msg</h4>
+<div id="outline-container-org3813e4b" class="outline-4">
+<h4 id="org3813e4b"><span class="section-number-4">2.3.1</span> msg</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <ol class="org-ol">
 <li>frame: NetMsg.decode时候保留原始数据</li>
@@ -737,12 +737,12 @@ port = (kindid &lt;&lt; 8) + nodeid + 2000
 </div>
 </div>
 </div>
-<div id="outline-container-org34e0e7f" class="outline-3">
-<h3 id="org34e0e7f"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> 房卡场, 金币场, 俱乐部</h3>
+<div id="outline-container-org93e7516" class="outline-3">
+<h3 id="org93e7516"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> 房卡场, 金币场, 俱乐部</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org39cf7bb" class="outline-4">
-<h4 id="org39cf7bb"><span class="section-number-4">2.4.1</span> 消息号</h4>
+<div id="outline-container-org790d705" class="outline-4">
+<h4 id="org790d705"><span class="section-number-4">2.4.1</span> 消息号</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ol class="org-ol">
 <li>房卡场 | 俱乐部
@@ -751,20 +751,20 @@ port = (kindid &lt;&lt; 8) + nodeid + 2000
 <li>金币场
 server查询请求 &#x2013;
 创建 | 加入  C2L<sub>REQUEST</sub><sub>ENTER</sub><sub>GOLD</sub><sub>ROOM</sub>
-<a href="SystemModule/LobbyServer/HandlerFromGate.cpp#orgca7b5f3">C2L<sub>REQUEST</sub><sub>TNTER</sub><sub>GOLD</sub><sub>ROOM</sub></a></li>
+<a href="SystemModule/LobbyServer/HandlerFromGate.cpp#orgbb21d80">C2L<sub>REQUEST</sub><sub>TNTER</sub><sub>GOLD</sub><sub>ROOM</sub></a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb8d659b" class="outline-4">
-<h4 id="orgb8d659b"><span class="section-number-4">2.4.2</span> 创建流程&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h4>
+<div id="outline-container-org27ec398" class="outline-4">
+<h4 id="org27ec398"><span class="section-number-4">2.4.2</span> 创建流程&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h4>
 <div class="outline-text-4" id="text-2-4-2">
 <ol class="org-ol">
 <li>client向lobby发起请求</li>
 <li>lobby自己创建房间 &#x2013; 生成roomid, 并记录对应的serverid</li>
 <li>如果是new room, 通知DB记录</li>
-<li><a href="SystemModule/LobbyServer/HandlerFromDB.cpp#orgc482771">DB返回给lobby, lobby通知game</a></li>
-<li><a href="SystemModule/GameServer/HandlerFromLobby.cpp#org1a70e2c">game创建完房间, 通知lobby</a></li>
-<li><a href="SystemModule/LobbyServer/HandlerFromGame.cpp#orgfb05c10">lobby通知client</a></li>
+<li><a href="SystemModule/LobbyServer/HandlerFromDB.cpp#orgdb5dc68">DB返回给lobby, lobby通知game</a></li>
+<li><a href="SystemModule/GameServer/HandlerFromLobby.cpp#orgc5f5f93">game创建完房间, 通知lobby</a></li>
+<li><a href="SystemModule/LobbyServer/HandlerFromGame.cpp#org08972e1">lobby通知client</a></li>
 <li>client连接game</li>
 <li>game向lobby确认</li>
 <li>lobby返回确认结果给game</li>
@@ -782,8 +782,8 @@ server查询请求 &#x2013;
 </ol>
 </div>
 </div>
-<div id="outline-container-org4dd2c8c" class="outline-4">
-<h4 id="org4dd2c8c"><span class="section-number-4">2.4.3</span> 加入流程</h4>
+<div id="outline-container-orgd3a0c3c" class="outline-4">
+<h4 id="orgd3a0c3c"><span class="section-number-4">2.4.3</span> 加入流程</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <ol class="org-ol">
 <li>client向lobby发起请求</li>
@@ -795,8 +795,8 @@ server查询请求 &#x2013;
 </ol>
 </div>
 </div>
-<div id="outline-container-orga121c5b" class="outline-4">
-<h4 id="orga121c5b"><span class="section-number-4">2.4.4</span> 遗留问题</h4>
+<div id="outline-container-orgbc366f5" class="outline-4">
+<h4 id="orgbc366f5"><span class="section-number-4">2.4.4</span> 遗留问题</h4>
 <div class="outline-text-4" id="text-2-4-4">
 <p>
 遗留问题
@@ -821,20 +821,20 @@ server查询请求 &#x2013;
 </div>
 </div>
 
-<div id="outline-container-orgd7a480c" class="outline-3">
-<h3 id="orgd7a480c"><span class="section-number-3">2.5</span> 比赛场&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h3>
+<div id="outline-container-orgcf3083a" class="outline-3">
+<h3 id="orgcf3083a"><span class="section-number-3">2.5</span> 比赛场&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TODOLATER">TODOLATER</span></span></h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orgc50b299" class="outline-4">
-<h4 id="orgc50b299"><span class="section-number-4">2.5.1</span> 消息号</h4>
+<div id="outline-container-org6dcc229" class="outline-4">
+<h4 id="org6dcc229"><span class="section-number-4">2.5.1</span> 消息号</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 加入  C2L<sub>MATCH</sub><sub>APPLY</sub>
 </p>
 </div>
 </div>
-<div id="outline-container-org2831df0" class="outline-4">
-<h4 id="org2831df0"><span class="section-number-4">2.5.2</span> 主要类</h4>
+<div id="outline-container-org8bf4216" class="outline-4">
+<h4 id="org8bf4216"><span class="section-number-4">2.5.2</span> 主要类</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <ol class="org-ol">
 <li>match<sub>manager管理</sub> 比赛场列表</li>
@@ -844,8 +844,8 @@ server查询请求 &#x2013;
 </div>
 </div>
 
-<div id="outline-container-orgdb64872" class="outline-4">
-<h4 id="orgdb64872"><span class="section-number-4">2.5.3</span> 房间生成方式</h4>
+<div id="outline-container-org09b7f64" class="outline-4">
+<h4 id="org09b7f64"><span class="section-number-4">2.5.3</span> 房间生成方式</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <p>
 GameCtrl::Run()中向DB查询所有比赛信息,
@@ -864,8 +864,8 @@ TODONOW 待确认: 比赛场中的GameServer的roomid生成是否符合条件
 </div>
 </div>
 
-<div id="outline-container-org8b046a4" class="outline-4">
-<h4 id="org8b046a4"><span class="section-number-4">2.5.4</span> 加入流程</h4>
+<div id="outline-container-org4daae49" class="outline-4">
+<h4 id="org4daae49"><span class="section-number-4">2.5.4</span> 加入流程</h4>
 <div class="outline-text-4" id="text-2-5-4">
 <p>
 client &#x2013;&gt; lobby  &#x2013;&gt; game &#x2013;&gt; lobby &#x2013;&gt; client
@@ -889,16 +889,16 @@ lobby根据roomID找到ServerID, 从而找到GameServer信息
 </div>
 </div>
 
-<div id="outline-container-org9b72abd" class="outline-3">
-<h3 id="org9b72abd"><span class="section-number-3">2.6</span> <span class="done DONE">DONE</span> 战绩记录 &amp;&amp; 录像回放</h3>
+<div id="outline-container-orgcb1d9f0" class="outline-3">
+<h3 id="orgcb1d9f0"><span class="section-number-3">2.6</span> <span class="done DONE">DONE</span> 战绩记录 &amp;&amp; 录像回放</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
 </ul>
 <p>
-<a href="SystemModule/DBProxyServer/HandlerFromGame.cpp#org81942a3">MSG<sub>M2L</sub><sub>GAME</sub><sub>RECORD</sub></a> &#x2013; 写入数据库, [战绩,回放]一起写入了
-<a href="SystemModule/DBProxyServer/HandlerFromGame.cpp#orgf942eef">D2L<sub>PLAYER</sub><sub>COMBAT</sub><sub>GAINS</sub></a> &#x2013; 战绩记录 查询
-<a href="SystemModule/LobbyServer/HandlerFromDB.cpp#orga74d458">MSG<sub>D2L</sub><sub>GAME</sub><sub>REPLAY</sub></a>     &#x2013; 录像回 放查询
+<a href="SystemModule/DBProxyServer/HandlerFromGame.cpp#org28a3d9d">MSG<sub>M2L</sub><sub>GAME</sub><sub>RECORD</sub></a> &#x2013; 写入数据库, [战绩,回放]一起写入了
+<a href="SystemModule/DBProxyServer/HandlerFromGame.cpp#org3d5e59d">D2L<sub>PLAYER</sub><sub>COMBAT</sub><sub>GAINS</sub></a> &#x2013; 战绩记录 查询
+<a href="SystemModule/LobbyServer/HandlerFromDB.cpp#org3494aa5">MSG<sub>D2L</sub><sub>GAME</sub><sub>REPLAY</sub></a>     &#x2013; 录像回 放查询
 </p>
 
 <p>
@@ -953,8 +953,8 @@ lobby根据roomID找到ServerID, 从而找到GameServer信息
 <li>删除replay<sub>id的查询方式</sub></li>
 </ol>
 </div>
-<div id="outline-container-orgf789815" class="outline-4">
-<h4 id="orgf789815"><span class="section-number-4">2.6.1</span> 需要处理</h4>
+<div id="outline-container-orgef1d584" class="outline-4">
+<h4 id="orgef1d584"><span class="section-number-4">2.6.1</span> 需要处理</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <ol class="org-ol">
 <li>战绩记录查询
@@ -970,12 +970,12 @@ lobby根据roomID找到ServerID, 从而找到GameServer信息
 </div>
 </div>
 
-<div id="outline-container-orgbaadc28" class="outline-3">
-<h3 id="orgbaadc28"><span class="section-number-3">2.7</span> 机器人</h3>
+<div id="outline-container-orge88b52f" class="outline-3">
+<h3 id="orge88b52f"><span class="section-number-3">2.7</span> 机器人</h3>
 <div class="outline-text-3" id="text-2-7">
 </div>
-<div id="outline-container-orge845ba1" class="outline-4">
-<h4 id="orge845ba1"><span class="section-number-4">2.7.1</span> 设计思路</h4>
+<div id="outline-container-org108991c" class="outline-4">
+<h4 id="org108991c"><span class="section-number-4">2.7.1</span> 设计思路</h4>
 <div class="outline-text-4" id="text-2-7-1">
 <p>
 basic:
@@ -987,11 +987,11 @@ basic:
 </ol>
 </div>
 </div>
-<div id="outline-container-org67d8f1d" class="outline-4">
-<h4 id="org67d8f1d"><span class="section-number-4">2.7.2</span> RobotManager初始化</h4>
+<div id="outline-container-org46b5c93" class="outline-4">
+<h4 id="org46b5c93"><span class="section-number-4">2.7.2</span> RobotManager初始化</h4>
 <div class="outline-text-4" id="text-2-7-2">
 <ol class="org-ol">
-<li><a href="SystemModule/GameServer/GameCtrl.cpp#orgb8b5bde">gameserver启动时候, 根据robot.cfg中的机器人数目向lobby请求初始化机器人</a>
+<li><a href="SystemModule/GameServer/GameCtrl.cpp#org6c2b4c6">gameserver启动时候, 根据robot.cfg中的机器人数目向lobby请求初始化机器人</a>
 请求内容
 <ol class="org-ol">
 <li>机器人配置信息</li>
@@ -1003,19 +1003,19 @@ basic:
 </ol>
 </div>
 </div>
-<div id="outline-container-org52327a6" class="outline-4">
-<h4 id="org52327a6"><span class="section-number-4">2.7.3</span> GameRoom初始化机器人</h4>
+<div id="outline-container-org4f69f6a" class="outline-4">
+<h4 id="org4f69f6a"><span class="section-number-4">2.7.3</span> GameRoom初始化机器人</h4>
 <div class="outline-text-4" id="text-2-7-3">
 <ol class="org-ol">
 <li>GameRoom中根据房间椅子数生成robot rand数目</li>
-<li><a href="SystemModule/AICode/RobotManager.cpp#orge8b8c42">RobotManager在初始化机器人的时候, 开启了定时器, 用来控制机器人进出房间</a></li>
+<li><a href="SystemModule/AICode/RobotManager.cpp#org8e533f2">RobotManager在初始化机器人的时候, 开启了定时器, 用来控制机器人进出房间</a></li>
 <li>在定时器中控制了机器人是否加入还是离开房间</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org6cadccd" class="outline-4">
-<h4 id="org6cadccd"><span class="section-number-4">2.7.4</span> 遗留问题</h4>
+<div id="outline-container-org9b75ff7" class="outline-4">
+<h4 id="org9b75ff7"><span class="section-number-4">2.7.4</span> 遗留问题</h4>
 <div class="outline-text-4" id="text-2-7-4">
 <ol class="org-ol">
 <li class="on"><code>[X]</code> 为什么区分占桌机器人和陪玩机器人??
@@ -1049,8 +1049,8 @@ basic:
 </div>
 </div>
 
-<div id="outline-container-orgfa4d3cf" class="outline-4">
-<h4 id="orgfa4d3cf"><span class="section-number-4">2.7.5</span> 修改范围</h4>
+<div id="outline-container-orgae1d2ed" class="outline-4">
+<h4 id="orgae1d2ed"><span class="section-number-4">2.7.5</span> 修改范围</h4>
 <div class="outline-text-4" id="text-2-7-5">
 <ol class="org-ol">
 <li>GameRoomManager移动到GameServer</li>
@@ -1060,15 +1060,15 @@ basic:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf1025de" class="outline-3">
-<h3 id="orgf1025de"><span class="section-number-3">2.8</span> <span class="done DONE">DONE</span> GameRoom</h3>
+<div id="outline-container-orgf9f80fb" class="outline-3">
+<h3 id="orgf9f80fb"><span class="section-number-3">2.8</span> <span class="done DONE">DONE</span> GameRoom</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
 </ul>
 </div>
-<div id="outline-container-orgbdfb2f3" class="outline-4">
-<h4 id="orgbdfb2f3"><span class="section-number-4">2.8.1</span> player与gameroom交互</h4>
+<div id="outline-container-org8f9a768" class="outline-4">
+<h4 id="org8f9a768"><span class="section-number-4">2.8.1</span> player与gameroom交互</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <ol class="org-ol">
 <li>加入房间
@@ -1094,23 +1094,23 @@ PlayerManager::Instance中删除玩家</li>
 </div>
 </div>
 
-<div id="outline-container-org764c68a" class="outline-3">
-<h3 id="org764c68a"><span class="section-number-3">2.9</span> sub框架整理</h3>
+<div id="outline-container-org8ec6c2f" class="outline-3">
+<h3 id="org8ec6c2f"><span class="section-number-3">2.9</span> sub框架整理</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 详见 SubGame模板工程中的README
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb3b2da" class="outline-3">
-<h3 id="orgdb3b2da"><span class="section-number-3">2.10</span> <span class="done DONE">DONE</span> 常用结构体</h3>
+<div id="outline-container-org8d2203b" class="outline-3">
+<h3 id="org8d2203b"><span class="section-number-3">2.10</span> <span class="done DONE">DONE</span> 常用结构体</h3>
 <div class="outline-text-3" id="text-2-10">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
 </ul>
 </div>
-<div id="outline-container-orgd551f40" class="outline-4">
-<h4 id="orgd551f40"><span class="section-number-4">2.10.1</span> Msg数据包</h4>
+<div id="outline-container-org5d4f9c2" class="outline-4">
+<h4 id="org5d4f9c2"><span class="section-number-4">2.10.1</span> Msg数据包</h4>
 <div class="outline-text-4" id="text-2-10-1">
 <pre class="example">
 0   [&lt;- pBuffer
@@ -1143,8 +1143,8 @@ n   }] &lt;-[]值为MsgBody                {}--NetMSg
 </ol>
 </div>
 </div>
-<div id="outline-container-org785151f" class="outline-4">
-<h4 id="org785151f"><span class="section-number-4">2.10.2</span> 常用enum</h4>
+<div id="outline-container-org1699e25" class="outline-4">
+<h4 id="org1699e25"><span class="section-number-4">2.10.2</span> 常用enum</h4>
 <div class="outline-text-4" id="text-2-10-2">
 <ol class="org-ol">
 <li><p>
@@ -1214,8 +1214,8 @@ gametypeid
 </div>
 </div>
 </div>
-<div id="outline-container-org7b3d521" class="outline-3">
-<h3 id="org7b3d521"><span class="section-number-3">2.11</span> <span class="done DONE">DONE</span> 有趣的bug</h3>
+<div id="outline-container-org33278b1" class="outline-3">
+<h3 id="org33278b1"><span class="section-number-3">2.11</span> <span class="done DONE">DONE</span> 有趣的bug</h3>
 <div class="outline-text-3" id="text-2-11">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
@@ -1247,13 +1247,13 @@ sub正常打牌, 服务器崩溃在protobuf的函数中
 </ul>
 </div>
 </div>
-<div id="outline-container-org298d652" class="outline-3">
-<h3 id="org298d652"><span class="section-number-3">2.12</span> <span class="done DONE">DONE</span> 底层接口</h3>
+<div id="outline-container-orgd9e8c5b" class="outline-3">
+<h3 id="orgd9e8c5b"><span class="section-number-3">2.12</span> <span class="done DONE">DONE</span> 底层接口</h3>
 <div class="outline-text-3" id="text-2-12">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
 <li><p>
-<a href="SystemModule/BaseCode/EventLoop.cpp#orgcd32137">EventLoop 事件循环监听</a>
+<a href="SystemModule/BaseCode/EventLoop.cpp#org13deab7">EventLoop 事件循环监听</a>
 </p>
 <ol class="org-ol">
 <li>维护了epoll对象</li>
@@ -1300,8 +1300,8 @@ Connection的管理类</li>
 数据收发 中间层</li>
 </ul>
 </div>
-<div id="outline-container-orgeca0734" class="outline-4">
-<h4 id="orgeca0734"><span class="section-number-4">2.12.1</span> 流程</h4>
+<div id="outline-container-org34b0ad1" class="outline-4">
+<h4 id="org34b0ad1"><span class="section-number-4">2.12.1</span> 流程</h4>
 <div class="outline-text-4" id="text-2-12-1">
 <ol class="org-ol">
 <li>Server连接其他server时候, 调用Connector类, 并在epoll(EventLoop)中记录, 然后循环检测时处理;</li>
@@ -1312,14 +1312,14 @@ Connection的管理类</li>
 GetAcceptcallback返回的是函数指针;
 函数指针在server中可自行注册;
 比如, GameServer中:
-<a href="SystemModule/GameServer/GameCtrl.cpp#org162e937">此处注册了函数指针</a>(由EventLoop-&gt;ConnectionManager, 再传递给Connection)</li>
+<a href="SystemModule/GameServer/GameCtrl.cpp#org384813a">此处注册了函数指针</a>(由EventLoop-&gt;ConnectionManager, 再传递给Connection)</li>
 </ol></li>
 </ol>
 </div>
 </div>
 </div>
-<div id="outline-container-org379b6ff" class="outline-3">
-<h3 id="org379b6ff"><span class="section-number-3">2.13</span> <span class="done DONE">DONE</span> DB多线程</h3>
+<div id="outline-container-orgeefc0b6" class="outline-3">
+<h3 id="orgeefc0b6"><span class="section-number-3">2.13</span> <span class="done DONE">DONE</span> DB多线程</h3>
 <div class="outline-text-3" id="text-2-13">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-09 Mon] </span></span> [done]</li>
@@ -1329,21 +1329,21 @@ GetAcceptcallback返回的是函数指针;
 进程中 <span class="underline">公共内存</span> (static, 全局数据)的 <span class="underline">写操作</span>
 </p>
 </div>
-<div id="outline-container-org067e907" class="outline-4">
-<h4 id="org067e907"><span class="section-number-4">2.13.1</span> 流程</h4>
+<div id="outline-container-org756a1e0" class="outline-4">
+<h4 id="org756a1e0"><span class="section-number-4">2.13.1</span> 流程</h4>
 <div class="outline-text-4" id="text-2-13-1">
 <ol class="org-ol">
 <li>DBServer初始化DBProxyCtrl, Ctrl中初始化线程</li>
-<li>线程<a href="SystemModule/BaseCode/Thread.cpp#orgfdbd8de">启动函数</a>中连接数据库, 并执行run()</li>
-<li><a href="SystemModule/DBProxyServer/DBProxyCtrl.cpp#org809e058">DBProxyCtrl中收到数据校验后, 执行dbhandle线程的GetOneCode</a></li>
+<li>线程<a href="SystemModule/BaseCode/Thread.cpp#org03e3819">启动函数</a>中连接数据库, 并执行run()</li>
+<li><a href="SystemModule/DBProxyServer/DBProxyCtrl.cpp#orgbe737ec">DBProxyCtrl中收到数据校验后, 执行dbhandle线程的GetOneCode</a></li>
 <li>线程的run()函数中, 检测到GetOneCode结果变动后, 解析msg, 并交给PacketHandler执行</li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaf69e3f" class="outline-3">
-<h3 id="orgaf69e3f"><span class="section-number-3">2.14</span> <span class="done DONE">DONE</span> 定时器</h3>
+<div id="outline-container-org410ec11" class="outline-3">
+<h3 id="org410ec11"><span class="section-number-3">2.14</span> <span class="done DONE">DONE</span> 定时器</h3>
 <div class="outline-text-3" id="text-2-14">
 <ul class="org-ul">
 <li><span class="timestamp-wrapper"><span class="timestamp">[2019-09-11 Wed] </span></span> [done]</li>
@@ -1357,8 +1357,8 @@ GetAcceptcallback返回的是函数指针;
 </ol>
 </div>
 </div>
-<div id="outline-container-org174f49b" class="outline-3">
-<h3 id="org174f49b"><span class="section-number-3">2.15</span> <span class="todo TODO">TODO</span> 进程管理工程</h3>
+<div id="outline-container-org7110b9d" class="outline-3">
+<h3 id="org7110b9d"><span class="section-number-3">2.15</span> <span class="todo TODO">TODO</span> 进程管理工程</h3>
 <div class="outline-text-3" id="text-2-15">
 <p>
 写一个工具, 完成以下功能:
@@ -1374,8 +1374,8 @@ target
 <li>重载Server进程输出</li>
 </ol>
 </div>
-<div id="outline-container-org3014537" class="outline-4">
-<h4 id="org3014537"><span class="section-number-4">2.15.1</span> 设计考量</h4>
+<div id="outline-container-orge9fe41c" class="outline-4">
+<h4 id="orge9fe41c"><span class="section-number-4">2.15.1</span> 设计考量</h4>
 <div class="outline-text-4" id="text-2-15-1">
 <ol class="org-ol">
 <li>需不需要ui界面
@@ -1407,8 +1407,8 @@ target
 </ol>
 </div>
 </div>
-<div id="outline-container-orge0a91c4" class="outline-4">
-<h4 id="orge0a91c4"><span class="section-number-4">2.15.2</span> 需要的类</h4>
+<div id="outline-container-orga043a4b" class="outline-4">
+<h4 id="orga043a4b"><span class="section-number-4">2.15.2</span> 需要的类</h4>
 <div class="outline-text-4" id="text-2-15-2">
 <ol class="org-ol">
 <li class="on"><code>[X]</code> Ui界面
@@ -1438,8 +1438,8 @@ shell的输出将保存到FILE* 中</li>
 </div>
 </div>
 
-<div id="outline-container-orgcb78624" class="outline-4">
-<h4 id="orgcb78624"><span class="section-number-4">2.15.3</span> 使用的技术</h4>
+<div id="outline-container-org470d145" class="outline-4">
+<h4 id="org470d145"><span class="section-number-4">2.15.3</span> 使用的技术</h4>
 <div class="outline-text-4" id="text-2-15-3">
 <ol class="org-ol">
 <li>ui table界面显示的时候, 使用线程处理.
@@ -1449,8 +1449,8 @@ shell的输出将保存到FILE* 中</li>
 </div>
 </div>
 
-<div id="outline-container-org6d7b134" class="outline-3">
-<h3 id="org6d7b134"><span class="section-number-3">2.16</span> 当前服务器缺陷</h3>
+<div id="outline-container-orge2f5ab5" class="outline-3">
+<h3 id="orge2f5ab5"><span class="section-number-3">2.16</span> 当前服务器缺陷</h3>
 <div class="outline-text-3" id="text-2-16">
 <ol class="org-ol">
 <li><p>
@@ -1493,12 +1493,12 @@ room type
 
 
 
-<div id="outline-container-orgff1b8f0" class="outline-2">
-<h2 id="orgff1b8f0"><span class="section-number-2">3</span> bug</h2>
+<div id="outline-container-org4c84b6f" class="outline-2">
+<h2 id="org4c84b6f"><span class="section-number-2">3</span> bug</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org30558e8" class="outline-3">
-<h3 id="org30558e8"><span class="section-number-3">3.1</span> Frame: 高概率 l2m player info时候, gameserver挂掉</h3>
+<div id="outline-container-orga2a00cb" class="outline-3">
+<h3 id="orga2a00cb"><span class="section-number-3">3.1</span> Frame: 高概率 l2m player info时候, gameserver挂掉</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 原因:
@@ -1508,17 +1508,17 @@ room type
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f47617" class="outline-3">
-<h3 id="org4f47617"><span class="section-number-3">3.2</span> 6,7 消息号 无限循环的bug</h3>
+<div id="outline-container-orgf5b3033" class="outline-3">
+<h3 id="orgf5b3033"><span class="section-number-3">3.2</span> 6,7 消息号 无限循环的bug</h3>
 </div>
-<div id="outline-container-orge4749bc" class="outline-3">
-<h3 id="orge4749bc"><span class="section-number-3">3.3</span> client会被踢出房间, 并提示 client time is out</h3>
+<div id="outline-container-org418fb62" class="outline-3">
+<h3 id="org418fb62"><span class="section-number-3">3.3</span> client会被踢出房间, 并提示 client time is out</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王成庆</p>
-<p class="date">Created: 2019-09-13 Fri 22:58</p>
+<p class="date">Created: 2019-09-13 Fri 23:05</p>
 </div>
 </body>
 </html>

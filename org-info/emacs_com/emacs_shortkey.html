@@ -6,7 +6,7 @@
 <!-- 2019-09-13 Fri 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>yasnippet mode</title>
+<title>快捷键</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_com.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,146 +314,428 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_com.html"> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">yasnippet mode</h1>
+<h1 class="title">快捷键</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba3b193">1. 为什么需要模板</a></li>
-<li><a href="#org734e3ce">2. 什么是yasnippet-mode</a></li>
-<li><a href="#org1d2199c">3. 配置</a></li>
-<li><a href="#orgabc11cd">4. 使用</a></li>
+<li><a href="#orga6c9db1">1. Emacs快捷键一览</a></li>
+<li><a href="#org18db9f2">2. hydra-mode</a></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orga6c9db1" class="outline-2">
+<h2 id="orga6c9db1"><span class="section-number-2">1</span> Emacs快捷键一览</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-模板工具
+部分自定义
 </p>
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<div id="outline-container-orgba3b193" class="outline-2">
-<h2 id="orgba3b193"><span class="section-number-2">1</span> 为什么需要模板</h2>
-<div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>减少重复工作, 提升效率</li>
-<li>标准化</li>
-</ul>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字母</th>
+<th scope="col" class="org-left">C</th>
+<th scope="col" class="org-left">M</th>
+<th scope="col" class="org-left">C-x</th>
+<th scope="col" class="org-left">C-c</th>
+<th scope="col" class="org-left">C-j</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">行首</td>
+<td class="org-left">段首</td>
+<td class="org-left">buffer首</td>
+<td class="org-left"><code>mode</code> org</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">后退</td>
+<td class="org-left">后退</td>
+<td class="org-left">列表</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left"><code>修饰</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">capure</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">删除</td>
+<td class="org-left">删除</td>
+<td class="org-left">目录</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">行尾</td>
+<td class="org-left">段尾</td>
+<td class="org-left">buffer尾</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">前进</td>
+<td class="org-left">前进</td>
+<td class="org-left">打开</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">取消</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>mode</code> artist</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left"><code>修饰</code> 帮助文档</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">pop-stack</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">别名 {TAB}</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">j</td>
+<td class="org-left"><code>修饰</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">dwim</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">kill</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">删除</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">find-rtag</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">移动buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">find-symbol</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">别名 {ENTER}</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">下一行</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">?  org-open-line</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">切换</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">上一行</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">查找</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">查找</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">保存</td>
+<td class="org-left"><code>mode</code> yasnippet</td>
+<td class="org-left"><code>mode</code> smartparens</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">替换</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left"><code>修饰</code> 命令重复</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">翻页</td>
+<td class="org-left">翻页</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">剪切</td>
+<td class="org-left">复制</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">refile</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left"><code>修饰</code> buffer</td>
+<td class="org-left">命令</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">粘贴</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">archive</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">z</td>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">DEL</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">删除</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">,</td>
+<td class="org-left">previous agenda buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">.</td>
+<td class="org-left">next agenda buffer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-org734e3ce" class="outline-2">
-<h2 id="org734e3ce"><span class="section-number-2">2</span> 什么是yasnippet-mode</h2>
+
+<div id="outline-container-org18db9f2" class="outline-2">
+<h2 id="org18db9f2"><span class="section-number-2">2</span> hydra-mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-一个好用的快速模板工具
+emacs本身键位繁琐, 安装mode之后, 键位问题更加突出. 
+每个mode基本都有mode-map, 包含数不清的按键.
+而人能记住的按键是有限的.
 </p>
-</div>
-</div>
-<div id="outline-container-org1d2199c" class="outline-2">
-<h2 id="org1d2199c"><span class="section-number-2">3</span> 配置</h2>
-<div class="outline-text-2" id="text-3">
-<ol class="org-ol">
-<li><p>
-下载yasnippet-mode
+
+<p>
+比如artist-mode中, 部分常用键位如下
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">图形</th>
+<th scope="col" class="org-left">简述</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">line</td>
+<td class="org-left">线段</td>
+<td class="org-left">C-c C-a l</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">proy line</td>
+<td class="org-left">直线</td>
+<td class="org-left">C-c C-a p</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">四边形</td>
+<td class="org-left">rectngle</td>
+<td class="org-left">C-c C-a r</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">正方形</td>
+<td class="org-left">squares</td>
+<td class="org-left">C-c C-a s</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">椭圆</td>
+<td class="org-left">elipse</td>
+<td class="org-left">C-c C-a e</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">圆</td>
+<td class="org-left">circle</td>
+<td class="org-left">C-c C-a c</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">水雾</td>
+<td class="org-left">spray</td>
+<td class="org-left">C-c C-a S</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+我们期望的不是去记住这么多按键, 而是希望敲入一个按键之后, 在一个新buffer中显示所有按键.
+比如键入C-@之后, 底方buffer显示
 </p>
 <pre class="example">
-package-list-packages yasnippet-mode RET
-</pre></li>
-
-<li><p>
-加载yasnippet-mode
-</p>
-<pre class="example">
-(require 'yasnippet)
-(yas-global-mode t)
-</pre></li>
-
-<li><p>
-配置路径
-</p>
-<pre class="example">
-;; 重载路径文件
-(setq yas-snippet-dirs
-  '("~/.emacs.d/yasnippets"))
-
-;; 加载路径文件
-(yas-load-directory "~/.emacs.d/yasnippets/")
+_o_: 起点
+_l_: 线      _p_: 直线
+_r_: 四边形  _s_: 正方形
+_e_: 椭圆    _c_: 圆
+_y_: 水雾
 </pre>
 <p>
-删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
-</p></li>
-
-<li><p>
-配置快捷键
+这样, 就无需去记忆这么多不同按键, 我只需要记住C-@可以呼唤出一个这样的菜单栏即可.
 </p>
-<pre class="example">
-(require 'yasnippet)
-
-;; 使用hydra-mode管理yasnippet快捷键
-(defhydra hydra-yas-minor (:color blue
-			     :hint nil)
-"
-_j_: 扩展   _i_: 增加   _v_: 查看
-
-"
-("j" yas-expand)  ;;&lt;Tab&gt;仍可使用
-("i" yas-new-snippet)
-("v" yas-visit-snippet-file))
-
-;;全局快捷键放到统一文件管理
-;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
-</pre></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgabc11cd" class="outline-2">
-<h2 id="orgabc11cd"><span class="section-number-2">4</span> 使用</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-以使用org-mode在hexo下写blog 举例
-</p>
-<pre class="example">
-# 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
-# -*- mode: snippet -*-
-# name: hexo : hexo博客
-# key: hexo
-# --
-
-# 此处使用了org-mode的元数据
-#+BEGIN_COMMENT
-| 名称       | 简述         | 取值               | 备注                 |
-|------------+--------------+--------------------+----------------------|
-| TITLE      | 标题         |                    |                      |
-|------------+--------------+--------------------+----------------------|
-| LAYOUT     | hexo排版模式 | post               |                      |
-|------------+--------------+--------------------+----------------------|
-| CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
-|            |              | system, tool       |                      |
-|------------+--------------+--------------------+----------------------|
-| TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
-|------------+--------------+--------------------+----------------------|
-#+END_COMMENT
-
-# 此处为org-mode 与 hexo交互的元数据
-#+TITLE: ${1}
-#+LAYOUT: post
-#+CATEGORIES: ${2}
-#+TAGS: ${3}
-
-${4}
-
-#+HTML: &lt;!-- more --&gt;
-${5}
-
-# 按tab可以方便的从${n} 到 ${n+1}
-</pre>
 
 <p>
-当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
+Hydra-mode就是解决emacs + mode带来的按键问题.
+Hydra-mode完美实现了我们上面问题中的期望.
 </p>
 </div>
 </div>

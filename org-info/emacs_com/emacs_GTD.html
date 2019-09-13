@@ -6,7 +6,7 @@
 <!-- 2019-09-13 Fri 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>gdb &amp;&amp; gud</title>
+<title>GTD &amp;&amp; org-mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_com.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,58 +314,61 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_com.html"> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">gdb &amp;&amp; gud</h1>
+<h1 class="title">GTD &amp;&amp; org-mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org595917e">1. 功能</a></li>
-<li><a href="#org0dca00e">2. 安装</a></li>
-<li><a href="#orgbbe05a6">3. 配置</a></li>
-<li><a href="#org2dea4e2">4. gdb使用</a></li>
-<li><a href="#org4291364">5. gud使用</a>
+<li><a href="#org89052e5">1. 为什么要用GTD</a></li>
+<li><a href="#org22bd589">2. GTD是什么</a>
 <ul>
-<li><a href="#org4efe079">5.1. 例子</a></li>
-<li><a href="#org44204c1">5.2. 问题</a></li>
+<li><a href="#org5ad6bf8">2.1. 人生5楼</a></li>
+<li><a href="#orgaeeb1d2">2.2. GTD是什么</a></li>
+</ul>
+</li>
+<li><a href="#org97c1abd">3. GTD怎么实现</a></li>
+<li><a href="#org39920b1">4. org mode怎么实现GTD</a>
+<ul>
+<li><a href="#org268b8b2">4.1. 思路的设计</a></li>
+<li><a href="#org85408f4">4.2. 流程的设计</a></li>
+<li><a href="#orgf977cfc">4.3. 文件的设计</a></li>
+<li><a href="#org8102390">4.4. TODO的设计</a></li>
+<li><a href="#orgab7ac89">4.5. TAGS的设计</a></li>
+<li><a href="#org58d994b">4.6. Agent的设计</a></li>
+<li><a href="#org4baed20">4.7. 使用流程</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org595917e" class="outline-2">
-<h2 id="org595917e"><span class="section-number-2">1</span> 功能</h2>
+<div id="outline-container-org89052e5" class="outline-2">
+<h2 id="org89052e5"><span class="section-number-2">1</span> 为什么要用GTD</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>gdb: 调试软件</li>
-<li>gud: emacs中调用gdb</li>
-</ul>
+<p>
+  每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. 这些事情如果都存储在脑中, 轻则
+焦虑不堪, 重则脑子爆炸. 而且脑中一旦塞满了这类事情, 非常不利于思考. 大脑应该是拿来思考的, 而不是用来存
+储的. 假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更
+专一的处理当下的问题. 同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨
+,比如女友生日. 而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外.
+</p>
 </div>
 </div>
-<div id="outline-container-org0dca00e" class="outline-2">
-<h2 id="org0dca00e"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org22bd589" class="outline-2">
+<h2 id="org22bd589"><span class="section-number-2">2</span> GTD是什么</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org5ad6bf8" class="outline-3">
+<h3 id="org5ad6bf8"><span class="section-number-3">2.1</span> 人生5楼</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-gud为emacs自带;
-gdb可以在gnu.org下载
+了解GTD之前, 必须了解人生5楼.
 </p>
-</div>
-</div>
-<div id="outline-container-orgbbe05a6" class="outline-2">
-<h2 id="orgbbe05a6"><span class="section-number-2">3</span> 配置</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-<a href="emacs_gdb/init-gdb.el">具体配置</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org2dea4e2" class="outline-2">
-<h2 id="org2dea4e2"><span class="section-number-2">4</span> gdb使用</h2>
-<div class="outline-text-2" id="text-4">
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -375,245 +378,475 @@ gdb可以在gnu.org下载
 <col  class="org-left" />
 
 <col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">指令</th>
-<th scope="col" class="org-left">简写</th>
-<th scope="col" class="org-left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">attach</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">附加到已经运行的程序</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">run</td>
-<td class="org-left">r</td>
-<td class="org-left">运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">continue</td>
-<td class="org-left">c</td>
-<td class="org-left">继续执行，到下一个断点停止（或运行结束）</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">next</td>
-<td class="org-left">n</td>
-<td class="org-left">单步跟踪程序，当遇到函数调用时，也不进入此函数体</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">step</td>
-<td class="org-left">s</td>
-<td class="org-left">单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">until</td>
-<td class="org-left">u</td>
-<td class="org-left">当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">until+行号</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">运行至某行，不仅仅用来跳出循环</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">finish</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">quit</td>
-<td class="org-left">q</td>
-<td class="org-left">退出gdb</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">up</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">上个stack</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">down</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">下个stack</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">watch</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">变量监控</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">breakpoint</td>
-<td class="org-left">b</td>
-<td class="org-left">file :line<sub>num</sub>   文件:行号</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&lt;fun<sub>name</sub>&gt;       函数名字</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败
-continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4291364" class="outline-2">
-<h2 id="org4291364"><span class="section-number-2">5</span> gud使用</h2>
-<div class="outline-text-2" id="text-5">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
 
 <col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">buffer名字</th>
-<th scope="col" class="org-left">简述</th>
+<th scope="col" class="org-left">楼数</th>
+<th scope="col" class="org-left">功能</th>
+<th scope="col" class="org-left">说明</th>
 <th scope="col" class="org-left">备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">gud</td>
-<td class="org-left">gdb命令输入窗口</td>
+<td class="org-left">5楼</td>
+<td class="org-left">人生规划</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">source</td>
-<td class="org-left">调试时自动显示源码</td>
-<td class="org-left">不要edit, 否则导致source自动关联失效</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">breakpoint</td>
-<td class="org-left">断点</td>
-<td class="org-left">不会命中的断点显示为pending</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">threads</td>
-<td class="org-left">线程</td>
+<td class="org-left">4楼</td>
+<td class="org-left">3年目标</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">stack</td>
-<td class="org-left">堆栈</td>
+<td class="org-left">3楼</td>
+<td class="org-left">1年目标</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">local</td>
-<td class="org-left">local变量</td>
+<td class="org-left">2楼</td>
+<td class="org-left">职责范围</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">register</td>
-<td class="org-left">寄存器</td>
+<td class="org-left">1楼</td>
+<td class="org-left">项目</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">GTD管理</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">assembler</td>
-<td class="org-left">显示汇编</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">memory</td>
-<td class="org-left">内存查看</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">地面</td>
+<td class="org-left">行动清单</td>
+<td class="org-left">归属1楼</td>
+<td class="org-left">GTD管理</td>
 </tr>
 </tbody>
 </table>
 
 <p>
-为了显示方便,  
-breakpoint与threads buffer同在一个frame;
-local与register buffer同在一个frame;
-可以按"TAB"快速切换
+   把人生(或部分人生)比喻成一座大厦, 1楼是我们当下要做的事情, 2楼是我们的职责范围, 3楼是我们1年后的样
+子, 4楼是我们3年后的样子, 5楼是我们人生(10年, 20年或一辈子)的规划.
+</p>
+
+<p>
+   <span class="underline">我们的人生是高层决定了低层</span>. 比如, 如果想成为计算机专家(5楼), 那么3年后要先成为工程师(4楼), 1年后
+要先成为程序员(3楼). 为了要成为程序员, 也许我们需要去报班学习(2楼职责为学习),或者成为程序员助理(2楼职
+责为搬砖). 而1楼则是我们当下要确确实实需要处理的事情, 比如看书, 工作, 与同事交流等, 所有一切能对我们有
+提升的事情.
+</p>
+
+<p>
+<span class="underline">大厦是由低到高建造的</span>. 千里之行, 始于足下. 1楼的行为直接决定了能否达到后面的楼层.
+</p>
+
+<p>
+大厦最难的地方不在于实现5楼的规划, 而在于制定5楼的规划. 不过这也正是人生的魅力所在吧.
 </p>
 </div>
+</div>
+<div id="outline-container-orgaeeb1d2" class="outline-3">
+<h3 id="orgaeeb1d2"><span class="section-number-3">2.2</span> GTD是什么</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+GTD全名Getting things done, 它只是一种思想, 所能管理的是大厦的1楼.
+它的核心目的: 事物存储在脑外, 大脑用来思考.
+</p>
 
-<div id="outline-container-org4efe079" class="outline-3">
-<h3 id="org4efe079"><span class="section-number-3">5.1</span> 例子</h3>
-<div class="outline-text-3" id="text-5-1">
+<p>
+GTD的工作流程(算法)甚至文件(结构)都是可以自定义的. 适合的才是最好的.
+</p>
+
+<p>
+吐槽: 中文译本《Getting things done》满篇废话.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org97c1abd" class="outline-2">
+<h2 id="org97c1abd"><span class="section-number-2">3</span> GTD怎么实现</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
+</p>
+</div>
+</div>
+<div id="outline-container-org39920b1" class="outline-2">
+<h2 id="org39920b1"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org268b8b2" class="outline-3">
+<h3 id="org268b8b2"><span class="section-number-3">4.1</span> 思路的设计</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+5楼 到 地面视角
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">楼数</th>
+<th scope="col" class="org-left">功能</th>
+<th scope="col" class="org-left">说明</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">5楼</td>
+<td class="org-left">人生规划</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">4楼</td>
+<td class="org-left">3年目标</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">3楼</td>
+<td class="org-left">1年目标</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">2楼</td>
+<td class="org-left">职责范围</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">1楼</td>
+<td class="org-left">项目</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">GTD管理</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">地面</td>
+<td class="org-left">行动清单</td>
+<td class="org-left">隶属1楼</td>
+<td class="org-left">GTD管理</td>
+</tr>
+</tbody>
+</table>
+<p>
+备注 : GTD管理的其实是 1楼 &amp;&amp; 地面的清单
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85408f4" class="outline-3">
+<h3 id="org85408f4"><span class="section-number-3">4.2</span> 流程的设计</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example">
+--------------------------------+-------------------------------
+			        |
+		                |
+	                        +-----------------------\ capture
+                                |			    \
+                                |
+                                |
+ 			   +----------+
+			   |  inbox   |
+ 			   +----------+
+	       	       	     /      \
+			    /        \  -----------------\ refile
+			   /	         \     	       	     \
+			  /	          \
+			 /  	     	   \
+		    +---------+     	+-----------+
+		    |  task   | ---&gt;	|  trash    |
+		    +---------+     	+-----------+
+		       |
+		       |
+		       |
+		       | ---------------------------------\ archive
+		       |  				      \
+		       |
+		       |
+       	       	 +---------+
+       	       	 | archive |
+		 +---------+
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf977cfc" class="outline-3">
+<h3 id="orgf977cfc"><span class="section-number-3">4.3</span> 文件的设计</h3>
+<div class="outline-text-3" id="text-4-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">文件名</th>
+<th scope="col" class="org-left">说明</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">inbox.org</td>
+<td class="org-left">收集箱</td>
+<td class="org-left">1. 不区分时间, 不区分场景</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 灵光一闪即可扔进去保存</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3. 自动清空</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">task.org</td>
+<td class="org-left">任务清单</td>
+<td class="org-left">1. priority标签</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">task</td>
+<td class="org-left">2. 四象限约束</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">项目清单</td>
+<td class="org-left">1. 凡是steps&gt;1的都属于项目</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">project</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">archive.org</td>
+<td class="org-left">参考资料</td>
+<td class="org-left">1. 有参考价值的东西</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 垃圾箱</td>
+</tr>
+</tbody>
+</table>
+<p>
+备注:
+</p>
 <ol class="org-ol">
-<li>emacs: M-x gdb RET</li>
-<li>gud: attch &lt;program pid&gt;</li>
-<li>设置breakpoint
-<ul class="org-ul">
-<li>gud: b</li>
-<li>source: gud-break; gud-tbreak</li>
-<li>breakpoint: D 删除断点</li>
-</ul></li>
-<li>设置watch
-<ul class="org-ul">
-<li>gud: watch</li>
-<li>souce: gud-watch</li>
-</ul></li>
+<li>task 与 project的唯一区别
+task只有one step,  project的steps &gt; 1</li>
+<li>文件都是通过流程来操作的, 不应该手动去干预</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org44204c1" class="outline-3">
-<h3 id="org44204c1"><span class="section-number-3">5.2</span> 问题</h3>
-<div class="outline-text-3" id="text-5-2">
+
+<div id="outline-container-org8102390" class="outline-3">
+<h3 id="org8102390"><span class="section-number-3">4.4</span> TODO的设计</h3>
+<div class="outline-text-3" id="text-4-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">功能</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">TODO</td>
+<td class="org-left">等待自己处理</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WAITTING</td>
+<td class="org-left">等待他人完成</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DONE</td>
+<td class="org-left">完成</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CANCEL</td>
+<td class="org-left">取消</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+备注:
+</p>
 <ol class="org-ol">
-<li>gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
-简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效</li>
-<li>gdb continue之后 如何退出
-<ol class="org-ol">
-<li>gdb进程中可以使用C-c, 退出attach所关联的进程</li>
-<li>emacs-gdb中如何退出 ?? TODONOW</li>
-</ol></li>
+<li>针对的对象是下一步行动清单</li>
+<li>project中的下一步行动即是最上层的行动;
+task中的下一步行动是依据四象限法则来确定的.</li>
+<li>TODO与WAITTING的含义, 表示该行动正在或即将处理</li>
 </ol>
+</div>
+</div>
+
+<div id="outline-container-orgab7ac89" class="outline-3">
+<h3 id="orgab7ac89"><span class="section-number-3">4.5</span> TAGS的设计</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+四象限使用proirity来区分;
+TAGS为之后快速查找使用
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58d994b" class="outline-3">
+<h3 id="org58d994b"><span class="section-number-3">4.6</span> Agent的设计</h3>
+<div class="outline-text-3" id="text-4-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">含义</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-c a a</td>
+<td class="org-left">查看当下的操作</td>
+<td class="org-left">最好把当下设置为1月, 能全局一览</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">C-c a n</td>
+<td class="org-left">当下没有操作, 则可以查看next step</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">C-c a i</td>
+<td class="org-left">查看inbox中的记录</td>
+<td class="org-left">无需在查看inbox; inbox中的TODO会自动</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">refile到task中</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">如果inbox中也没有</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">则应该反思, 最近是不是太闲了</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4baed20" class="outline-3">
+<h3 id="org4baed20"><span class="section-number-3">4.7</span> 使用流程</h3>
+<div class="outline-text-3" id="text-4-7">
+<pre class="example">
+     随时            	       自动处理        	       	  C-c a n界面		      C-c a a 界面
+      |			  |  			      |				 |
+      |			  |			      |				 |
+|    	v      	       	       	  v			      v				 v
+| 1.capture		     1. auto refile		 1.add timestamp       	  1. auto archive
+|   with TODO  +---------+   		 +------------+	       	     +----------+	     +-----------+
++------------&gt; | inbox   |-----------&gt; | next step  |-------------&gt;| agenda   |-----------&gt;| archive   |
+|   C-c c    	 +---------+   	       	 +------------+	 m-&gt;a-&gt;s,d   +----------+            +-----------+
+|
+|
+
+</pre>
 </div>
 </div>
 </div>

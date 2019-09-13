@@ -6,7 +6,7 @@
 <!-- 2019-09-13 Fri 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>yasnippet mode</title>
+<title>helm mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_IDE.html");
+org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs_com.html");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,147 +314,118 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="http://wcq.fun/org-info/emacs_IDE.html"> UP </a>
+ <a accesskey="h" href="http://wcq.fun/org-info/emacs_com.html"> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">yasnippet mode</h1>
+<h1 class="title">helm mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba3b193">1. 为什么需要模板</a></li>
-<li><a href="#org734e3ce">2. 什么是yasnippet-mode</a></li>
-<li><a href="#org1d2199c">3. 配置</a></li>
-<li><a href="#orgabc11cd">4. 使用</a></li>
+<li><a href="#org2c89b9d">1. 为什么需要</a></li>
+<li><a href="#org689ef4e">2. 什么是helm-mode</a></li>
+<li><a href="#org5ee9c81">3. 配置</a></li>
+<li><a href="#orgd977eda">4. 使用</a></li>
+<li><a href="#org45ffb2e">5. 函数介绍</a>
+<ul>
+<li><a href="#orgcbdf1e2">5.1. helm-occur</a></li>
+<li><a href="#org3bd5c8b">5.2. helm-browse-project</a></li>
+<li><a href="#org70d7b0e">5.3. helm-filtered-bookmarks</a></li>
+<li><a href="#org7a5b1a8">5.4. helm-compilation</a></li>
+<li><a href="#org50bd74d">5.5. helm-buffers-list</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<p>
-模板工具
-</p>
 
 
-<div id="outline-container-orgba3b193" class="outline-2">
-<h2 id="orgba3b193"><span class="section-number-2">1</span> 为什么需要模板</h2>
+<div id="outline-container-org2c89b9d" class="outline-2">
+<h2 id="org2c89b9d"><span class="section-number-2">1</span> 为什么需要</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>减少重复工作, 提升效率</li>
-<li>标准化</li>
-</ul>
+<p>
+假设有3个buffer, 分别为AB,BC,AD.
+常规的选择, 只能从左到右输入选择, 或者buffer中移动.
+而helm提供了过滤功能, 我们输入D, 它能只留下符合的, 即AD, 方便在众多buffer中选择.
+</p>
 </div>
 </div>
-<div id="outline-container-org734e3ce" class="outline-2">
-<h2 id="org734e3ce"><span class="section-number-2">2</span> 什么是yasnippet-mode</h2>
+<div id="outline-container-org689ef4e" class="outline-2">
+<h2 id="org689ef4e"><span class="section-number-2">2</span> 什么是helm-mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-一个好用的快速模板工具
+helm-mode极大的改善了用户体验.主要体现:
 </p>
-</div>
-</div>
-<div id="outline-container-org1d2199c" class="outline-2">
-<h2 id="org1d2199c"><span class="section-number-2">3</span> 配置</h2>
-<div class="outline-text-2" id="text-3">
 <ol class="org-ol">
-<li><p>
-下载yasnippet-mode
-</p>
-<pre class="example">
-package-list-packages yasnippet-mode RET
-</pre></li>
-
-<li><p>
-加载yasnippet-mode
-</p>
-<pre class="example">
-(require 'yasnippet)
-(yas-global-mode t)
-</pre></li>
-
-<li><p>
-配置路径
-</p>
-<pre class="example">
-;; 重载路径文件
-(setq yas-snippet-dirs
-  '("~/.emacs.d/yasnippets"))
-
-;; 加载路径文件
-(yas-load-directory "~/.emacs.d/yasnippets/")
-</pre>
-<p>
-删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
-</p></li>
-
-<li><p>
-配置快捷键
-</p>
-<pre class="example">
-(require 'yasnippet)
-
-;; 使用hydra-mode管理yasnippet快捷键
-(defhydra hydra-yas-minor (:color blue
-			     :hint nil)
-"
-_j_: 扩展   _i_: 增加   _v_: 查看
-
-"
-("j" yas-expand)  ;;&lt;Tab&gt;仍可使用
-("i" yas-new-snippet)
-("v" yas-visit-snippet-file))
-
-;;全局快捷键放到统一文件管理
-;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
-</pre></li>
+<li>buffer-list</li>
+<li>M-x</li>
+<li>find-files</li>
 </ol>
 </div>
 </div>
-
-<div id="outline-container-orgabc11cd" class="outline-2">
-<h2 id="orgabc11cd"><span class="section-number-2">4</span> 使用</h2>
+<div id="outline-container-org5ee9c81" class="outline-2">
+<h2 id="org5ee9c81"><span class="section-number-2">3</span> 配置</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+helm-mode的配置非常简单, 具体见github
+</p>
+</div>
+</div>
+<div id="outline-container-orgd977eda" class="outline-2">
+<h2 id="orgd977eda"><span class="section-number-2">4</span> 使用</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-以使用org-mode在hexo下写blog 举例
+helm-mode没有特意的去改变用户的使用习惯, 只是提升了用户体验. 操作使用与之前一样即可
 </p>
-<pre class="example">
-# 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
-# -*- mode: snippet -*-
-# name: hexo : hexo博客
-# key: hexo
-# --
-
-# 此处使用了org-mode的元数据
-#+BEGIN_COMMENT
-| 名称       | 简述         | 取值               | 备注                 |
-|------------+--------------+--------------------+----------------------|
-| TITLE      | 标题         |                    |                      |
-|------------+--------------+--------------------+----------------------|
-| LAYOUT     | hexo排版模式 | post               |                      |
-|------------+--------------+--------------------+----------------------|
-| CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
-|            |              | system, tool       |                      |
-|------------+--------------+--------------------+----------------------|
-| TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
-|------------+--------------+--------------------+----------------------|
-#+END_COMMENT
-
-# 此处为org-mode 与 hexo交互的元数据
-#+TITLE: ${1}
-#+LAYOUT: post
-#+CATEGORIES: ${2}
-#+TAGS: ${3}
-
-${4}
-
-#+HTML: &lt;!-- more --&gt;
-${5}
-
-# 按tab可以方便的从${n} 到 ${n+1}
-</pre>
-
+</div>
+</div>
+<div id="outline-container-org45ffb2e" class="outline-2">
+<h2 id="org45ffb2e"><span class="section-number-2">5</span> 函数介绍</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgcbdf1e2" class="outline-3">
+<h3 id="orgcbdf1e2"><span class="section-number-3">5.1</span> helm-occur</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
-当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
+查找全部
 </p>
+</div>
+</div>
+<div id="outline-container-org3bd5c8b" class="outline-3">
+<h3 id="org3bd5c8b"><span class="section-number-3">5.2</span> helm-browse-project</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+查看工程文件
+绑定在了C-x C-b上
+</p>
+</div>
+</div>
+<div id="outline-container-org70d7b0e" class="outline-3">
+<h3 id="org70d7b0e"><span class="section-number-3">5.3</span> helm-filtered-bookmarks</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+书签
+</p>
+</div>
+</div>
+<div id="outline-container-org7a5b1a8" class="outline-3">
+<h3 id="org7a5b1a8"><span class="section-number-3">5.4</span> helm-compilation</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+归属于helm-mode. 重载了emac的compilation
+</p>
+</div>
+</div>
+<div id="outline-container-org50bd74d" class="outline-3">
+<h3 id="org50bd74d"><span class="section-number-3">5.5</span> helm-buffers-list</h3>
+<div class="outline-text-3" id="text-5-5">
+<ol class="org-ol">
+<li>输入" @XX", 过滤掉buffer
+@XX前面有空格</li>
+<li>在所要查找的buffer中, C-s 调用helm-occur直接查找结果</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
