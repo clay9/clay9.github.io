@@ -291,6 +291,190 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_elisp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/08/emacs/emacs_elisp/" itemprop="url">elisp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
+                2019-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5275c8c">&#x63A8;&#x8350;&#x6587;&#x7AE0;</a></li>
+<li><a href="#org9a1e252">&#x4E71;&#x4E03;&#x516B;&#x7CDF;&#x8BB0;&#x5F55;</a></li>
+<li><a href="#org6429588">elisp &#x4E0E; bash</a>
+<ul>
+<li><a href="#org1cb43e9">bash&#x8C03;&#x7528;elisp</a></li>
+<li><a href="#org0321a95">elisp&#x8C03;&#x7528;bash</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5275c8c" class="outline-2">
+<h2 id="org5275c8c">&#x63A8;&#x8350;&#x6587;&#x7AE0;</h2>
+<div class="outline-text-2" id="text-org5275c8c">
+<ol class="org-ol">
+<li><a href="http://smacs.github.io/elisp/02-elisp-basic.html" target="_blank" rel="noopener">&#x6C34;&#x6728;&#x793E;&#x533A;Emacs&#x7248;</a></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org9a1e252" class="outline-2">
+<h2 id="org9a1e252">&#x4E71;&#x4E03;&#x516B;&#x7CDF;&#x8BB0;&#x5F55;</h2>
+<div class="outline-text-2" id="text-org9a1e252">
+<ol class="org-ol">
+<li>lisp&#x6CA1;&#x6709;&#x91CD;&#x8F7D;&#x4E00;&#x8BF4;, &#x76F4;&#x63A5;&#x8986;&#x76D6;; &#x56E0;&#x6B64;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x51FA;&#x73B0;&#x4E86; advise &#x51FD;&#x6570;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org6429588" class="outline-2">
+<h2 id="org6429588">elisp &#x4E0E; bash</h2>
+<div class="outline-text-2" id="text-org6429588">
+</div>
+<div id="outline-container-org1cb43e9" class="outline-3">
+<h3 id="org1cb43e9">bash&#x8C03;&#x7528;elisp</h3>
+<div class="outline-text-3" id="text-org1cb43e9">
+<ol class="org-ol">
+<li>elisp&#x4EE3;&#x7801;&#x5199;&#x5165;el&#x6587;&#x4EF6;</li>
+<li><p>
+bash&#x8C03;&#x7528;emacs&#x6267;&#x884C;el&#x6587;&#x4EF6;
+</p>
+<pre class="example">
+emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el</pre></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0321a95" class="outline-3">
+<h3 id="org0321a95">elisp&#x8C03;&#x7528;bash</h3>
+<div class="outline-text-3" id="text-org0321a95">
+<pre class="example">
+(setq my-command
+   (concat &quot;IFS=: read -ra dirs &lt;&lt;&lt;\&quot;$PATH\&quot;\n&quot;
+           &quot;for dir in ${dirs[@]}; do\n&quot;
+           &quot; echo got dir \&quot;$dir\&quot;\n&quot;
+           &quot;done\n&quot;))
+(shell-command (format &quot;bash -c %s&quot; (shell-quote-argument my-command)))</pre>
+</div>
+</div>
+</div>
+</div>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/gnu/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,304 +574,6 @@ git&#x7B80;&#x6613;&#x6307;&#x5BFC;, &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x5FC3;&#x
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/09/08/gnu/git/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </div></article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/gnu/elisp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WCQ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="飘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/08/gnu/elisp/" itemprop="url">elisp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
-                2019-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/gnu/" itemprop="url" rel="index">
-                    <span itemprop="name">gnu</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="content">
-<p>
-elisp&#x7B80;&#x6613;&#x6559;&#x7A0B;
-</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/gnu/elisp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </div></article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocal/object/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WCQ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="飘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/08/protocal/object/" itemprop="url">静态库 && 动态库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
-                2019-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/protocol/" itemprop="url" rel="index">
-                    <span itemprop="name">protocol</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="content">
-<p>
-linux&#x4E0B;&#x9759;&#x6001;&#x5E93; &amp;&amp; &#x52A8;&#x6001;&#x5E93;
-</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/protocal/object/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -887,7 +773,7 @@ socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocal/object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WCQ">
@@ -906,7 +792,7 @@ socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/" itemprop="url">artist mode && graphviz mode</a></h1>
+                <a class="post-title-link" href="/2019/09/08/protocal/object/" itemprop="url">静态库 && 动态库</a></h1>
         
 
         <div class="post-meta">
@@ -941,8 +827,8 @@ socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/emacs/" itemprop="url" rel="index">
-                    <span itemprop="name">emacs</span>
+                  <a href="/categories/protocol/" itemprop="url" rel="index">
+                    <span itemprop="name">protocol</span>
                   </a>
                 </span>
 
@@ -981,11 +867,11 @@ socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
         
           <div id="content">
 <p>
-emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
+linux&#x4E0B;&#x9759;&#x6001;&#x5E93; &amp;&amp; &#x52A8;&#x6001;&#x5E93;
 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/emacs/emacs_com/emacs_graphviz-mode/#more" rel="contents">
+            <a class="btn" href="/2019/09/08/protocal/object/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1036,7 +922,7 @@ emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_shortkey/">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocal/regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WCQ">
@@ -1055,7 +941,7 @@ emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/08/emacs/emacs_com/emacs_shortkey/" itemprop="url">Emacs快捷键</a></h1>
+                <a class="post-title-link" href="/2019/09/08/protocal/regex/" itemprop="url">正则表达式</a></h1>
         
 
         <div class="post-meta">
@@ -1090,8 +976,8 @@ emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/emacs/" itemprop="url" rel="index">
-                    <span itemprop="name">emacs</span>
+                  <a href="/categories/protocol/" itemprop="url" rel="index">
+                    <span itemprop="name">protocol</span>
                   </a>
                 </span>
 
@@ -1130,309 +1016,11 @@ emacs&#x7ED8;&#x56FE;mode, artist-mode &amp;&amp; graphviz-mode
         
           <div id="content">
 <p>
-Emacs&#x5FEB;&#x6377;&#x952E;&#x6574;&#x7406;
+&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;
 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/emacs/emacs_com/emacs_shortkey/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </div></article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_org-mode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WCQ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="飘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/08/emacs/emacs_org-mode/" itemprop="url">org-mode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
-                2019-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/emacs/" itemprop="url" rel="index">
-                    <span itemprop="name">emacs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="content">
-<p>
-org-mode
-</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/emacs/emacs_org-mode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </div></article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_com/emacs_helm_mode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WCQ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="飘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/08/emacs/emacs_com/emacs_helm_mode/" itemprop="url">helm mode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
-                2019-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/emacs/" itemprop="url" rel="index">
-                    <span itemprop="name">emacs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="content">
-<p>
-&#x4F18;&#x5316;buffer, file&#x9009;&#x62E9;
-</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/emacs/emacs_com/emacs_helm_mode/#more" rel="contents">
+            <a class="btn" href="/2019/09/08/protocal/regex/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1632,7 +1220,7 @@ org-mode
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs_GTD/">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/emacs/emacs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WCQ">
@@ -1651,7 +1239,7 @@ org-mode
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/08/emacs/emacs_GTD/" itemprop="url">GTD && org-mode</a></h1>
+                <a class="post-title-link" href="/2019/09/08/emacs/emacs/" itemprop="url">emacs</a></h1>
         
 
         <div class="post-meta">
@@ -1726,11 +1314,160 @@ org-mode
         
           <div id="content">
 <p>
-GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
+emacs &#x7B80;&#x8FF0;
 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/09/08/emacs/emacs_GTD/#more" rel="contents">
+            <a class="btn" href="/2019/09/08/emacs/emacs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </div></article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/c++/lib/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/08/c++/lib/" itemprop="url">C && C++ 常见库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
+                2019-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div id="content">
+<p>
+C &amp;&amp; C++ &#x5E38;&#x89C1;&#x5E93;
+</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/08/c++/lib/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1772,7 +1509,7 @@ GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1818,7 +1555,7 @@ GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1829,7 +1566,7 @@ GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1840,7 +1577,7 @@ GTD&#x601D;&#x60F3; &amp;&amp; org-mode&#x5B9E;&#x73B0;GTD
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
