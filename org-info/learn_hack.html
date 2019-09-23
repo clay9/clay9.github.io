@@ -6,7 +6,7 @@
 <!-- 2019-09-23 Mon 09:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>compilation mode</title>
+<title>学习记录</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -194,13 +194,13 @@
   /*]]>*/-->
 </style>
 
-<script type="text/javascript" src="../script/org-info.js">
+<script type="text/javascript" src="script/org-info.js">
 /**
  *
- * @source: ../script/org-info.js
+ * @source: script/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in ../script/org-info.js.
+ *  JavaScript code in script/org-info.js.
  *
  * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
@@ -220,7 +220,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in ../script/org-info.js.
+ * for the JavaScript code in script/org-info.js.
  *
  */
 </script>
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs.html");
+org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,68 +314,43 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="http://wcq.fun/org-info/emacs.html"> UP </a>
+ <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">compilation mode</h1>
+<h1 class="title">学习记录</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgce74658">1. 功能</a></li>
-<li><a href="#org5313807">2. 安装</a></li>
-<li><a href="#orgfd4ed86">3. 配置</a></li>
-<li><a href="#org8f48068">4. 使用</a></li>
+<li><a href="#org627d283">1. 推荐文章</a></li>
+<li><a href="#orgf531289">2. 端口扫描</a></li>
 </ul>
 </div>
 </div>
-<p>
-编译日志, 支持错误查看
-</p>
 
-<div id="outline-container-orgce74658" class="outline-2">
-<h2 id="orgce74658"><span class="section-number-2">1</span> 功能</h2>
+<div id="outline-container-org627d283" class="outline-2">
+<h2 id="org627d283"><span class="section-number-2">1</span> 推荐文章</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li>美化编译输出信息</li>
-<li>错误跳转到源文件</li>
+<li><a href="https://nmap.org/man/zh/man-port-scanning-basics.html">端口扫描 &#x2013; nmap</a></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5313807" class="outline-2">
-<h2 id="org5313807"><span class="section-number-2">2</span> 安装</h2>
+
+<div id="outline-container-orgf531289" class="outline-2">
+<h2 id="orgf531289"><span class="section-number-2">2</span> 端口扫描</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-melpa中安装
+<ol class="org-ol">
+<li><p>
+安装并使用nmap (macOS)
 </p>
-</div>
-</div>
-<div id="outline-container-orgfd4ed86" class="outline-2">
-<h2 id="orgfd4ed86"><span class="section-number-2">3</span> 配置</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-<a href="init-compilation-mode.el">具体配置文件</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org8f48068" class="outline-2">
-<h2 id="org8f48068"><span class="section-number-2">4</span> 使用</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-M-x compile RET 开始编译
-快捷键配置如下
-</p>
-<pre class="example">
-;;下个错误
-(define-key compilation-mode-map (kbd "n") 'compilation-next-error)
-;;上个错误
-(define-key compilation-mode-map (kbd "p") 'compilation-previous-error)
-;;查看错误源码
-(define-key compilation-mode-map (kbd "TAB") 'compilation-display-error)
-;;跳转到错误源码
-(define-key compilation-mode-map (kbd "RET") 'compile-goto-error)
+<div class="org-src-container">
+<pre class="src src-sh">brew install nmap
 </pre>
+</div></li>
+<li></li>
+</ol>
 </div>
 </div>
 </div>
