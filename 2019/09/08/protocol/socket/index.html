@@ -83,11 +83,11 @@
 <meta name="keywords" content="socket,epoll">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见网络编程">
-<meta property="og:url" content="https://clay9.github.io/2019/09/08/protocal/socket/index.html">
+<meta property="og:url" content="https://clay9.github.io/2019/09/08/protocol/socket/index.html">
 <meta property="og:site_name" content="飘">
 <meta property="og:description" content="socket&amp;#x76F8;&amp;#x5173;&amp;#x7F51;&amp;#x7EDC;&amp;#x7F16;&amp;#x7A0B;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T09:30:58.401Z">
+<meta property="og:updated_time" content="2019-09-29T09:58:50.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见网络编程">
 <meta name="twitter:description" content="socket&amp;#x76F8;&amp;#x5173;&amp;#x7F51;&amp;#x7EDC;&amp;#x7F16;&amp;#x7A0B;">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://clay9.github.io/2019/09/08/protocal/socket/">
+  <link rel="canonical" href="https://clay9.github.io/2019/09/08/protocol/socket/">
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocal/socket/">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocol/socket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WCQ">
@@ -379,21 +379,21 @@
 socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
 </p>
 <a id="more"></a>
-<div id="outline-container-org9ad8c1f" class="outline-2">
-<h2 id="org9ad8c1f">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
-<div class="outline-text-2" id="text-org9ad8c1f">
+<div id="outline-container-org087f91a" class="outline-2">
+<h2 id="org087f91a">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<div class="outline-text-2" id="text-org087f91a">
 </div>
-<div id="outline-container-org10bc841" class="outline-3">
-<h3 id="org10bc841">socket</h3>
-<div class="outline-text-3" id="text-org10bc841">
+<div id="outline-container-org82cb67c" class="outline-3">
+<h3 id="org82cb67c">socket</h3>
+<div class="outline-text-3" id="text-org82cb67c">
 <p>
 socket&#x662F; [&#x5E94;&#x7528;&#x5C42;] &#x4E0E; [&#x4F20;&#x8F93;&#x5C42;, &#x7F51;&#x7EDC;&#x5C42;] &#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5C42;
 &#x5B83;&#x7684;&#x51FA;&#x73B0;&#x662F;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x7F51;&#x7EDC;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;
 </p>
 </div>
-<div id="outline-container-org8e255b2" class="outline-4">
-<h4 id="org8e255b2">&#x5934;&#x6587;&#x4EF6;</h4>
-<div class="outline-text-4" id="text-org8e255b2">
+<div id="outline-container-org7dfd8c5" class="outline-4">
+<h4 id="org7dfd8c5">linux&#x5934;&#x6587;&#x4EF6;</h4>
+<div class="outline-text-4" id="text-org7dfd8c5">
 <ol class="org-ol">
 <li>usr/include/x86<sub>64</sub>-linux-gnu/sys/socket.h
 &#x7ED3;&#x6784;&#x4F53;
@@ -415,9 +415,9 @@ inet<sub>addr</sub>()</li>
 </div>
 </div>
 
-<div id="outline-container-orgc9bea1d" class="outline-4">
-<h4 id="orgc9bea1d">socket&#x51FD;&#x6570;</h4>
-<div class="outline-text-4" id="text-orgc9bea1d">
+<div id="outline-container-orgd2a5cf5" class="outline-4">
+<h4 id="orgd2a5cf5">socket&#x51FD;&#x6570;</h4>
+<div class="outline-text-4" id="text-orgd2a5cf5">
 <ol class="org-ol">
 <li>socket(domain, socket<sub>type</sub>, protol)
 domain
@@ -454,9 +454,9 @@ linux&#x4E00;&#x5207;&#x7686;&#x662F;file&#x539F;&#x5219;, fd&#x53EF;&#x4EE5;&#x
 </ol>
 </div>
 </div>
-<div id="outline-container-org1afc9e7" class="outline-4">
-<h4 id="org1afc9e7">&#x76F8;&#x5173;&#x51FD;&#x6570;</h4>
-<div class="outline-text-4" id="text-org1afc9e7">
+<div id="outline-container-orgab2a1ce" class="outline-4">
+<h4 id="orgab2a1ce">[ip, port]&#x76F8;&#x5173;&#x51FD;&#x6570;</h4>
+<div class="outline-text-4" id="text-orgab2a1ce">
 <pre class="example">
 &#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;ip &#x662F;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x7684;
 &#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F; &#x5373; 32&#x4F4D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;
@@ -472,7 +472,6 @@ struct in_addr
 //in_addr_t
 typedef unsigned long  in_addr_t</pre>
 
-
 <ol class="org-ol">
 <li>&#x51FD;&#x6570;&#x539F;&#x578B;: in<sub>addr</sub><sub>t</sub> inet<sub>addr</sub>(const char* strptr);
 &#x82E5;&#x5B57;&#x7B26;&#x4E32;&#x6709;&#x6548;, &#x5219;&#x5C06;&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;IP&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x5730;&#x5740;&#xFF0C;&#x5426;&#x5219;&#x4E3A;INADDR<sub>NONE</sub></li>
@@ -486,9 +485,9 @@ typedef unsigned long  in_addr_t</pre>
 </div>
 </div>
 
-<div id="outline-container-orgf16450c" class="outline-4">
-<h4 id="orgf16450c">socket fd&#x672C;&#x8D28;</h4>
-<div class="outline-text-4" id="text-orgf16450c">
+<div id="outline-container-orgc7b9695" class="outline-4">
+<h4 id="orgc7b9695">socket fd&#x672C;&#x8D28;</h4>
+<div class="outline-text-4" id="text-orgc7b9695">
 <p>
 socket&#x672C;&#x8D28;&#x662F;&#x7EF4;&#x62A4;&#x4E86;fd&#x8FDB;&#x7A0B;&#x6587;&#x4EF6;&#x8868;, &#x5982;&#x4E0B;:
 </p>
@@ -568,26 +567,24 @@ getpeername() &#x8FD4;&#x56DE;remote fd</li>
 </div>
 </div>
 
-<div id="outline-container-orgf32cc99" class="outline-3">
-<h3 id="orgf32cc99">socket&#x95EE;&#x9898;</h3>
-<div class="outline-text-3" id="text-orgf32cc99">
+<div id="outline-container-orgdb8560e" class="outline-3">
+<h3 id="orgdb8560e">socket&#x95EE;&#x9898;</h3>
+<div class="outline-text-3" id="text-orgdb8560e">
 <ol class="org-ol">
 <li><p>
 &#x963B;&#x585E; 
 </p>
 <pre class="example">
-&#x5F71;&#x54CD;&#x5E76;&#x53D1;
+&#x5F71;&#x54CD;&#x5E76;&#x53D1;, &#x591A;&#x8DEF;&#x590D;&#x7528;
 </pre>
 
 <p>
 &#x89E3;&#x51B3;&#x65B9;&#x6848;:
 </p>
 <ol class="org-ol">
-<li>select</li>
-<li>poll</li>
-<li>epoll (linux&#x7279;&#x6709;)</li>
-<li>&#x591A;&#x7EBF;&#x7A0B; &#x2013; &#x5F02;&#x6B65;&#x95EE;&#x9898;</li>
-<li>&#x591A;&#x8FDB;&#x7A0B; &#x2013; close&#x95EE;&#x9898;</li>
+<li>&#x4F7F;&#x7528;&#x975E;&#x963B;&#x585E;&#x6A21;&#x578B;, &#x6BD4;&#x5982;select, poll, epoll(linux&#x4E0B;&#x7279;&#x6709;), IOCP(windows&#x4E0B;&#x7279;&#x6709;)</li>
+<li>&#x591A;&#x7EBF;&#x7A0B; &#x2013; &#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;</li>
+<li>&#x591A;&#x8FDB;&#x7A0B; &#x2013; &#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;</li>
 </ol></li>
 <li>&#x7C98;&#x5305;
 &#x89E3;&#x51B3;&#x65B9;&#x6848;:
@@ -595,16 +592,12 @@ getpeername() &#x8FD4;&#x56DE;remote fd</li>
 <li>&#x9650;&#x5236;&#x53D1;&#x9001;&#x5927;&#x5C0F;</li>
 <li>&#x6BCF;&#x4E2A;&#x6D88;&#x606F;&#x589E;&#x52A0;&#x957F;&#x5EA6;&#x6807;&#x8BC6;</li>
 </ol></li>
-<li>&#x540C;&#x6B65; &#x5F02;&#x6B65;
-client&#x7AEF;, &#x4E0E;server&#x5173;&#x7CFB;&#x4E0D;&#x5927;
-&#x540C;&#x6B65;: &#x7B49;&#x5F85;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;; &#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x65E0;&#x6CD5;&#x64CD;&#x4F5C;
-&#x5F02;&#x6B65;: &#x7B49;&#x5F85;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;, &#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x6D3B;&#x52A8;</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org30c208c" class="outline-3">
-<h3 id="org30c208c">I/O&#x6A21;&#x578B;</h3>
-<div class="outline-text-3" id="text-org30c208c">
+<div id="outline-container-org04df63c" class="outline-3">
+<h3 id="org04df63c">I/O&#x6A21;&#x578B;</h3>
+<div class="outline-text-3" id="text-org04df63c">
 <p>
 <a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565671711&amp;ver=1787&amp;signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&amp;new=1" target="_blank" rel="noopener">&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x9605;&#x8BFB;</a>
 (&#x94FE;&#x63A5;&#x8FC7;&#x671F;, &#x76F4;&#x63A5;&#x641C;&#x72D7;&#x641C;&#x7D22;epoll, &quot;epoll&#x672C;&#x8D28;&quot;&#x5373;&#x662F;)
@@ -612,29 +605,30 @@ client&#x7AEF;, &#x4E0E;server&#x5173;&#x7CFB;&#x4E0D;&#x5927;
 <ol class="org-ol">
 <li>&#x963B;&#x585E;&#x5F0F;</li>
 <li>&#x975E;&#x963B;&#x585E;</li>
-<li>&#x590D;&#x5408; &#x2013; select</li>
-<li>&#x590D;&#x5408; &#x2013; poll</li>
-<li>&#x590D;&#x5408; &#x2013; epoll (linux&#x7279;&#x6709;)</li>
+<li>select</li>
+<li>poll</li>
+<li>epoll (linux&#x7279;&#x6709;)</li>
+<li>IOCP (windows&#x7279;&#x6709;)</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orga9fea0f" class="outline-3">
-<h3 id="orga9fea0f">epoll&#x4F7F;&#x7528;</h3>
-<div class="outline-text-3" id="text-orga9fea0f">
+<div id="outline-container-org5b49b32" class="outline-3">
+<h3 id="org5b49b32">epoll&#x4F7F;&#x7528;</h3>
+<div class="outline-text-3" id="text-org5b49b32">
 </div>
-<div id="outline-container-org6fb2576" class="outline-4">
-<h4 id="org6fb2576">epoll&#x672C;&#x8EAB;&#x4E3A;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E86;&#x4EC0;&#x4E48;</h4>
-<div class="outline-text-4" id="text-org6fb2576">
+<div id="outline-container-orgb6c458d" class="outline-4">
+<h4 id="orgb6c458d">epoll&#x672C;&#x8EAB;&#x4E3A;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E86;&#x4EC0;&#x4E48;</h4>
+<div class="outline-text-4" id="text-orgb6c458d">
 <ol class="org-ol">
 <li>&#x4E4B;&#x524D;socket::recv()&#x65F6;, &#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x7684;&#x8FDB;&#x7A0B;&#x963B;&#x585E;</li>
 <li>&#x73B0;&#x5728;socket::recv()&#x65F6;, &#x4F7F;epoll&#x963B;&#x585E;; epoll&#x4E2D;&#x65AD;&#x65F6;, &#x544A;&#x4E4B;&#x8FDB;&#x7A0B;</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd74d292" class="outline-4">
-<h4 id="orgd74d292">&#x6709;&#x4E86;epoll&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5904;&#x7406;&#x4EC0;&#x4E48;</h4>
-<div class="outline-text-4" id="text-orgd74d292">
+<div id="outline-container-orga201ef2" class="outline-4">
+<h4 id="orga201ef2">&#x6709;&#x4E86;epoll&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5904;&#x7406;&#x4EC0;&#x4E48;</h4>
+<div class="outline-text-4" id="text-orga201ef2">
 <ol class="org-ol">
 <li>&#x521B;&#x5EFA;epoll&#x5BF9;&#x8C61;</li>
 <li>&#x6DFB;&#x52A0;&#x68C0;&#x89C6;&#x7684;fd&#x5BF9;&#x8C61; &#x2013; op, epoll<sub>event</sub></li>
@@ -644,13 +638,13 @@ client&#x7AEF;, &#x4E0E;server&#x5173;&#x7CFB;&#x4E0D;&#x5927;
 </div>
 </div>
 </div>
-<div id="outline-container-org4352a8f" class="outline-2">
-<h2 id="org4352a8f">socket&#x5C5E;&#x6027;</h2>
-<div class="outline-text-2" id="text-org4352a8f">
+<div id="outline-container-org5ea13f6" class="outline-2">
+<h2 id="org5ea13f6">socket&#x5C5E;&#x6027;</h2>
+<div class="outline-text-2" id="text-org5ea13f6">
 </div>
-<div id="outline-container-orgea3e8b8" class="outline-3">
-<h3 id="orgea3e8b8">keep live&#x673A;&#x5236;</h3>
-<div class="outline-text-3" id="text-orgea3e8b8">
+<div id="outline-container-orgd11db83" class="outline-3">
+<h3 id="orgd11db83">keep live&#x673A;&#x5236;</h3>
+<div class="outline-text-3" id="text-orgd11db83">
 <p>
 &#x5F53;socket&#x670D;&#x52A1;&#x7AEF;&#x5F00;&#x542F;keep live&#x4E4B;&#x540E;, 
 &#x670D;&#x52A1;&#x5668;&#x68C0;&#x6D4B;&#x5230; <span class="underline">&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x5185;</span> socket&#x4E0D;&#x6D3B;&#x52A8;&#x7684;&#x65F6;&#x5019;,
@@ -668,18 +662,18 @@ tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb01a0a" class="outline-2">
-<h2 id="orgcb01a0a">&#x7F16;&#x7A0B;&#x5B9E;&#x4F8B;</h2>
-<div class="outline-text-2" id="text-orgcb01a0a">
+<div id="outline-container-org025fae0" class="outline-2">
+<h2 id="org025fae0">&#x7F16;&#x7A0B;&#x5B9E;&#x4F8B;</h2>
+<div class="outline-text-2" id="text-org025fae0">
 </div>
-<div id="outline-container-org4c3f731" class="outline-3">
-<h3 id="org4c3f731">recv() &#x5B9E;&#x9645;&#x5E94;&#x7528;</h3>
-<div class="outline-text-3" id="text-org4c3f731">
+<div id="outline-container-orgd819050" class="outline-3">
+<h3 id="orgd819050">&#x539F;&#x59CB;socket&#x6A21;&#x578B;, recv()&#x4E2D;&#x5904;&#x7406;&#x5206;&#x5305;&#x7C98;&#x5305;</h3>
+<div class="outline-text-3" id="text-orgd819050">
 <p>
 &#x539F;&#x59CB;socket&#x6A21;&#x578B;,  &#x8003;&#x8651;&#x5230;tcp&#x5206;&#x5305;
 </p>
 <div class="org-src-container">
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x7F51;&#x7EDC;&#x8BFB;&#x53D6; -- &#x7CFB;&#x7EDF;&#x68C0;&#x6D4B;&#x5230;&#x7F51;&#x7EDC;I/O&#x4E8B;&#x4EF6;&#x65F6;, &#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;</span></span><br><span class="line">LRESULT CTCPSocketService::OnSocketNotifyRead(WPARAM wParam, LPARAM lParam)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6570;&#x636E;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m+cbRecvbuf&#x6765;&#x5F53;&#x505A;&#x7F13;&#x51B2;&#x533A;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m_wRecvsize&#x6765;&#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x5DF2;&#x8BFB;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line">    <span class="keyword">int</span> iRetCode = recv(m_hSocket, (<span class="keyword">char</span> *)m_cbRecvBuf + m_wRecvSize, <span class="keyword">sizeof</span>(m_cbRecvBuf) - m_wRecvSize, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x5931;&#x8D25;, &#x5219;&#x8FD4;&#x56DE;SOCKET_ERROR</span></span><br><span class="line">    <span class="keyword">if</span> (iRetCode == SOCKET_ERROR)</span><br><span class="line">    {</span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#xFF0C;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6210;&#x529F;, &#x5219;&#x8FD4;&#x56DE;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;</span></span><br><span class="line">    m_wRecvSize += iRetCode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5728;tcp&#x6570;&#x636E;&#x4E2D;, &#x589E;&#x52A0;&#x5305;&#x7684;&#x5927;&#x5C0F;, &#x7528;&#x6765;&#x6821;&#x9A8C;&#x662F;&#x5426;&#x8BFB;&#x53D6;&#x5B8C;&#x6BD5;;</span></span><br><span class="line">    TCP_Head * pHead = (TCP_Head *)m_cbRecvBuf;</span><br><span class="line">    WORD wPacketSize = pHead-&gt;TCPInfo.wPacketSize;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// //&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#x6821;&#x9A8C;</span></span><br><span class="line">    <span class="keyword">if</span> (wPacketSize &gt; (SOCKET_TCP_BUFFER + <span class="keyword">sizeof</span>(TCP_Head)))</span><br><span class="line">    {</span><br><span class="line">	<span class="comment">//&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#x5019;, &#x7F13;&#x51B2;&#x533A;&#x7F6E;&#x4F4D;</span></span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">3</span>;<span class="comment">//&quot;&#x6570;&#x636E;&#x5305;&#x592A;&#x5927;&quot;;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//&#x89E3;&#x6790;&#x6570;&#x636E;</span></span><br><span class="line">	<span class="keyword">if</span> (m_wRecvSize == wPacketSize)  <span class="comment">//&#x6570;&#x636E;&#x5168;&#x90E8;&#x63A5;&#x53D7;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E; &#x518D;&#x89E3;&#x6790;</span></span><br><span class="line">	{		</span><br><span class="line">	    <span class="comment">//&#x62F7;&#x8D1D;&#x6570;&#x636E;</span></span><br><span class="line">	    BYTE cbDataBuffer[SOCKET_TCP_BUFFER+<span class="keyword">sizeof</span>(TCP_Head)];		</span><br><span class="line">	    CopyMemory(cbDataBuffer, m_cbRecvBuf, wPacketSize);</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x7F6E;&#x4F4D;&#x7F13;&#x51B2;&#x4FE1;&#x606F; -- &#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x53EA;&#x4FDD;&#x5B58;&#x4E00;&#x6761;tcp&#x4FE1;&#x606F;</span></span><br><span class="line">	    m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	    ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));		</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x89E3;&#x5BC6;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealySize = CrevasseBuffer(cbDataBuffer, wPacketSize);</span><br><span class="line">	    <span class="keyword">if</span>(wRealySize &lt; <span class="keyword">sizeof</span>(TCP_Head)) <span class="keyword">return</span> <span class="number">4</span>; <span class="comment">//&#x89E3;&#x6790;&#x540E;&#x7684;&#x6570;&#x636E;&#x9519;&#x8BEF;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;TCP_Head</span></span><br><span class="line">	    TCP_Command Command = ((TCP_Head *)cbDataBuffer)-&gt;CommandInfo;</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">void</span> * pDataBuffer = cbDataBuffer + <span class="keyword">sizeof</span>(TCP_Head); <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealDataSize = wRealySize - <span class="keyword">sizeof</span>(TCP_Head);   <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5185;&#x6838;&#x547D;&#x4EE4;</span></span><br><span class="line">	    <span class="keyword">if</span> (Command.wMainCmdID == MDM_KN_COMMAND)</span><br><span class="line">	    {</span><br><span class="line">		<span class="keyword">switch</span> (Command.wSubCmdID)</span><br><span class="line">		{</span><br><span class="line">		    <span class="keyword">case</span> SUB_KN_DETECT_SOCKET:	<span class="comment">//&#x7F51;&#x7EDC;&#x68C0;&#x6D4B;</span></span><br><span class="line">		    {</span><br><span class="line">			<span class="comment">//&#x53D1;&#x9001;&#x6570;&#x636E;</span></span><br><span class="line">			SendData(MDM_KN_COMMAND, SUB_KN_DETECT_SOCKET, pDataBuffer, wRealDataSize);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		    }</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	    }</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5904;&#x7406;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">bool</span> bSuccess = m_QueueServiceEvent.PostTCPSocketReadEvent(m_wServiceID, Command, pDataBuffer, wRealDataSize);</span><br><span class="line">	    <span class="keyword">if</span> (bSuccess == <span class="literal">false</span>) <span class="keyword">return</span> <span class="number">5</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5305;&#x5904;&#x7406;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">	};</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x7F51;&#x7EDC;&#x8BFB;&#x53D6; -- &#x7CFB;&#x7EDF;&#x68C0;&#x6D4B;&#x5230;&#x7F51;&#x7EDC;I/O&#x4E8B;&#x4EF6;&#x65F6;, &#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;</span></span><br><span class="line">LRESULT CTCPSocketService::OnSocketNotifyRead(WPARAM wParam, LPARAM lParam)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6570;&#x636E;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m+cbRecvbuf&#x6765;&#x5F53;&#x505A;&#x7F13;&#x51B2;&#x533A;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m_wRecvsize&#x6765;&#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x5DF2;&#x8BFB;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line">    <span class="keyword">int</span> iRetCode = recv(m_hSocket, (<span class="keyword">char</span> *)m_cbRecvBuf + m_wRecvSize, <span class="keyword">sizeof</span>(m_cbRecvBuf) - m_wRecvSize, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x5931;&#x8D25;, &#x5219;&#x8FD4;&#x56DE;SOCKET_ERROR</span></span><br><span class="line">    <span class="keyword">if</span> (iRetCode == SOCKET_ERROR)</span><br><span class="line">    {</span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#xFF0C;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6210;&#x529F;, &#x5219;&#x8FD4;&#x56DE;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;</span></span><br><span class="line">    m_wRecvSize += iRetCode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5728;tcp&#x6570;&#x636E;&#x4E2D;, &#x589E;&#x52A0;&#x5305;&#x7684;&#x5927;&#x5C0F;, &#x7528;&#x6765;&#x6821;&#x9A8C;&#x662F;&#x5426;&#x8BFB;&#x53D6;&#x5B8C;&#x6BD5;;</span></span><br><span class="line">    TCP_Head * pHead = (TCP_Head *)m_cbRecvBuf;</span><br><span class="line">    WORD wPacketSize = pHead-&gt;TCPInfo.wPacketSize;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// //&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#x6821;&#x9A8C;</span></span><br><span class="line">    <span class="keyword">if</span> (wPacketSize &gt; (SOCKET_TCP_BUFFER + <span class="keyword">sizeof</span>(TCP_Head)))</span><br><span class="line">    {</span><br><span class="line">	<span class="comment">//&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#x5019;, &#x7F13;&#x51B2;&#x533A;&#x7F6E;&#x4F4D;</span></span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">3</span>;<span class="comment">//&quot;&#x6570;&#x636E;&#x5305;&#x592A;&#x5927;&quot;;</span></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">//&#x89E3;&#x6790;&#x6570;&#x636E;</span></span><br><span class="line">	<span class="keyword">if</span> (m_wRecvSize == wPacketSize)  <span class="comment">//&#x6570;&#x636E;&#x5168;&#x90E8;&#x63A5;&#x53D7;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E; &#x518D;&#x89E3;&#x6790;</span></span><br><span class="line">	{		</span><br><span class="line">	    <span class="comment">//&#x62F7;&#x8D1D;&#x6570;&#x636E;</span></span><br><span class="line">	    BYTE cbDataBuffer[SOCKET_TCP_BUFFER+<span class="keyword">sizeof</span>(TCP_Head)];		</span><br><span class="line">	    CopyMemory(cbDataBuffer, m_cbRecvBuf, wPacketSize);</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x7F6E;&#x4F4D;&#x7F13;&#x51B2;&#x4FE1;&#x606F; -- &#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x53EA;&#x4FDD;&#x5B58;&#x4E00;&#x6761;tcp&#x4FE1;&#x606F;</span></span><br><span class="line">	    m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	    ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));		</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x89E3;&#x5BC6;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealySize = CrevasseBuffer(cbDataBuffer, wPacketSize);</span><br><span class="line">	    <span class="keyword">if</span>(wRealySize &lt; <span class="keyword">sizeof</span>(TCP_Head)) <span class="keyword">return</span> <span class="number">4</span>; <span class="comment">//&#x89E3;&#x6790;&#x540E;&#x7684;&#x6570;&#x636E;&#x9519;&#x8BEF;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;TCP_Head</span></span><br><span class="line">	    TCP_Command Command = ((TCP_Head *)cbDataBuffer)-&gt;CommandInfo;</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">void</span> * pDataBuffer = cbDataBuffer + <span class="keyword">sizeof</span>(TCP_Head); <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealDataSize = wRealySize - <span class="keyword">sizeof</span>(TCP_Head);   <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5185;&#x6838;&#x547D;&#x4EE4;</span></span><br><span class="line">	    <span class="keyword">if</span> (Command.wMainCmdID == MDM_KN_COMMAND)</span><br><span class="line">	    {</span><br><span class="line">	    <span class="keyword">switch</span> (Command.wSubCmdID)</span><br><span class="line">	    {</span><br><span class="line">		<span class="keyword">case</span> SUB_KN_DETECT_SOCKET:	<span class="comment">//&#x7F51;&#x7EDC;&#x68C0;&#x6D4B;</span></span><br><span class="line">		{</span><br><span class="line">		    <span class="comment">//&#x53D1;&#x9001;&#x6570;&#x636E;</span></span><br><span class="line">		    SendData(MDM_KN_COMMAND, SUB_KN_DETECT_SOCKET, pDataBuffer, wRealDataSize);</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	    }</span><br><span class="line">	    <span class="keyword">continue</span>;</span><br><span class="line">	    }</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5904;&#x7406;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">bool</span> bSuccess = m_QueueServiceEvent.PostTCPSocketReadEvent(m_wServiceID, Command, pDataBuffer, wRealDataSize);</span><br><span class="line">	    <span class="keyword">if</span> (bSuccess == <span class="literal">false</span>) <span class="keyword">return</span> <span class="number">5</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5305;&#x5904;&#x7406;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">	};</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -727,8 +721,8 @@ tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/08/gnu/gcc/" rel="prev" title="gcc">
-                gcc <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/08/protocol/protocal/" rel="prev" title="乱七八糟的协议合集">
+                乱七八糟的协议合集 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -806,7 +800,7 @@ tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -828,7 +822,7 @@ tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -861,7 +855,7 @@ tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org9ad8c1f"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org10bc841"><span class="nav-number">1.1.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8e255b2"><span class="nav-number">1.1.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc9bea1d"><span class="nav-number">1.1.2.</span> <span class="nav-text">socket函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org1afc9e7"><span class="nav-number">1.1.3.</span> <span class="nav-text">相关函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgf16450c"><span class="nav-number">1.1.4.</span> <span class="nav-text">socket fd本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf32cc99"><span class="nav-number">1.2.</span> <span class="nav-text">socket问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org30c208c"><span class="nav-number">1.3.</span> <span class="nav-text">I/O模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orga9fea0f"><span class="nav-number">1.4.</span> <span class="nav-text">epoll使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org6fb2576"><span class="nav-number">1.4.1.</span> <span class="nav-text">epoll本身为我们处理了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd74d292"><span class="nav-number">1.4.2.</span> <span class="nav-text">有了epoll我们还需要处理什么</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org4352a8f"><span class="nav-number">2.</span> <span class="nav-text">socket属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgea3e8b8"><span class="nav-number">2.1.</span> <span class="nav-text">keep live机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcb01a0a"><span class="nav-number">3.</span> <span class="nav-text">编程实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org4c3f731"><span class="nav-number">3.1.</span> <span class="nav-text">recv() 实际应用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org087f91a"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org82cb67c"><span class="nav-number">1.1.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org7dfd8c5"><span class="nav-number">1.1.1.</span> <span class="nav-text">linux头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd2a5cf5"><span class="nav-number">1.1.2.</span> <span class="nav-text">socket函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgab2a1ce"><span class="nav-number">1.1.3.</span> <span class="nav-text">[ip, port]相关函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc7b9695"><span class="nav-number">1.1.4.</span> <span class="nav-text">socket fd本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdb8560e"><span class="nav-number">1.2.</span> <span class="nav-text">socket问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org04df63c"><span class="nav-number">1.3.</span> <span class="nav-text">I/O模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5b49b32"><span class="nav-number">1.4.</span> <span class="nav-text">epoll使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgb6c458d"><span class="nav-number">1.4.1.</span> <span class="nav-text">epoll本身为我们处理了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orga201ef2"><span class="nav-number">1.4.2.</span> <span class="nav-text">有了epoll我们还需要处理什么</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5ea13f6"><span class="nav-number">2.</span> <span class="nav-text">socket属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd11db83"><span class="nav-number">2.1.</span> <span class="nav-text">keep live机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org025fae0"><span class="nav-number">3.</span> <span class="nav-text">编程实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd819050"><span class="nav-number">3.1.</span> <span class="nav-text">原始socket模型, recv()中处理分包粘包</span></a></li></ol></li></ol></div>
             
 
           </div>

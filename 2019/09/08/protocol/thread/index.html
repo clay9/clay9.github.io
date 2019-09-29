@@ -79,17 +79,14 @@
 
 
 
-<meta name="description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh">
-<meta property="og:url" content="https://clay9.github.io/2019/09/11/protocal/ssh/index.html">
+<meta property="og:title" content="多线程总结">
+<meta property="og:url" content="https://clay9.github.io/2019/09/08/protocol/thread/index.html">
 <meta property="og:site_name" content="飘">
-<meta property="og:description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-14T16:53:03.135Z">
+<meta property="og:updated_time" content="2019-09-18T10:27:24.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh">
-<meta name="twitter:description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
+<meta name="twitter:title" content="多线程总结">
 
 
 
@@ -119,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="https://clay9.github.io/2019/09/11/protocal/ssh/">
+  <link rel="canonical" href="https://clay9.github.io/2019/09/08/protocol/thread/">
 
 
 
 
 
-  <title>ssh | 飘</title>
+  <title>多线程总结 | 飘</title>
   
 
 
@@ -284,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/11/protocal/ssh/">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocol/thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WCQ">
@@ -301,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ssh</h1>
+          <h1 class="post-title" itemprop="name headline">多线程总结</h1>
         
 
         <div class="post-meta">
@@ -313,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T16:27:34+08:00">
-                2019-09-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
+                2019-09-08
               </time>
             
 
@@ -374,43 +371,15 @@
 
       
         <div id="content">
-<p>
-ssh&#x7B80;&#x8FF0;
-</p>
-
 <a id="more"></a>
-<div id="outline-container-org4a80663" class="outline-2">
-<h2 id="org4a80663">&#x529F;&#x80FD;</h2>
+<div id="outline-container-org00c0665" class="outline-2">
+<h2 id="org00c0665">&#x5E94;&#x7528;&#x573A;&#x666F;</h2>
 </div>
-<div id="outline-container-org1cc5b15" class="outline-2">
-<h2 id="org1cc5b15">&#x5B89;&#x88C5;</h2>
+<div id="outline-container-org72ac180" class="outline-2">
+<h2 id="org72ac180">&#x521B;&#x5EFA;</h2>
 </div>
-<div id="outline-container-orgb6329ab" class="outline-2">
-<h2 id="orgb6329ab">&#x914D;&#x7F6E;</h2>
-<div class="outline-text-2" id="text-orgb6329ab">
-</div>
-<div id="outline-container-org53b4393" class="outline-3">
-<h3 id="org53b4393">&#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h3>
-<div class="outline-text-3" id="text-org53b4393">
-</div>
-<div id="outline-container-orgf73def1" class="outline-4">
-<h4 id="orgf73def1">client &#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h4>
-<div class="outline-text-4" id="text-orgf73def1">
-<pre class="example">
-ServerAliveInterval 120</pre>
-<p>
-&#x8FD9;&#x884C;&#x5185;&#x5BB9;&#x7684;&#x542B;&#x4E49;&#x662F;&#xFF0C;&#x6BCF;120s&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5305;&#x3002;&#x8BA9;&#x670D;&#x52A1;&#x7AEF;&#x8BA4;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x7EBF;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x4E0D;&#x4F1A;&#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x670D;&#x52A1;&#x7AEF;&#x8BBE;&#x7F6E;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x662F;60s&#xFF0C;&#x4F60;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x95F4;&#x80AF;&#x5B9A;&#x8981;&#x5C0F;&#x4E8E;60s&#x3002;&#x4E0D;&#x8FC7;&#x670D;&#x52A1;&#x7AEF;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;60s&#x7684;&#x60C5;&#x51B5;&#x975E;&#x5E38;&#x7F55;&#x89C1;&#xFF0C;&#x800C;&#x4E14;&#x662F;&#x51FA;&#x9519;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E3A;120s&#x5373;&#x53EF;
-</p>
-</div>
-</div>
-
-<div id="outline-container-org96542d9" class="outline-4">
-<h4 id="org96542d9">server &#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h4>
-</div>
-</div>
-</div>
-<div id="outline-container-orgde9aeac" class="outline-2">
-<h2 id="orgde9aeac">&#x4F7F;&#x7528;</h2>
+<div id="outline-container-org59b4da6" class="outline-2">
+<h2 id="org59b4da6">&#x4F7F;&#x7528;</h2>
 </div>
 </div>
 
@@ -437,8 +406,8 @@ ServerAliveInterval 120</pre>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/08/tool/vargrind/" rel="next" title="vargrind">
-                <i class="fa fa-chevron-left"></i> vargrind
+              <a href="/2019/09/08/protocol/dll/" rel="next" title="静态库 && 动态库">
+                <i class="fa fa-chevron-left"></i> 静态库 && 动态库
               </a>
             
           </div>
@@ -446,6 +415,10 @@ ServerAliveInterval 120</pre>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/08/tool/hexo/" rel="prev" title="Hexo搭建blog">
+                Hexo搭建blog <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -522,7 +495,7 @@ ServerAliveInterval 120</pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +517,7 @@ ServerAliveInterval 120</pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -577,7 +550,7 @@ ServerAliveInterval 120</pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org4a80663"><span class="nav-number">1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1cc5b15"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgb6329ab"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org53b4393"><span class="nav-number">3.1.</span> <span class="nav-text">超时断开处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgf73def1"><span class="nav-number">3.1.1.</span> <span class="nav-text">client 超时断开处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org96542d9"><span class="nav-number">3.1.2.</span> <span class="nav-text">server 超时断开处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgde9aeac"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org00c0665"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org72ac180"><span class="nav-number">2.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org59b4da6"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
 
           </div>

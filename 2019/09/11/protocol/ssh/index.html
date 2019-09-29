@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="飘">
-<meta property="og:url" content="https://clay9.github.io/tags/lib/index.html">
+<meta name="description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh">
+<meta property="og:url" content="https://clay9.github.io/2019/09/11/protocol/ssh/index.html">
 <meta property="og:site_name" content="飘">
+<meta property="og:description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-29T09:59:15.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="飘">
+<meta name="twitter:title" content="ssh">
+<meta name="twitter:description" content="ssh&amp;#x7B80;&amp;#x8FF0;">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://clay9.github.io/tags/lib/">
+  <link rel="canonical" href="https://clay9.github.io/2019/09/11/protocol/ssh/">
 
 
 
 
 
-  <title>标签: lib | 飘</title>
+  <title>ssh | 飘</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,52 +270,205 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>lib<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/11/protocol/ssh/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/09/08/protocal/object/" itemprop="url">
-              
-                <span itemprop="name">静态库 && 动态库</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ssh</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-08T03:49:19+08:00" content="2019-09-08">
-          09-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T16:27:34+08:00">
+                2019-09-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/protocol/" itemprop="url" rel="index">
+                    <span itemprop="name">protocol</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<p>
+ssh&#x7B80;&#x8FF0;
+</p>
+<a id="more"></a>
+<div id="outline-container-org812d4a2" class="outline-2">
+<h2 id="org812d4a2">&#x529F;&#x80FD;</h2>
+</div>
+<div id="outline-container-org261db5f" class="outline-2">
+<h2 id="org261db5f">&#x5B89;&#x88C5;</h2>
+</div>
+<div id="outline-container-org0ee0a7d" class="outline-2">
+<h2 id="org0ee0a7d">&#x914D;&#x7F6E;</h2>
+<div class="outline-text-2" id="text-org0ee0a7d">
+</div>
+<div id="outline-container-org6b3d769" class="outline-3">
+<h3 id="org6b3d769">&#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h3>
+<div class="outline-text-3" id="text-org6b3d769">
+</div>
+<div id="outline-container-org7c39015" class="outline-4">
+<h4 id="org7c39015">client &#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h4>
+<div class="outline-text-4" id="text-org7c39015">
+<pre class="example">
+ServerAliveInterval 120</pre>
+<p>
+&#x8FD9;&#x884C;&#x5185;&#x5BB9;&#x7684;&#x542B;&#x4E49;&#x662F;&#xFF0C;&#x6BCF;120s&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5305;&#x3002;&#x8BA9;&#x670D;&#x52A1;&#x7AEF;&#x8BA4;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x7EBF;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x4E0D;&#x4F1A;&#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x670D;&#x52A1;&#x7AEF;&#x8BBE;&#x7F6E;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x662F;60s&#xFF0C;&#x4F60;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x95F4;&#x80AF;&#x5B9A;&#x8981;&#x5C0F;&#x4E8E;60s&#x3002;&#x4E0D;&#x8FC7;&#x670D;&#x52A1;&#x7AEF;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;60s&#x7684;&#x60C5;&#x51B5;&#x975E;&#x5E38;&#x7F55;&#x89C1;&#xFF0C;&#x800C;&#x4E14;&#x662F;&#x51FA;&#x9519;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E3A;120s&#x5373;&#x53EF;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga338a0c" class="outline-4">
+<h4 id="orga338a0c">server &#x8D85;&#x65F6;&#x65AD;&#x5F00;&#x5904;&#x7406;</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org1b7a3ba" class="outline-2">
+<h2 id="org1b7a3ba">&#x4F7F;&#x7528;</h2>
+</div>
+</div>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/08/tool/vargrind/" rel="next" title="vargrind">
+                <i class="fa fa-chevron-left"></i> vargrind
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/29/protocol/module/" rel="prev" title="基本模型概念">
+                基本模型概念 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -319,6 +476,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -339,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -355,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -377,7 +547,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -400,6 +570,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org812d4a2"><span class="nav-number">1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org261db5f"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0ee0a7d"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org6b3d769"><span class="nav-number">3.1.</span> <span class="nav-text">超时断开处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org7c39015"><span class="nav-number">3.1.1.</span> <span class="nav-text">client 超时断开处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orga338a0c"><span class="nav-number">3.1.2.</span> <span class="nav-text">server 超时断开处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1b7a3ba"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -533,6 +719,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
