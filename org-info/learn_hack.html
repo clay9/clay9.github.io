@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>学习记录</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -194,13 +194,13 @@
   /*]]>*/-->
 </style>
 
-<script type="text/javascript" src="../script/org-info.js">
+<script type="text/javascript" src="script/org-info.js">
 /**
  *
- * @source: ../script/org-info.js
+ * @source: script/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in ../script/org-info.js.
+ *  JavaScript code in script/org-info.js.
  *
  * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
@@ -220,7 +220,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in ../script/org-info.js.
+ * for the JavaScript code in script/org-info.js.
  *
  */
 </script>
@@ -255,7 +255,7 @@ for the JavaScript code in this tag.
 <!--/*--><![CDATA[/*><!--*/
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "http://wcq.fun");
-org_html_manager.set("LINK_UP", "http://wcq.fun/org-info/emacs.html");
+org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "1");
 org_html_manager.set("VIEW_BUTTONS", "0");
 org_html_manager.set("MOUSE_HINT", "underline");
@@ -314,73 +314,42 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="http://wcq.fun/org-info/emacs.html"> UP </a>
+ <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">学习记录</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
-<ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
-</ul>
-</li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#org2566aaa">1. 推荐文章</a></li>
+<li><a href="#org344286e">2. 端口扫描</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
-</div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
-</div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
-</div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
-</p>
-</div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
-</p>
-<pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
-</pre>
-</div>
-</div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-具体可以详见官方说明
-基本与shell相同
-</p>
-<pre class="example">
-eshell/rm -r $remote_temp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
+
+<div id="outline-container-org2566aaa" class="outline-2">
+<h2 id="org2566aaa"><span class="section-number-2">1</span> 推荐文章</h2>
+<div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
+<li><a href="https://nmap.org/man/zh/man-port-scanning-basics.html">端口扫描 &#x2013; nmap</a></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org344286e" class="outline-2">
+<h2 id="org344286e"><span class="section-number-2">2</span> 端口扫描</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+安装并使用nmap (macOS)
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">brew install nmap
+</pre>
+</div></li>
+<li></li>
 </ol>
 </div>
 </div>

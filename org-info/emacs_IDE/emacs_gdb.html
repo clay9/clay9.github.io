@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>gdb &amp;&amp; gud</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,303 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">gdb &amp;&amp; gud</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
+<li><a href="#orgb8cf812">1. 功能</a></li>
+<li><a href="#orga32e2b9">2. 安装</a></li>
+<li><a href="#org480b176">3. 配置</a></li>
+<li><a href="#org5c0e907">4. gdb使用</a></li>
+<li><a href="#orgdfa4b02">5. gud使用</a>
 <ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
+<li><a href="#org1354883">5.1. 例子</a></li>
+<li><a href="#org767a79a">5.2. 问题</a></li>
 </ul>
 </li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
+
+<div id="outline-container-orgb8cf812" class="outline-2">
+<h2 id="orgb8cf812"><span class="section-number-2">1</span> 功能</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>gdb: 调试软件</li>
+<li>gud: emacs中调用gdb</li>
+</ul>
 </div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
 </div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-orga32e2b9" class="outline-2">
+<h2 id="orga32e2b9"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+gud为emacs自带;
+gdb可以在gnu.org下载
+</p>
 </div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
+</div>
+<div id="outline-container-org480b176" class="outline-2">
+<h2 id="org480b176"><span class="section-number-2">3</span> 配置</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="emacs_gdb/init-gdb.el">具体配置</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org5c0e907" class="outline-2">
+<h2 id="org5c0e907"><span class="section-number-2">4</span> gdb使用</h2>
 <div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">指令</th>
+<th scope="col" class="org-left">简写</th>
+<th scope="col" class="org-left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">attach</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">附加到已经运行的程序</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">run</td>
+<td class="org-left">r</td>
+<td class="org-left">运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">continue</td>
+<td class="org-left">c</td>
+<td class="org-left">继续执行，到下一个断点停止（或运行结束）</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">next</td>
+<td class="org-left">n</td>
+<td class="org-left">单步跟踪程序，当遇到函数调用时，也不进入此函数体</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">step</td>
+<td class="org-left">s</td>
+<td class="org-left">单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">until</td>
+<td class="org-left">u</td>
+<td class="org-left">当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">until+行号</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">运行至某行，不仅仅用来跳出循环</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">finish</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">quit</td>
+<td class="org-left">q</td>
+<td class="org-left">退出gdb</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">up</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">上个stack</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">down</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">下个stack</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">watch</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">变量监控</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">breakpoint</td>
+<td class="org-left">b</td>
+<td class="org-left">file :line<sub>num</sub>   文件:行号</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&lt;fun<sub>name</sub>&gt;       函数名字</td>
+</tr>
+</tbody>
+</table>
+
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
+run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败
+continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 
 </p>
 </div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
-</p>
-<pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
-</pre>
 </div>
-</div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-具体可以详见官方说明
-基本与shell相同
-</p>
-<pre class="example">
-eshell/rm -r $remote_temp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
+
+<div id="outline-container-orgdfa4b02" class="outline-2">
+<h2 id="orgdfa4b02"><span class="section-number-2">5</span> gud使用</h2>
 <div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">buffer名字</th>
+<th scope="col" class="org-left">简述</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">gud</td>
+<td class="org-left">gdb命令输入窗口</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">source</td>
+<td class="org-left">调试时自动显示源码</td>
+<td class="org-left">不要edit, 否则导致source自动关联失效</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">breakpoint</td>
+<td class="org-left">断点</td>
+<td class="org-left">不会命中的断点显示为pending</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">threads</td>
+<td class="org-left">线程</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">stack</td>
+<td class="org-left">堆栈</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">local</td>
+<td class="org-left">local变量</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">register</td>
+<td class="org-left">寄存器</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">assembler</td>
+<td class="org-left">显示汇编</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">memory</td>
+<td class="org-left">内存查看</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+为了显示方便,  
+breakpoint与threads buffer同在一个frame;
+local与register buffer同在一个frame;
+可以按"TAB"快速切换
+</p>
+</div>
+
+<div id="outline-container-org1354883" class="outline-3">
+<h3 id="org1354883"><span class="section-number-3">5.1</span> 例子</h3>
+<div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
+<li>emacs: M-x gdb RET</li>
+<li>gud: attch &lt;program pid&gt;</li>
+<li>设置breakpoint
+<ul class="org-ul">
+<li>gud: b</li>
+<li>source: gud-break; gud-tbreak</li>
+<li>breakpoint: D 删除断点</li>
+</ul></li>
+<li>设置watch
+<ul class="org-ul">
+<li>gud: watch</li>
+<li>souce: gud-watch</li>
+</ul></li>
 </ol>
+</div>
+</div>
+<div id="outline-container-org767a79a" class="outline-3">
+<h3 id="org767a79a"><span class="section-number-3">5.2</span> 问题</h3>
+<div class="outline-text-3" id="text-5-2">
+<ol class="org-ol">
+<li>gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
+简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效</li>
+<li>gdb continue之后 如何退出
+<ol class="org-ol">
+<li>gdb进程中可以使用C-c, 退出attach所关联的进程</li>
+<li>emacs-gdb中如何退出 ?? TODONOW</li>
+</ol></li>
+</ol>
+</div>
 </div>
 </div>
 </div>

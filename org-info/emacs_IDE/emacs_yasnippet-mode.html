@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>yasnippet mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,143 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">yasnippet mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
-<ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
-</ul>
-</li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#org262c27b">1. 为什么需要模板</a></li>
+<li><a href="#org66769c4">2. 什么是yasnippet-mode</a></li>
+<li><a href="#orgcb8e22b">3. 配置</a></li>
+<li><a href="#org59e3a53">4. 使用</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
+<p>
+模板工具
+</p>
+
+
+<div id="outline-container-org262c27b" class="outline-2">
+<h2 id="org262c27b"><span class="section-number-2">1</span> 为什么需要模板</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>减少重复工作, 提升效率</li>
+<li>标准化</li>
+</ul>
 </div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
 </div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-org66769c4" class="outline-2">
+<h2 id="org66769c4"><span class="section-number-2">2</span> 什么是yasnippet-mode</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+一个好用的快速模板工具
+</p>
 </div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
+</div>
+<div id="outline-container-orgcb8e22b" class="outline-2">
+<h2 id="orgcb8e22b"><span class="section-number-2">3</span> 配置</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><p>
+下载yasnippet-mode
+</p>
+<pre class="example">
+package-list-packages yasnippet-mode RET
+</pre></li>
+
+<li><p>
+加载yasnippet-mode
+</p>
+<pre class="example">
+(require 'yasnippet)
+(yas-global-mode t)
+</pre></li>
+
+<li><p>
+配置路径
+</p>
+<pre class="example">
+;; 重载路径文件
+(setq yas-snippet-dirs
+  '("~/.emacs.d/yasnippets"))
+
+;; 加载路径文件
+(yas-load-directory "~/.emacs.d/yasnippets/")
+</pre>
+<p>
+删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
+</p></li>
+
+<li><p>
+配置快捷键
+</p>
+<pre class="example">
+(require 'yasnippet)
+
+;; 使用hydra-mode管理yasnippet快捷键
+(defhydra hydra-yas-minor (:color blue
+			     :hint nil)
+"
+_j_: 扩展   _i_: 增加   _v_: 查看
+
+"
+("j" yas-expand)  ;;&lt;Tab&gt;仍可使用
+("i" yas-new-snippet)
+("v" yas-visit-snippet-file))
+
+;;全局快捷键放到统一文件管理
+;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org59e3a53" class="outline-2">
+<h2 id="org59e3a53"><span class="section-number-2">4</span> 使用</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
-</p>
-</div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
+以使用org-mode在hexo下写blog 举例
 </p>
 <pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+# 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
+# -*- mode: snippet -*-
+# name: hexo : hexo博客
+# key: hexo
+# --
+
+# 此处使用了org-mode的元数据
+#+BEGIN_COMMENT
+| 名称       | 简述         | 取值               | 备注                 |
+|------------+--------------+--------------------+----------------------|
+| TITLE      | 标题         |                    |                      |
+|------------+--------------+--------------------+----------------------|
+| LAYOUT     | hexo排版模式 | post               |                      |
+|------------+--------------+--------------------+----------------------|
+| CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
+|            |              | system, tool       |                      |
+|------------+--------------+--------------------+----------------------|
+| TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
+|------------+--------------+--------------------+----------------------|
+#+END_COMMENT
+
+# 此处为org-mode 与 hexo交互的元数据
+#+TITLE: ${1}
+#+LAYOUT: post
+#+CATEGORIES: ${2}
+#+TAGS: ${3}
+
+${4}
+
+#+HTML: &lt;!-- more --&gt;
+${5}
+
+# 按tab可以方便的从${n} 到 ${n+1}
 </pre>
-</div>
-</div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
+
 <p>
-具体可以详见官方说明
-基本与shell相同
+当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
 </p>
-<pre class="example">
-eshell/rm -r $remote_temp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
-</ol>
 </div>
 </div>
 </div>

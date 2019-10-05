@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>smartparens mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,75 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">smartparens mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
-<ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
-</ul>
-</li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#org4364a32">1. 什么是</a></li>
+<li><a href="#orgb191ac6">2. 配置</a></li>
+<li><a href="#org8544dc1">3. 使用</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
-</div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
-</div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
-</div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
-<div class="outline-text-2" id="text-4">
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
-</p>
-</div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
+智能括号
 </p>
 <pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+书写, 显示
+pair间跳转
 </pre>
-</div>
-</div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
+
+
+<div id="outline-container-org4364a32" class="outline-2">
+<h2 id="org4364a32"><span class="section-number-2">1</span> 什么是</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-具体可以详见官方说明
-基本与shell相同
+smartparens mode是管理成对符号(pair)的工具.
+</p>
+
+<p>
+<a href="https://github.com/Fuco1/smartparens/wiki#information-for-new-users">如果想深入了解, 可以阅读这篇文档</a>
+</p>
+
+<p>
+主要功能:
+</p>
+<ul class="org-ul">
+<li>显示pair关系</li>
+<li><p>
+书写pair
 </p>
 <pre class="example">
-eshell/rm -r $remote_temp
-</pre>
+wrap, rewrap, unwrap
+</pre></li>
+<li>在pair间跳转</li>
+</ul>
 </div>
 </div>
+<div id="outline-container-orgb191ac6" class="outline-2">
+<h2 id="orgb191ac6"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+smartparens的配置非常简单.
+</p>
+<ul class="org-ul">
+<li><p>
+shortkey配置
+</p>
+<pre class="example">
+详见之后的快捷键文档, 还在整理TODONOW
+</pre></li>
+<li><a href="emacs_smartparens-mode/init-smartparens-mode.el">pair的配置</a></li>
+</ul>
 </div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
-</ol>
+</div>
+<div id="outline-container-org8544dc1" class="outline-2">
+<h2 id="org8544dc1"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+安装即用, 无需特别注意
+</p>
 </div>
 </div>
 </div>

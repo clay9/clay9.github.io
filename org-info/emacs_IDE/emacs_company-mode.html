@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>company mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,114 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">company mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
-<ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
-</ul>
-</li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#orgb9f87b6">1. 什么是</a></li>
+<li><a href="#org54c6224">2. 配置</a></li>
+<li><a href="#org6911fee">3. 使用</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
-</div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
-</div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
-</div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
-<div class="outline-text-2" id="text-4">
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
-</p>
-</div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
+自动补全功能
 </p>
 <pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+头文件自动补全选择了company-c-header-mode
+代码变量函数自动自动补全选择了gtags-mode和clang
 </pre>
-</div>
-</div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
+
+
+<div id="outline-container-orgb9f87b6" class="outline-2">
+<h2 id="orgb9f87b6"><span class="section-number-2">1</span> 什么是</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-具体可以详见官方说明
-基本与shell相同
+company-mode, 意思为complete anything, 是一个前端工具(front-ends).它可以提供候选词, 供用户选择,以
+完成自动补全的功能. 但是具体提供什么词, 是依赖于后端(back-ends)做处理的. 可以认为company-mode只是
+一个容器, 它只处理界面的事情, 不处理具体的代码分析等工作.
 </p>
 <pre class="example">
-eshell/rm -r $remote_temp
+必须依赖于back-ends才能工作.
 </pre>
+
+<p>
+<a href="http://company-mode.github.io">具体可以参考这个文档, 但没太大必要</a>
+</p>
 </div>
 </div>
+
+<div id="outline-container-org54c6224" class="outline-2">
+<h2 id="org54c6224"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+;; start up company-mode
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'c-mode-common-hook 'global-company-mode)
+
+;; chose back-ends
+(setq company-backends
+  (quote
+    (company-bbdb company-nxml company-css company-eclim company-xcode company-cmake company-capf company-files
+      (company-dabbrev-code company-gtags company-etags company-keywords)
+      company-oddmuse company-dabbrev)))
+</pre>
+
+<p>
+company mode的配置比较简单, 只需要指定启动时机和配置后端即可.
+</p>
 </div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
-</ol>
+</div>
+<div id="outline-container-org6911fee" class="outline-2">
+<h2 id="org6911fee"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">常用快捷键</th>
+<th scope="col" class="org-left">功能说明</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">M-p</td>
+<td class="org-left">选择上一个候选词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">M-n</td>
+<td class="org-left">选择下一个候选词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Tab</td>
+<td class="org-left">扩展当前提示的候选词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ret</td>
+<td class="org-left">扩展选择的候选词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

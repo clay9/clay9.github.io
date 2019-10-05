@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>CC mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,116 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">CC mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
+<li><a href="#org71d35fb">1. 什么是</a></li>
+<li><a href="#org0c33704">2. 配置</a>
 <ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
+<li><a href="#org638a685">2.1. 配置接口</a></li>
+<li><a href="#orgfe6fb5a">2.2. 具体配置</a></li>
 </ul>
 </li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#org4471a47">3. 使用</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
-</div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
-</div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
-</div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
-<div class="outline-text-2" id="text-4">
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
+代码缩放 &amp;&amp; 语法高亮
+</p>
+<div id="outline-container-org71d35fb" class="outline-2">
+<h2 id="org71d35fb"><span class="section-number-2">1</span> 什么是</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
+主要功能为代码缩放和语法高亮.
 </p>
 </div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-eshell 脚本中使用elisp语法给变量赋值
-</p>
+</div>
+<div id="outline-container-org0c33704" class="outline-2">
+<h2 id="org0c33704"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org638a685" class="outline-3">
+<h3 id="org638a685"><span class="section-number-3">2.1</span> 配置接口</h3>
+<div class="outline-text-3" id="text-2-1">
 <pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+   (setq  XXX)
+破坏all-style, 不推荐
+       |
+       |
+       | 	      (c-add-style XXX) --推荐
+       |       	        |
+       | 	    	       	|
+       | 	    		|                               (交互式)
+       | 	    	  +-------------+      		    临时性的, 不推荐
+       | 	       	  | style-list  |                          |
+       | 		  |             |      			   |
+       | 		  +-------------+      			   |
+       |       	       	|   	       			   |
+       | 			|   	       			   |
+       | 	         (c-set-style XXX)     	       	       	   |
+       | 	(add hook 'c-code-common-hook 'XXXX)		   |
+       | 	       	       	|   	       			   |
+      \| /		       \| / 	       			  \| /
+       \/		        \/				   \/
+---------------------------------------------------------------------------
+
+ *****************************************************************
+ *  +----      -     -         X	       +--   	  --\	    *
+ *  |          |\   /|        / \          /      	 (	    *
+ *  +---       | \ / |       o---o        |       	  +--+	    *
+ *  |          |  X  |      /     \        \      	      )	    *
+ *  +----      |     |     /       \        +--   	   \--	    *
+ *							            *
+ *****************************************************************
 </pre>
 </div>
 </div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-具体可以详见官方说明
-基本与shell相同
-</p>
+<div id="outline-container-orgfe6fb5a" class="outline-3">
+<h3 id="orgfe6fb5a"><span class="section-number-3">2.2</span> 具体配置</h3>
+<div class="outline-text-3" id="text-2-2">
 <pre class="example">
-eshell/rm -r $remote_temp
+;;.h关联到c++ mode
+(setq auto-mode-alist
+  (append '(("\\.h$" . c++-)) auto-mode-alist))
+
+;;定义自己的cc-mode风格
+(defconst my-cpp-style
+  '((c-basic-offset . 4)
+    (c-tab-always-inde . t)
+    (c-hanging-braces-alist . ((brace-list-open)
+                               (brace-entry-open)
+                               (statement-cont)))
+   (c-offsets-alist . ((block-open  . 0)
+                      (block-close . 0)
+		      (comment-intro . 0)
+		      (case-label . +)
+		      (substatement-open . 0))))
+  "My C++ Programming Style 2017.01.12")
+(c-add-style "MY_CPP_STYLE" my-cpp-style)
+
+;;定义自己的hook函数,并与自定义的cc-mode风格关联
+(defun my-cpp-mode-common-hook()
+  (c-set-style "MY_CPP_STYLE")
+  (setq tab-width 8
+    indent-tabs-mode nil))
+
+;;注册到c-mode-common-hook中
+(add-hook 'c-mode-common-hook 'my-cpp-mode-common-hook)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
-</ol>
+<div id="outline-container-org4471a47" class="outline-2">
+<h2 id="org4471a47"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+cc-mode配置完成后, 无需额外操作即可使用.
+如果想进一步深入了解, 可以<a href="https://david.rothlis.net/emacs/customize_c.html">参考这个文档</a>.
+</p>
 </div>
 </div>
 </div>

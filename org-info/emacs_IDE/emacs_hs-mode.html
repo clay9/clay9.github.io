@@ -6,7 +6,7 @@
 <!-- 2019-10-05 Sat 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>eshell</title>
+<title>hs mode</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="王成庆" />
 <style type="text/css">
@@ -318,70 +318,109 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="http://wcq.fun"> HOME </a>
 </div><div id="content">
-<h1 class="title">eshell</h1>
+<h1 class="title">hs mode</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb520713">1. 功能</a></li>
-<li><a href="#org7665dab">2. 配置</a></li>
-<li><a href="#orgba29c20">3. 使用</a></li>
-<li><a href="#org4174b3b">4. eshell脚本</a>
-<ul>
-<li><a href="#org550fbd1">4.1. 变量赋值</a></li>
-<li><a href="#org341f0db">4.2. 变量使用 $</a></li>
-</ul>
-</li>
-<li><a href="#orgefd662d">5. eshell文档</a></li>
+<li><a href="#org10f81ac">1. 什么是</a></li>
+<li><a href="#orgfd2fe67">2. 配置</a></li>
+<li><a href="#org63c87b8">3. 使用</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb520713" class="outline-2">
-<h2 id="orgb520713"><span class="section-number-2">1</span> 功能</h2>
-</div>
-<div id="outline-container-org7665dab" class="outline-2">
-<h2 id="org7665dab"><span class="section-number-2">2</span> 配置</h2>
-</div>
-<div id="outline-container-orgba29c20" class="outline-2">
-<h2 id="orgba29c20"><span class="section-number-2">3</span> 使用</h2>
-</div>
-<div id="outline-container-org4174b3b" class="outline-2">
-<h2 id="org4174b3b"><span class="section-number-2">4</span> eshell脚本</h2>
-<div class="outline-text-2" id="text-4">
 <p>
-官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
+折叠代码块
+</p>
+
+<div id="outline-container-org10f81ac" class="outline-2">
+<h2 id="org10f81ac"><span class="section-number-2">1</span> 什么是</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+hs-mode可以折叠代码块, 函数, 类
 </p>
 </div>
-<div id="outline-container-org550fbd1" class="outline-3">
-<h3 id="org550fbd1"><span class="section-number-3">4.1</span> 变量赋值</h3>
-<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orgfd2fe67" class="outline-2">
+<h2 id="orgfd2fe67"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-eshell 脚本中使用elisp语法给变量赋值
+无需配置,无需安装, emacs自带
 </p>
-<pre class="example">
-(setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
-</pre>
 </div>
 </div>
-<div id="outline-container-org341f0db" class="outline-3">
-<h3 id="org341f0db"><span class="section-number-3">4.2</span> 变量使用 $</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-具体可以详见官方说明
-基本与shell相同
-</p>
-<pre class="example">
-eshell/rm -r $remote_temp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgefd662d" class="outline-2">
-<h2 id="orgefd662d"><span class="section-number-2">5</span> eshell文档</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><a href="https://linuxtoy.org/archives/emacs-eshell.html">https://linuxtoy.org/archives/emacs-eshell.html</a></li>
-</ol>
+<div id="outline-container-org63c87b8" class="outline-2">
+<h2 id="org63c87b8"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">主要函数</th>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">简述</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hs-hide-all</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">隐藏全部</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hs-show-all</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">显示全部</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hs-hide-block</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">隐藏代码块</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hs-show-block</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">显示代码块</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hs-hide-level</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hs-toggle-hiding</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">反转隐藏显示</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
