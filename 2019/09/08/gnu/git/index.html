@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="飘">
 <meta property="og:description" content="git&amp;#x7B80;&amp;#x6613;&amp;#x6307;&amp;#x5BFC;, &amp;#x4E2A;&amp;#x4EBA;&amp;#x4F7F;&amp;#x7528;&amp;#x5FC3;&amp;#x5F97;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T10:25:38.969Z">
+<meta property="og:updated_time" content="2020-01-26T17:38:51.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git简易指导">
 <meta name="twitter:description" content="git&amp;#x7B80;&amp;#x6613;&amp;#x6307;&amp;#x5BFC;, &amp;#x4E2A;&amp;#x4EBA;&amp;#x4F7F;&amp;#x7528;&amp;#x5FC3;&amp;#x5F97;">
@@ -380,28 +380,42 @@ git&#x7B80;&#x6613;&#x6307;&#x5BFC;, &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x5FC3;&#x
 </p>
 <a id="more"></a>
 
-<div id="outline-container-org8533390" class="outline-2">
-<h2 id="org8533390">git&#x4F7F;&#x7528;&#x6D41;&#x7A0B;</h2>
+<div id="outline-container-orgfac983a" class="outline-2">
+<h2 id="orgfac983a">git&#x4F7F;&#x7528;&#x6D41;&#x7A0B;</h2>
 </div>
-<div id="outline-container-org2175927" class="outline-2">
-<h2 id="org2175927">git&#x539F;&#x7406; &amp;&amp; &#x5E38;&#x89C1;&#x547D;&#x4EE4;</h2>
+<div id="outline-container-orga6bcee1" class="outline-2">
+<h2 id="orga6bcee1">git&#x539F;&#x7406; &amp;&amp; &#x5E38;&#x89C1;&#x547D;&#x4EE4;</h2>
 </div>
-<div id="outline-container-org5a27e82" class="outline-2">
-<h2 id="org5a27e82">git&#x9AD8;&#x7EA7;&#x7279;&#x6027;</h2>
-<div class="outline-text-2" id="text-org5a27e82">
+<div id="outline-container-org426d05a" class="outline-2">
+<h2 id="org426d05a">git&#x9AD8;&#x7EA7;&#x7279;&#x6027;</h2>
+<div class="outline-text-2" id="text-org426d05a">
 </div>
-<div id="outline-container-org2680676" class="outline-3">
-<h3 id="org2680676">git hooks</h3>
-<div class="outline-text-3" id="text-org2680676">
+<div id="outline-container-org8417e50" class="outline-3">
+<h3 id="org8417e50">git hooks</h3>
+<div class="outline-text-3" id="text-org8417e50">
 <p>
 <a href="https://blog.csdn.net/jessise_zhan/article/details/80131618" target="_blank" rel="noopener">&#x53C2;&#x8003;&#x6587;&#x6863;</a>
 </p>
 </div>
 </div>
+<div id="outline-container-org3ffcaca" class="outline-3">
+<h3 id="org3ffcaca">&#x5220;&#x9664;&#x5927;&#x6587;&#x4EF6;</h3>
+<div class="outline-text-3" id="text-org3ffcaca">
+<ol class="org-ol">
+<li>&#x5BFB;&#x627E;&#x5927;&#x6587;&#x4EF6;
+git rev-list &#x2013;objects &#x2013;all | grep &quot;$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk &apos;{print$1}&apos;)&quot;</li>
+<li>&#x5220;&#x9664;&#x5927;&#x6587;&#x4EF6;
+git filter-branch -f &#x2013;prune-empty &#x2013;index-filter &apos;git rm -rf &#x2013;cached &#x2013;ignore-unmatch your-file-name&apos; &#x2013;tag-name-filter cat &#x2013; &#x2013;all</li>
+<li>&#x5220;&#x9664;&#x4E4B;&#x540E;
+git gc &#x2013;prune=now</li>
+</ol>
 </div>
-<div id="outline-container-org60ac103" class="outline-2">
-<h2 id="org60ac103">F&amp;Q</h2>
-<div class="outline-text-2" id="text-org60ac103">
+</div>
+</div>
+
+<div id="outline-container-org7ca8716" class="outline-2">
+<h2 id="org7ca8716">F&amp;Q</h2>
+<div class="outline-text-2" id="text-org7ca8716">
 <ol class="org-ol">
 <li><p>
 &#x95EE;: &#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x7684;git status&#x5982;&#x4F55;&#x663E;&#x793A;&#x4E2D;&#x6587;
@@ -468,8 +482,8 @@ git&#x7B80;&#x6613;&#x6307;&#x5BFC;, &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x5FC3;&#x
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/08/gnu/gcc/" rel="prev" title="gcc">
-                gcc <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/08/protocol/dll/" rel="prev" title="静态库 && 动态库">
+                静态库 && 动态库 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +616,7 @@ git&#x7B80;&#x6613;&#x6307;&#x5BFC;, &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x5FC3;&#x
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org8533390"><span class="nav-number">1.</span> <span class="nav-text">git使用流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2175927"><span class="nav-number">2.</span> <span class="nav-text">git原理 &amp;&amp; 常见命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5a27e82"><span class="nav-number">3.</span> <span class="nav-text">git高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org2680676"><span class="nav-number">3.1.</span> <span class="nav-text">git hooks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org60ac103"><span class="nav-number">4.</span> <span class="nav-text">F&amp;Q</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgfac983a"><span class="nav-number">1.</span> <span class="nav-text">git使用流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orga6bcee1"><span class="nav-number">2.</span> <span class="nav-text">git原理 &amp;&amp; 常见命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org426d05a"><span class="nav-number">3.</span> <span class="nav-text">git高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org8417e50"><span class="nav-number">3.1.</span> <span class="nav-text">git hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org3ffcaca"><span class="nav-number">3.2.</span> <span class="nav-text">删除大文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7ca8716"><span class="nav-number">4.</span> <span class="nav-text">F&amp;Q</span></a></li></ol></div>
             
 
           </div>
@@ -622,7 +636,7 @@ git&#x7B80;&#x6613;&#x6307;&#x5BFC;, &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x5FC3;&#x
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
