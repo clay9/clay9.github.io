@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="socket,epoll,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="socket&amp;#x76F8;&amp;#x5173;&amp;#x7F51;&amp;#x7EDC;&amp;#x7F16;&amp;#x7A0B;">
+<meta name="keywords" content="socket,epoll">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见网络编程">
+<meta property="og:url" content="https://clay9.github.io/2019/09/08/protocol/socket/index.html">
+<meta property="og:site_name" content="飘">
+<meta property="og:description" content="socket&amp;#x76F8;&amp;#x5173;&amp;#x7F51;&amp;#x7EDC;&amp;#x7F16;&amp;#x7A0B;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-29T09:58:50.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见网络编程">
+<meta name="twitter:description" content="socket&amp;#x76F8;&amp;#x5173;&amp;#x7F51;&amp;#x7EDC;&amp;#x7F16;&amp;#x7A0B;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://clay9.github.io/2019/09/08/protocol/socket/">
+
+
+
+
+
+  <title>常见网络编程 | 飘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">飘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">紫陌红尘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://clay9.github.io/2019/09/08/protocol/socket/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WCQ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常见网络编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T03:49:19+08:00">
+                2019-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/protocol/" itemprop="url" rel="index">
+                    <span itemprop="name">protocol</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content">
+<p>
+socket&#x76F8;&#x5173;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;
+</p>
+<a id="more"></a>
+<div id="outline-container-org087f91a" class="outline-2">
+<h2 id="org087f91a">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<div class="outline-text-2" id="text-org087f91a">
+</div>
+<div id="outline-container-org82cb67c" class="outline-3">
+<h3 id="org82cb67c">socket</h3>
+<div class="outline-text-3" id="text-org82cb67c">
+<p>
+socket&#x662F; [&#x5E94;&#x7528;&#x5C42;] &#x4E0E; [&#x4F20;&#x8F93;&#x5C42;, &#x7F51;&#x7EDC;&#x5C42;] &#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5C42;
+&#x5B83;&#x7684;&#x51FA;&#x73B0;&#x662F;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x7F51;&#x7EDC;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;
+</p>
+</div>
+<div id="outline-container-org7dfd8c5" class="outline-4">
+<h4 id="org7dfd8c5">linux&#x5934;&#x6587;&#x4EF6;</h4>
+<div class="outline-text-4" id="text-org7dfd8c5">
+<ol class="org-ol">
+<li>usr/include/x86<sub>64</sub>-linux-gnu/sys/socket.h
+&#x7ED3;&#x6784;&#x4F53;
+sockaddr
+&#x51FD;&#x6570;
+socket() connect() send() recv() close()
+socket() bind()    lisent()  accept() recv() send() close()
+g++&#x7684;&#x9ED8;&#x8BA4;&#x76EE;&#x5F55;&#x4E2D;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;sys/&#x7684;&#x4E0A;&#x5C42;&#x76EE;&#x5F55;</li>
+<li>usr/include/netinet/in.h
+&#x7ED3;&#x6784;&#x4F53;
+AF<sub>INET</sub>  &#x4E2D;&#x7684; sockaddr<sub>in</sub>
+AF<sub>INET6</sub> &#x4E2D;&#x7684; sockaddr<sub>in6</sub>
+AF<sub>UNIx</sub>  &#x4E2D;&#x7684; sockaddr<sub>un</sub></li>
+<li>user/include/arpa/inet.h
+&#x51FD;&#x6570;
+htons()
+inet<sub>addr</sub>()</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd2a5cf5" class="outline-4">
+<h4 id="orgd2a5cf5">socket&#x51FD;&#x6570;</h4>
+<div class="outline-text-4" id="text-orgd2a5cf5">
+<ol class="org-ol">
+<li>socket(domain, socket<sub>type</sub>, protol)
+domain
+socket<sub>type</sub>
+protol
+socket()&#x672C;&#x8D28;&#x662F;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x6587;&#x4EF6;&#x8868;, &#x8FD4;&#x56DE;&#x7684;&#x503C;&#x4E3A;&#x6307;&#x5411;&#x8FDB;&#x7A0B;&#x6587;&#x4EF6;&#x8868;&#x7684;&#x6307;&#x9488;&#x7684;&#x7D22;&#x5F15;.</li>
+<li>bind(fd, sockaddr*, len)
+fd:        socket()&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x8868;&#x6307;&#x9488;&#x7684;&#x7D22;&#x5F15;
+sockaddr:  &#x5730;&#x5740;, &#x7AEF;&#x53E3;
+len:       sockaddr&#x7684;&#x957F;&#x5EA6;
+&lt;1&gt; &#x6BD4;&#x8F83;&#x6709;&#x610F;&#x601D;&#x7684;&#x662F;sockaddr&#x6839;&#x636E;family&#x7684;&#x4E0D;&#x540C;, &#x53EF;&#x4EE5;&#x4E0E;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x4E92;&#x8F6C;
+    &#x6BD4;&#x5982;
+     AF<sub>INET</sub>   sockaddr<sub>in</sub>
+     AF<sub>INET6</sub>  sockaddr<sub>in6</sub>
+     AF<sub>UNIX</sub>   sockaddr<sub>un</sub>
+    &#x8FD9;&#x51E0;&#x79CD;&#x7ED3;&#x6784;&#x4F53;&#x90FD;&#x4E0E;sockaddr&#x53EF;&#x4E92;&#x8F6C;(&#x5B57;&#x8282;&#x5BF9;&#x9F50;blabla)
+bind()&#x672C;&#x8D28;&#x662F;&#x5728;&#x8865;&#x5145;socket()&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x8868;. socket()&#x65F6;&#x5019;&#x8BE5;&#x6587;&#x4EF6;&#x8868;&#x5F88;&#x591A;&#x503C;&#x90FD;&#x662F;&#x7A7A;&#x7684;, bind()&#x6765;&#x8865;&#x5145;
+&#x56E0;&#x4E3A;client &#x5728;connect&#x7684;&#x65F6;&#x5019;, &#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x7AEF;&#x53E3;,&#x4EE5;&#x53CA;&#x7ED1;&#x5B9A;&#x672C;&#x673A;ip, &#x6240;&#x4EE5;client&#x7684;socket&#x4E00;&#x822C;&#x4E0D;&#x5FC5;&#x8981;
+&#x4F7F;&#x7528;bind()</li>
+<li>connet(fd, sockaddr*, len)
+&#x8FDE;&#x63A5;&#x5230;&#x5176;&#x4ED6;scokaddr</li>
+<li>listen(fd, iMaxNum)
+&#x4E00;&#x822C;&#x53EA;&#x5728;server&#x5F00;&#x542F;listen(), &#x76D1;&#x542C;&#x6307;&#x5B9A;&#x7684;&#x7AEF;&#x53E3;&#x4FE1;&#x606F;</li>
+<li>accept()
+accept()&#x4F1A;&#x9020;&#x6210;&#x963B;&#x585E;.
+&#x5B83;&#x4F1A;&#x5C06;listen()&#x4E2D;&#x7684;sockaddr&#x8FDB;&#x884C;&#x5904;&#x7406;
+&#x5904;&#x7406;&#x6D41;&#x7A0B;&#x662F; accept()&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;fd<sub>connet</sub>, &#x6B64;fd<sub>connet&#x516C;&#x7528;server</sub> socket() fd&#x7684;&#x7AEF;&#x53E3;&#x548C;&#x5730;&#x5740;
+&#x4F46;&#x662F;fd<sub>connect&#x4EC5;&#x4EC5;&#x662F;&#x7528;&#x6765;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x7684;</sub></li>
+<li>recv(fd, msg)  send(fd, msg)
+&#x81F3;accetp()&#x65F6;&#x5019;, &#x4E00;&#x5207;&#x64CD;&#x4F5C;&#x5C31;&#x548C;&#x5728;&#x672C;&#x5730;&#x4E0A;&#x64CD;&#x4F5C;&#x4E00;&#x6837;,
+&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;recv() &#x548C; send()&#x64CD;&#x4F5C;&#x4E0E;&#x672C;&#x673A;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x662F;&#x4E00;&#x6837;&#x7684;</li>
+<li>close(fd)  shutdown(fd, type)
+linux&#x4E00;&#x5207;&#x7686;&#x662F;file&#x539F;&#x5219;, fd&#x53EF;&#x4EE5;&#x5173;&#x95ED;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgab2a1ce" class="outline-4">
+<h4 id="orgab2a1ce">[ip, port]&#x76F8;&#x5173;&#x51FD;&#x6570;</h4>
+<div class="outline-text-4" id="text-orgab2a1ce">
+<pre class="example">
+&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;ip &#x662F;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x7684;
+&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F; &#x5373; 32&#x4F4D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;
+</pre>
+
+<pre class="example">
+//in_addr
+struct in_addr 
+{
+&#x3000;&#x3000;in_addr_t s_addr;
+};
+
+//in_addr_t
+typedef unsigned long  in_addr_t</pre>
+
+<ol class="org-ol">
+<li>&#x51FD;&#x6570;&#x539F;&#x578B;: in<sub>addr</sub><sub>t</sub> inet<sub>addr</sub>(const char* strptr);
+&#x82E5;&#x5B57;&#x7B26;&#x4E32;&#x6709;&#x6548;, &#x5219;&#x5C06;&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;IP&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x5730;&#x5740;&#xFF0C;&#x5426;&#x5219;&#x4E3A;INADDR<sub>NONE</sub></li>
+
+<li>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;int inet<sub>aton</sub>(const char *IP, struct in<sub>addr</sub> *addr);
+&#x5C06;&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;IP&#x5730;&#x5740;&#x8F6C;&#x6362;&#x4E3A;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x5B58;&#x50A8;&#x5728;addr&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x8BE5;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x8868;&#x793A;&#x7684;&#x65E0;&#x7B26;&#x53F7;&#x6574;&#x6570;</li>
+
+<li>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;char *inet<sub>ntoa</sub>(struct in<sub>addr</sub> in);
+&#x5C06;&#x7F51;&#x7EDC;&#x5B57;&#x8282;&#x5E8F;&#x7684;IP&#x5730;&#x5740;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x7ED3;&#x6784;&#x4F53;in<sub>addr&#x7C7B;&#x578B;&#x53D8;&#x91CF;</sub>&#xFF09;&#x8F6C;&#x5316;&#x4E3A;&#x70B9;&#x5206;&#x5341;&#x8FDB;&#x5236;&#x7684;IP&#x5730;&#x5740;&#xFF08;&#x5B57;&#x7B26;&#x4E32;)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc7b9695" class="outline-4">
+<h4 id="orgc7b9695">socket fd&#x672C;&#x8D28;</h4>
+<div class="outline-text-4" id="text-orgc7b9695">
+<p>
+socket&#x672C;&#x8D28;&#x662F;&#x7EF4;&#x62A4;&#x4E86;fd&#x8FDB;&#x7A0B;&#x6587;&#x4EF6;&#x8868;, &#x5982;&#x4E0B;:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#x540D;&#x79F0;</th>
+<th scope="col" class="org-left">&#x8BF4;&#x660E;</th>
+<th scope="col" class="org-left">&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">fd</td>
+<td class="org-left">&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;, &#x8868;&#x7684;&#x7D22;&#x5F15;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">host</td>
+<td class="org-left">1. &#x57DF;&#x540D;(DNS /etc/hosts) 2. ip&#x5730;&#x5740;</td>
+<td class="org-left">&#x517C;&#x5BB9;Ipv4 Ipv6&#x662F;&#x96BE;&#x70B9;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x670D;&#x52A1;</td>
+<td class="org-left">1. &#x670D;&#x52A1;&#x540D;&#x79F0;(/etc/services) 2. &#x7AEF;&#x53E3;</td>
+<td class="org-left">&#xA0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x534F;&#x8BAE;</td>
+<td class="org-left">1. &#x4F20;&#x8F93;&#x5C42;(/etc/protol) 2. &#x7F51;&#x7EDC;&#x5C42;</td>
+<td class="org-left">&#x94FE;&#x8DEF;&#x5C42;&#x7528;&#x5230;&#x7684;&#x6BD4;&#x8F83;&#x5C11;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#x7F51;&#x7EDC;</td>
+<td class="org-left">1. &#x7F51;&#x7EDC;&#x540D;&#x79F0;?(DNS /etc/networks) 2. ip&#x5730;&#x5740;</td>
+<td class="org-left">&#x8C01;&#x4F1A;&#x4F7F;&#x7528;&#x5230;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;??</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&#x671F;&#x95F4;&#x7528;&#x5230;&#x7684;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x6709;
+</p>
+<pre class="example">
+&#x5C3D;&#x91CF;&#x4F7F;&#x7528;ipv4, ipv6&#x901A;&#x7528;&#x7684;&#x51FD;&#x6570;
+</pre>
+
+<ol class="org-ol">
+<li>&#x6D41;&#x7A0B;&#x51FD;&#x6570;
+socket() bind() listen() connect() accept()&#x7B49;</li>
+<li>&#x5B57;&#x8282;&#x5904;&#x7406;&#x51FD;&#x6570;
+&#x5904;&#x7406;&#x5927;&#x5C0F;&#x5B57;&#x8282;&#x5E8F; htons() htonl() ntohs() ntohl()
+&#x5904;&#x7406;&#x57DF;&#x540D;&#x4E0E;&#x5341;&#x5206;&#x6570;&#x5B57; getaddrinfo()  getnameinfo()</li>
+<li>&#x5904;&#x7406;sockaddr&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x51FD;&#x6570;
+getsockname() &#x8FD4;&#x56DE;local fd
+getpeername() &#x8FD4;&#x56DE;remote fd</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb8560e" class="outline-3">
+<h3 id="orgdb8560e">socket&#x95EE;&#x9898;</h3>
+<div class="outline-text-3" id="text-orgdb8560e">
+<ol class="org-ol">
+<li><p>
+&#x963B;&#x585E; 
+</p>
+<pre class="example">
+&#x5F71;&#x54CD;&#x5E76;&#x53D1;, &#x591A;&#x8DEF;&#x590D;&#x7528;
+</pre>
+
+<p>
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:
+</p>
+<ol class="org-ol">
+<li>&#x4F7F;&#x7528;&#x975E;&#x963B;&#x585E;&#x6A21;&#x578B;, &#x6BD4;&#x5982;select, poll, epoll(linux&#x4E0B;&#x7279;&#x6709;), IOCP(windows&#x4E0B;&#x7279;&#x6709;)</li>
+<li>&#x591A;&#x7EBF;&#x7A0B; &#x2013; &#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;</li>
+<li>&#x591A;&#x8FDB;&#x7A0B; &#x2013; &#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;</li>
+</ol></li>
+<li>&#x7C98;&#x5305;
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:
+<ol class="org-ol">
+<li>&#x9650;&#x5236;&#x53D1;&#x9001;&#x5927;&#x5C0F;</li>
+<li>&#x6BCF;&#x4E2A;&#x6D88;&#x606F;&#x589E;&#x52A0;&#x957F;&#x5EA6;&#x6807;&#x8BC6;</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org04df63c" class="outline-3">
+<h3 id="org04df63c">I/O&#x6A21;&#x578B;</h3>
+<div class="outline-text-3" id="text-org04df63c">
+<p>
+<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565671711&amp;ver=1787&amp;signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&amp;new=1" target="_blank" rel="noopener">&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x9605;&#x8BFB;</a>
+(&#x94FE;&#x63A5;&#x8FC7;&#x671F;, &#x76F4;&#x63A5;&#x641C;&#x72D7;&#x641C;&#x7D22;epoll, &quot;epoll&#x672C;&#x8D28;&quot;&#x5373;&#x662F;)
+</p>
+<ol class="org-ol">
+<li>&#x963B;&#x585E;&#x5F0F;</li>
+<li>&#x975E;&#x963B;&#x585E;</li>
+<li>select</li>
+<li>poll</li>
+<li>epoll (linux&#x7279;&#x6709;)</li>
+<li>IOCP (windows&#x7279;&#x6709;)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org5b49b32" class="outline-3">
+<h3 id="org5b49b32">epoll&#x4F7F;&#x7528;</h3>
+<div class="outline-text-3" id="text-org5b49b32">
+</div>
+<div id="outline-container-orgb6c458d" class="outline-4">
+<h4 id="orgb6c458d">epoll&#x672C;&#x8EAB;&#x4E3A;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E86;&#x4EC0;&#x4E48;</h4>
+<div class="outline-text-4" id="text-orgb6c458d">
+<ol class="org-ol">
+<li>&#x4E4B;&#x524D;socket::recv()&#x65F6;, &#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x7684;&#x8FDB;&#x7A0B;&#x963B;&#x585E;</li>
+<li>&#x73B0;&#x5728;socket::recv()&#x65F6;, &#x4F7F;epoll&#x963B;&#x585E;; epoll&#x4E2D;&#x65AD;&#x65F6;, &#x544A;&#x4E4B;&#x8FDB;&#x7A0B;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga201ef2" class="outline-4">
+<h4 id="orga201ef2">&#x6709;&#x4E86;epoll&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5904;&#x7406;&#x4EC0;&#x4E48;</h4>
+<div class="outline-text-4" id="text-orga201ef2">
+<ol class="org-ol">
+<li>&#x521B;&#x5EFA;epoll&#x5BF9;&#x8C61;</li>
+<li>&#x6DFB;&#x52A0;&#x68C0;&#x89C6;&#x7684;fd&#x5BF9;&#x8C61; &#x2013; op, epoll<sub>event</sub></li>
+<li>&#x68C0;&#x6D4B;&#x662F;&#x5426;&#x6709;&#x4E2D;&#x65AD;, &#x7136;&#x540E;&#x5904;&#x7406;</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5ea13f6" class="outline-2">
+<h2 id="org5ea13f6">socket&#x5C5E;&#x6027;</h2>
+<div class="outline-text-2" id="text-org5ea13f6">
+</div>
+<div id="outline-container-orgd11db83" class="outline-3">
+<h3 id="orgd11db83">keep live&#x673A;&#x5236;</h3>
+<div class="outline-text-3" id="text-orgd11db83">
+<p>
+&#x5F53;socket&#x670D;&#x52A1;&#x7AEF;&#x5F00;&#x542F;keep live&#x4E4B;&#x540E;, 
+&#x670D;&#x52A1;&#x5668;&#x68C0;&#x6D4B;&#x5230; <span class="underline">&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x5185;</span> socket&#x4E0D;&#x6D3B;&#x52A8;&#x7684;&#x65F6;&#x5019;,
+&#x5C31;&#x4F1A;&#x6BCF;&#x9694; <span class="underline">&#x56FA;&#x5B9A;&#x65F6;&#x95F4;</span> &#x5411;&#x8BE5;sockt&#x53D1;&#x9001; <span class="underline">&#x56FA;&#x5B9A;&#x6B21;&#x6570;</span> &#x7684;&#x67E5;&#x8BE2;.
+&#x5982;&#x679C;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x56DE;&#x5E94;, &#x670D;&#x52A1;&#x7AEF;&#x5219;&#x5173;&#x95ED;&#x8BE5;socket
+</p>
+
+<p>
+&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x6BB5;&#x4E3A;:
+</p>
+<pre class="example">
+tcp_keepalive_time&#xFF08;&#x5F00;&#x542F;keepalive&#x7684;&#x95F2;&#x7F6E;&#x65F6;&#x957F;&#xFF09; 
+tcp_keepalive_intvl&#xFF08;keepalive&#x63A2;&#x6D4B;&#x5305;&#x7684;&#x53D1;&#x9001;&#x95F4;&#x9694;&#xFF09; 
+tcp_keepalive_probes &#xFF08;&#x5982;&#x679C;&#x5BF9;&#x65B9;&#x4E0D;&#x4E88;&#x5E94;&#x7B54;&#xFF0C;&#x63A2;&#x6D4B;&#x5305;&#x7684;&#x53D1;&#x9001;&#x6B21;&#x6570;&#xFF09;</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org025fae0" class="outline-2">
+<h2 id="org025fae0">&#x7F16;&#x7A0B;&#x5B9E;&#x4F8B;</h2>
+<div class="outline-text-2" id="text-org025fae0">
+</div>
+<div id="outline-container-orgd819050" class="outline-3">
+<h3 id="orgd819050">&#x539F;&#x59CB;socket&#x6A21;&#x578B;, recv()&#x4E2D;&#x5904;&#x7406;&#x5206;&#x5305;&#x7C98;&#x5305;</h3>
+<div class="outline-text-3" id="text-orgd819050">
+<p>
+&#x539F;&#x59CB;socket&#x6A21;&#x578B;,  &#x8003;&#x8651;&#x5230;tcp&#x5206;&#x5305;
+</p>
+<div class="org-src-container">
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x7F51;&#x7EDC;&#x8BFB;&#x53D6; -- &#x7CFB;&#x7EDF;&#x68C0;&#x6D4B;&#x5230;&#x7F51;&#x7EDC;I/O&#x4E8B;&#x4EF6;&#x65F6;, &#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;</span></span><br><span class="line">LRESULT CTCPSocketService::OnSocketNotifyRead(WPARAM wParam, LPARAM lParam)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6570;&#x636E;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m+cbRecvbuf&#x6765;&#x5F53;&#x505A;&#x7F13;&#x51B2;&#x533A;</span></span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x91CF;m_wRecvsize&#x6765;&#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x5DF2;&#x8BFB;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line">    <span class="keyword">int</span> iRetCode = recv(m_hSocket, (<span class="keyword">char</span> *)m_cbRecvBuf + m_wRecvSize, <span class="keyword">sizeof</span>(m_cbRecvBuf) - m_wRecvSize, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x5931;&#x8D25;, &#x5219;&#x8FD4;&#x56DE;SOCKET_ERROR</span></span><br><span class="line">    <span class="keyword">if</span> (iRetCode == SOCKET_ERROR)</span><br><span class="line">    {</span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#xFF0C;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x8BFB;&#x53D6;&#x6210;&#x529F;, &#x5219;&#x8FD4;&#x56DE;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;</span></span><br><span class="line">    m_wRecvSize += iRetCode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5728;tcp&#x6570;&#x636E;&#x4E2D;, &#x589E;&#x52A0;&#x5305;&#x7684;&#x5927;&#x5C0F;, &#x7528;&#x6765;&#x6821;&#x9A8C;&#x662F;&#x5426;&#x8BFB;&#x53D6;&#x5B8C;&#x6BD5;;</span></span><br><span class="line">    TCP_Head * pHead = (TCP_Head *)m_cbRecvBuf;</span><br><span class="line">    WORD wPacketSize = pHead-&gt;TCPInfo.wPacketSize;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// //&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#x6821;&#x9A8C;</span></span><br><span class="line">    <span class="keyword">if</span> (wPacketSize &gt; (SOCKET_TCP_BUFFER + <span class="keyword">sizeof</span>(TCP_Head)))</span><br><span class="line">    {</span><br><span class="line">	<span class="comment">//&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#x5019;, &#x7F13;&#x51B2;&#x533A;&#x7F6E;&#x4F4D;</span></span><br><span class="line">	ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));</span><br><span class="line">	m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">3</span>;<span class="comment">//&quot;&#x6570;&#x636E;&#x5305;&#x592A;&#x5927;&quot;;</span></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">//&#x89E3;&#x6790;&#x6570;&#x636E;</span></span><br><span class="line">	<span class="keyword">if</span> (m_wRecvSize == wPacketSize)  <span class="comment">//&#x6570;&#x636E;&#x5168;&#x90E8;&#x63A5;&#x53D7;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E; &#x518D;&#x89E3;&#x6790;</span></span><br><span class="line">	{		</span><br><span class="line">	    <span class="comment">//&#x62F7;&#x8D1D;&#x6570;&#x636E;</span></span><br><span class="line">	    BYTE cbDataBuffer[SOCKET_TCP_BUFFER+<span class="keyword">sizeof</span>(TCP_Head)];		</span><br><span class="line">	    CopyMemory(cbDataBuffer, m_cbRecvBuf, wPacketSize);</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x7F6E;&#x4F4D;&#x7F13;&#x51B2;&#x4FE1;&#x606F; -- &#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x53EA;&#x4FDD;&#x5B58;&#x4E00;&#x6761;tcp&#x4FE1;&#x606F;</span></span><br><span class="line">	    m_wRecvSize = <span class="number">0</span>;</span><br><span class="line">	    ZeroMemory(m_cbRecvBuf, <span class="keyword">sizeof</span>(m_cbRecvBuf));		</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x89E3;&#x5BC6;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealySize = CrevasseBuffer(cbDataBuffer, wPacketSize);</span><br><span class="line">	    <span class="keyword">if</span>(wRealySize &lt; <span class="keyword">sizeof</span>(TCP_Head)) <span class="keyword">return</span> <span class="number">4</span>; <span class="comment">//&#x89E3;&#x6790;&#x540E;&#x7684;&#x6570;&#x636E;&#x9519;&#x8BEF;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;TCP_Head</span></span><br><span class="line">	    TCP_Command Command = ((TCP_Head *)cbDataBuffer)-&gt;CommandInfo;</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x83B7;&#x5F97;&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">void</span> * pDataBuffer = cbDataBuffer + <span class="keyword">sizeof</span>(TCP_Head); <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;</span></span><br><span class="line">	    WORD wRealDataSize = wRealySize - <span class="keyword">sizeof</span>(TCP_Head);   <span class="comment">//&#x5B9E;&#x9645;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;</span></span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5185;&#x6838;&#x547D;&#x4EE4;</span></span><br><span class="line">	    <span class="keyword">if</span> (Command.wMainCmdID == MDM_KN_COMMAND)</span><br><span class="line">	    {</span><br><span class="line">	    <span class="keyword">switch</span> (Command.wSubCmdID)</span><br><span class="line">	    {</span><br><span class="line">		<span class="keyword">case</span> SUB_KN_DETECT_SOCKET:	<span class="comment">//&#x7F51;&#x7EDC;&#x68C0;&#x6D4B;</span></span><br><span class="line">		{</span><br><span class="line">		    <span class="comment">//&#x53D1;&#x9001;&#x6570;&#x636E;</span></span><br><span class="line">		    SendData(MDM_KN_COMMAND, SUB_KN_DETECT_SOCKET, pDataBuffer, wRealDataSize);</span><br><span class="line">		    <span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	    }</span><br><span class="line">	    <span class="keyword">continue</span>;</span><br><span class="line">	    }</span><br><span class="line"></span><br><span class="line">	    <span class="comment">//&#x5904;&#x7406;&#x6570;&#x636E;</span></span><br><span class="line">	    <span class="keyword">bool</span> bSuccess = m_QueueServiceEvent.PostTCPSocketReadEvent(m_wServiceID, Command, pDataBuffer, wRealDataSize);</span><br><span class="line">	    <span class="keyword">if</span> (bSuccess == <span class="literal">false</span>) <span class="keyword">return</span> <span class="number">5</span>;<span class="comment">//&quot;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5305;&#x5904;&#x7406;&#x5931;&#x8D25;&quot;;</span></span><br><span class="line">	};</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/socket/" rel="tag"># socket</a>
+          
+            <a href="/tags/epoll/" rel="tag"># epoll</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/08/gnu/autotools/" rel="next" title="autotools个人心得">
+                <i class="fa fa-chevron-left"></i> autotools个人心得
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/08/protocol/dll/" rel="prev" title="静态库 && 动态库">
+                静态库 && 动态库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WCQ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index_backup.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org087f91a"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org82cb67c"><span class="nav-number">1.1.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org7dfd8c5"><span class="nav-number">1.1.1.</span> <span class="nav-text">linux头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgd2a5cf5"><span class="nav-number">1.1.2.</span> <span class="nav-text">socket函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgab2a1ce"><span class="nav-number">1.1.3.</span> <span class="nav-text">[ip, port]相关函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgc7b9695"><span class="nav-number">1.1.4.</span> <span class="nav-text">socket fd本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgdb8560e"><span class="nav-number">1.2.</span> <span class="nav-text">socket问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org04df63c"><span class="nav-number">1.3.</span> <span class="nav-text">I/O模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5b49b32"><span class="nav-number">1.4.</span> <span class="nav-text">epoll使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgb6c458d"><span class="nav-number">1.4.1.</span> <span class="nav-text">epoll本身为我们处理了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orga201ef2"><span class="nav-number">1.4.2.</span> <span class="nav-text">有了epoll我们还需要处理什么</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org5ea13f6"><span class="nav-number">2.</span> <span class="nav-text">socket属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd11db83"><span class="nav-number">2.1.</span> <span class="nav-text">keep live机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org025fae0"><span class="nav-number">3.</span> <span class="nav-text">编程实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgd819050"><span class="nav-number">3.1.</span> <span class="nav-text">原始socket模型, recv()中处理分包粘包</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WCQ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-22 Mon 00:35 -->
+<!-- 2020-06-22 Mon 00:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>helm mode</title>
@@ -323,17 +323,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7b89fc6">1. 为什么需要</a></li>
-<li><a href="#orgcca8326">2. 什么是helm-mode</a></li>
-<li><a href="#org4c3a26f">3. 配置</a></li>
-<li><a href="#org4e9327a">4. 使用</a></li>
-<li><a href="#org11bff76">5. 函数介绍</a>
+<li><a href="#org363062a">1. 为什么需要</a></li>
+<li><a href="#orgfd45de8">2. 什么是helm-mode</a></li>
+<li><a href="#org358ad8d">3. 配置</a></li>
+<li><a href="#orgd109b94">4. 使用</a></li>
+<li><a href="#org9ba156f">5. 函数介绍</a>
 <ul>
-<li><a href="#orgad965cc">5.1. helm-occur</a></li>
-<li><a href="#orgfb97f00">5.2. helm-browse-project</a></li>
-<li><a href="#org01f2682">5.3. helm-filtered-bookmarks</a></li>
-<li><a href="#orgd3565f4">5.4. helm-compilation</a></li>
-<li><a href="#orgda0a1e7">5.5. helm-buffers-list</a></li>
+<li><a href="#orga3c004f">5.1. helm-occur</a></li>
+<li><a href="#org20e3bee">5.2. helm-browse-project</a></li>
+<li><a href="#org5bb3d4d">5.3. helm-filtered-bookmarks</a></li>
+<li><a href="#org8a5a1cd">5.4. helm-compilation</a></li>
+<li><a href="#org21cdf27">5.5. helm-buffers-list</a></li>
 </ul>
 </li>
 </ul>
@@ -341,8 +341,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org7b89fc6" class="outline-2">
-<h2 id="org7b89fc6"><span class="section-number-2">1</span> 为什么需要</h2>
+<div id="outline-container-org363062a" class="outline-2">
+<h2 id="org363062a"><span class="section-number-2">1</span> 为什么需要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 假设有3个buffer, 分别为AB,BC,AD.
@@ -351,8 +351,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcca8326" class="outline-2">
-<h2 id="orgcca8326"><span class="section-number-2">2</span> 什么是helm-mode</h2>
+<div id="outline-container-orgfd45de8" class="outline-2">
+<h2 id="orgfd45de8"><span class="section-number-2">2</span> 什么是helm-mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 helm-mode极大的改善了用户体验.主要体现:
@@ -364,36 +364,36 @@ helm-mode极大的改善了用户体验.主要体现:
 </ol>
 </div>
 </div>
-<div id="outline-container-org4c3a26f" class="outline-2">
-<h2 id="org4c3a26f"><span class="section-number-2">3</span> 配置</h2>
+<div id="outline-container-org358ad8d" class="outline-2">
+<h2 id="org358ad8d"><span class="section-number-2">3</span> 配置</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 helm-mode的配置非常简单, 具体见github
 </p>
 </div>
 </div>
-<div id="outline-container-org4e9327a" class="outline-2">
-<h2 id="org4e9327a"><span class="section-number-2">4</span> 使用</h2>
+<div id="outline-container-orgd109b94" class="outline-2">
+<h2 id="orgd109b94"><span class="section-number-2">4</span> 使用</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 helm-mode没有特意的去改变用户的使用习惯, 只是提升了用户体验. 操作使用与之前一样即可
 </p>
 </div>
 </div>
-<div id="outline-container-org11bff76" class="outline-2">
-<h2 id="org11bff76"><span class="section-number-2">5</span> 函数介绍</h2>
+<div id="outline-container-org9ba156f" class="outline-2">
+<h2 id="org9ba156f"><span class="section-number-2">5</span> 函数介绍</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgad965cc" class="outline-3">
-<h3 id="orgad965cc"><span class="section-number-3">5.1</span> helm-occur</h3>
+<div id="outline-container-orga3c004f" class="outline-3">
+<h3 id="orga3c004f"><span class="section-number-3">5.1</span> helm-occur</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 查找全部
 </p>
 </div>
 </div>
-<div id="outline-container-orgfb97f00" class="outline-3">
-<h3 id="orgfb97f00"><span class="section-number-3">5.2</span> helm-browse-project</h3>
+<div id="outline-container-org20e3bee" class="outline-3">
+<h3 id="org20e3bee"><span class="section-number-3">5.2</span> helm-browse-project</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 查看工程文件
@@ -401,24 +401,24 @@ helm-mode没有特意的去改变用户的使用习惯, 只是提升了用户体
 </p>
 </div>
 </div>
-<div id="outline-container-org01f2682" class="outline-3">
-<h3 id="org01f2682"><span class="section-number-3">5.3</span> helm-filtered-bookmarks</h3>
+<div id="outline-container-org5bb3d4d" class="outline-3">
+<h3 id="org5bb3d4d"><span class="section-number-3">5.3</span> helm-filtered-bookmarks</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 书签
 </p>
 </div>
 </div>
-<div id="outline-container-orgd3565f4" class="outline-3">
-<h3 id="orgd3565f4"><span class="section-number-3">5.4</span> helm-compilation</h3>
+<div id="outline-container-org8a5a1cd" class="outline-3">
+<h3 id="org8a5a1cd"><span class="section-number-3">5.4</span> helm-compilation</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 归属于helm-mode. 重载了emac的compilation
 </p>
 </div>
 </div>
-<div id="outline-container-orgda0a1e7" class="outline-3">
-<h3 id="orgda0a1e7"><span class="section-number-3">5.5</span> helm-buffers-list</h3>
+<div id="outline-container-org21cdf27" class="outline-3">
+<h3 id="org21cdf27"><span class="section-number-3">5.5</span> helm-buffers-list</h3>
 <div class="outline-text-3" id="text-5-5">
 <ol class="org-ol">
 <li>输入" @XX", 过滤掉buffer
@@ -431,7 +431,7 @@ helm-mode没有特意的去改变用户的使用习惯, 只是提升了用户体
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: clay</p>
-<p class="date">Created: 2020-06-22 Mon 00:35</p>
+<p class="date">Created: 2020-06-22 Mon 00:38</p>
 </div>
 </body>
 </html>
