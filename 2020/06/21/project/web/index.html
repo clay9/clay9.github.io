@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="飘">
 <meta property="og:description" content="&amp;#x4F7F;&amp;#x7528;docker&amp;#x642D;&amp;#x5EFA;web, &amp;#x5305;&amp;#x542B;web&amp;#x670D;&amp;#x52A1;&amp;#x5668;(nginx), php7.4.7, lavarel7.12.0, mssql">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-21T16:20:12.536Z">
+<meta property="og:updated_time" content="2020-06-22T04:32:46.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web框架搭建">
 <meta name="twitter:description" content="&amp;#x4F7F;&amp;#x7528;docker&amp;#x642D;&amp;#x5EFA;web, &amp;#x5305;&amp;#x542B;web&amp;#x670D;&amp;#x52A1;&amp;#x5668;(nginx), php7.4.7, lavarel7.12.0, mssql">
@@ -381,96 +381,23 @@
 
 <a id="more"></a>
 
-<div id="outline-container-orgd13fd98" class="outline-2">
-<h2 id="orgd13fd98">&#x67B6;&#x6784;&#x5206;&#x6790;</h2>
-<div class="outline-text-2" id="text-orgd13fd98">
-<p>
-<del>-------------</del>  <del>-------------</del>        <del>--------------</del>
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col class="org-left">
-
-<col class="org-left">
-
-<col class="org-left">
-
-<col class="org-left">
-
-<col class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">nginx</td>
-<td class="org-left">&#x2013;&#x2014;&gt;</td>
-<td class="org-left">php</td>
-<td class="org-left">&#x2013;&#x2014;&gt;</td>
-<td class="org-left">mssql</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-</tr>
-</tbody>
-</table>
-<p>
-<del>-------------</del>        <del>-------------</del>     <del>--------------</del>
-				   ^
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-<tr>
-<td class="org-left">&lt;---</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xAD;-----</td>
-</tr>
-
-</table>
-<p>
-<del>--</del>--&#x2013;&#x2014;+  	 &#xAD;--<del>------------</del>
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col class="org-left">
-
-<col class="org-left">
-
-<col class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">laravel</td>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">composer</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-<td class="org-left">&#xA0;</td>
-</tr>
-</tbody>
-</table>
-<p>
-<del>----------</del>      <del>------------</del>
-</p>
-
+<div id="outline-container-org131319e" class="outline-2">
+<h2 id="org131319e">&#x67B6;&#x6784;&#x5206;&#x6790;</h2>
+<div class="outline-text-2" id="text-org131319e">
+<pre class="example">
++-------------+	 +-------------+       	+--------------+
+|  nginx      | -----&gt; |  php        | -----&gt;	|   mssql      |
+|             |      	 |             |    	|              |
++-------------+      	 +-------------+    	+--------------+
+  		       	  ^
+ 		       	  |
+ 	       	       	  | &lt;---
+		       	  |	  \------
+       	       	       +--+-------+  	 \---+------------+
+		       | laravel  |  	     | composer   |
+		       |          |	     |            |
+		       +----------+	     +------------+
+</pre>
 
 <pre class="example">
 &#x901A;&#x8FC7;composer&#x628A;laravel&#x4FE1;&#x606F;&#x6253;&#x5165;&#x5230;php&#x8F7D;&#x4F53;&#x4E2D;(&#x8FD9;&#x91CC;&#x662F;docker&#x5BB9;&#x5668;)
@@ -480,9 +407,9 @@
 </div>
 </div>
 
-<div id="outline-container-org20f37c6" class="outline-2">
-<h2 id="org20f37c6">&#x4E0B;&#x8F7D;laravel &amp;&amp; compose&#x5B8C;&#x6210;laravel&#x7684;&#x9879;&#x76EE;&#x4F9D;&#x8D56;</h2>
-<div class="outline-text-2" id="text-org20f37c6">
+<div id="outline-container-orgf4cfbfc" class="outline-2">
+<h2 id="orgf4cfbfc">&#x4E0B;&#x8F7D;laravel &amp;&amp; compose&#x5B8C;&#x6210;laravel&#x7684;&#x9879;&#x76EE;&#x4F9D;&#x8D56;</h2>
+<div class="outline-text-2" id="text-orgf4cfbfc">
 <ol class="org-ol">
 <li><p>
 &#x4E0B;&#x8F7D;laravel
@@ -509,9 +436,9 @@ composer install</pre></li>
 </div>
 </div>
 
-<div id="outline-container-orgcb6c487" class="outline-2">
-<h2 id="orgcb6c487">&#x7F16;&#x5199;dockerfile &amp;&amp; docker-compose.yml</h2>
-<div class="outline-text-2" id="text-orgcb6c487">
+<div id="outline-container-org50dcff6" class="outline-2">
+<h2 id="org50dcff6">&#x7F16;&#x5199;dockerfile &amp;&amp; docker-compose.yml</h2>
+<div class="outline-text-2" id="text-org50dcff6">
 <p>
 <a href="https://learnku.com/laravel/t/38564" target="_blank" rel="noopener">&#x53C2;&#x8003;&#x6587;&#x6863;</a>
 </p>
@@ -616,18 +543,18 @@ location ~ \.php$ {
 </div>
 </div>
 
-<div id="outline-container-org2f58e38" class="outline-2">
-<h2 id="org2f58e38">&#x5B89;&#x88C5;docker-compose.yml&#x4E2D;&#x4FE1;&#x606F;</h2>
-<div class="outline-text-2" id="text-org2f58e38">
+<div id="outline-container-org7b0fda9" class="outline-2">
+<h2 id="org7b0fda9">&#x5B89;&#x88C5;docker-compose.yml&#x4E2D;&#x4FE1;&#x606F;</h2>
+<div class="outline-text-2" id="text-org7b0fda9">
 <pre class="example">
 # &#x8FDB;&#x5165;&#x5230;docker-compose-yml&#x7684;&#x76EE;&#x5F55;
 docker-compose up</pre>
 </div>
 </div>
 
-<div id="outline-container-orgbcd0802" class="outline-2">
-<h2 id="orgbcd0802">laravel&#x6253;&#x5165;&#x5230;php&#x8F7D;&#x4F53;&#x4E2D;</h2>
-<div class="outline-text-2" id="text-orgbcd0802">
+<div id="outline-container-org53bfb66" class="outline-2">
+<h2 id="org53bfb66">laravel&#x6253;&#x5165;&#x5230;php&#x8F7D;&#x4F53;&#x4E2D;</h2>
+<div class="outline-text-2" id="text-org53bfb66">
 <ol class="org-ol">
 <li><p>
 laravel&#x73AF;&#x5883;&#x914D;&#x7F6E;
@@ -645,18 +572,18 @@ docker-compose exec app php artisan optimize</pre></li>
 </div>
 </div>
 
-<div id="outline-container-org38d7390" class="outline-2">
-<h2 id="org38d7390">&#x6D4B;&#x8BD5;</h2>
-<div class="outline-text-2" id="text-org38d7390">
+<div id="outline-container-org0344fb4" class="outline-2">
+<h2 id="org0344fb4">&#x6D4B;&#x8BD5;</h2>
+<div class="outline-text-2" id="text-org0344fb4">
 <p>
 &#x8BBF;&#x95EE;<a href="http://0.0.0.0:8080" target="_blank" rel="noopener">http://0.0.0.0:8080</a> &#x5E94;&#x8BE5;&#x80FD;&#x770B;&#x5230;laravel&#x7684;&#x6807;&#x5FD7;
 </p>
 </div>
 </div>
 
-<div id="outline-container-org551025b" class="outline-2">
-<h2 id="org551025b">&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F18;&#x5316;</h2>
-<div class="outline-text-2" id="text-org551025b">
+<div id="outline-container-orgbb2df58" class="outline-2">
+<h2 id="orgbb2df58">&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F18;&#x5316;</h2>
+<div class="outline-text-2" id="text-orgbb2df58">
 <p>
 &#x53EF;&#x4EE5;&#x628A;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x7684;&#x5BB9;&#x5668;&#x6253;&#x5305;&#x4E3A;&#x955C;&#x50CF;, &#x5E76;&#x4FDD;&#x5B58;&#x4E3A;&#x955C;&#x50CF;&#x6587;&#x4EF6;.
 &#x8FD9;&#x6837;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x7684;&#x65F6;&#x5019;, &#x5C31;&#x65E0;&#x9700;&#x518D;&#x914D;&#x7F6E;&#x73AF;&#x5883;(php&#x8F7D;&#x4F53;&#x7684;laravel&#x73AF;&#x5883;), 
@@ -665,9 +592,9 @@ docker-compose exec app php artisan optimize</pre></li>
 </div>
 </div>
 
-<div id="outline-container-org63f4640" class="outline-2">
-<h2 id="org63f4640">&#x9057;&#x7559;&#x95EE;&#x9898;</h2>
-<div class="outline-text-2" id="text-org63f4640">
+<div id="outline-container-org1fcda00" class="outline-2">
+<h2 id="org1fcda00">&#x9057;&#x7559;&#x95EE;&#x9898;</h2>
+<div class="outline-text-2" id="text-org1fcda00">
 <ol class="org-ol">
 <li>docker php&#x5BB9;&#x5668;&#x6620;&#x5C04;&#x95EE;&#x9898;
 &#x5982;&#x4F55;&#x628A;php&#x5BB9;&#x5668;&#x7684;&#x8DEF;&#x5F84; &#x6620;&#x5C04;&#x51FA;&#x6765;</li>
@@ -840,7 +767,7 @@ docker-compose exec app php artisan optimize</pre></li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgd13fd98"><span class="nav-number">1.</span> <span class="nav-text">架构分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org20f37c6"><span class="nav-number">2.</span> <span class="nav-text">下载laravel &amp;&amp; compose完成laravel的项目依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcb6c487"><span class="nav-number">3.</span> <span class="nav-text">编写dockerfile &amp;&amp; docker-compose.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org2f58e38"><span class="nav-number">4.</span> <span class="nav-text">安装docker-compose.yml中信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbcd0802"><span class="nav-number">5.</span> <span class="nav-text">laravel打入到php载体中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org38d7390"><span class="nav-number">6.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org551025b"><span class="nav-number">7.</span> <span class="nav-text">生产环境优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org63f4640"><span class="nav-number">8.</span> <span class="nav-text">遗留问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#org131319e"><span class="nav-number">1.</span> <span class="nav-text">架构分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgf4cfbfc"><span class="nav-number">2.</span> <span class="nav-text">下载laravel &amp;&amp; compose完成laravel的项目依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org50dcff6"><span class="nav-number">3.</span> <span class="nav-text">编写dockerfile &amp;&amp; docker-compose.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org7b0fda9"><span class="nav-number">4.</span> <span class="nav-text">安装docker-compose.yml中信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org53bfb66"><span class="nav-number">5.</span> <span class="nav-text">laravel打入到php载体中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org0344fb4"><span class="nav-number">6.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orgbb2df58"><span class="nav-number">7.</span> <span class="nav-text">生产环境优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org1fcda00"><span class="nav-number">8.</span> <span class="nav-text">遗留问题</span></a></li></ol></div>
             
 
           </div>
